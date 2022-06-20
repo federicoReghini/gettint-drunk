@@ -2,7 +2,7 @@ import React from 'react';
 
 // native components
 import { View } from 'react-native-web';
-import ButtonNf from '../ButtonNf';
+import ButtonNf from '../../hooksComponents/ButtonNf';
 
 /**
  * home page components for seven and half game

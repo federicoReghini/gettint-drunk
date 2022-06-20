@@ -1,9 +1,11 @@
 import BeerContainer from "./hooksComponents/BeerContainer/BeerContainer";
 import ButtonNf from "./hooksComponents/ButtonNf";
 import LoginNf from "./hooksComponents/LoginNf";
-import HomeNf from "./hooksComponents/pageComponents/HomeNf";
+import HomeNf from "./funcComponents/pageComponents/HomeNf";
 import SignupNf from "./hooksComponents/SignupNf";
 import SwitchNf from "./hooksComponents/SwitchNf";
+import JoinLobbyNf from "./funcComponents/pageComponents/JoinLobbyNf";
+import CountDownNf from "./hooksComponents/CountDownNf";
 
 export {
     LoginNf,
@@ -11,5 +13,7 @@ export {
     ButtonNf,
     SwitchNf,
     BeerContainer,
-    HomeNf
+    HomeNf,
+    JoinLobbyNf,
+    CountDownNf,
 }
