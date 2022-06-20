@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Text, View } from 'react-native-web';
+import { styles } from '../../assets/styles/styleCountDownNf';
 
 const CountDownTimer = ({ hoursMinSecs, players }) => {
 
@@ -33,8 +34,8 @@ const CountDownTimer = ({ hoursMinSecs, players }) => {
 
 
   return (
-    <View>
-      <Text>
+    <View style={styles.countDownContainer}>
+      <Text style={styles.countDown}>
         {`${hrs.toString().padStart(2, '0')}:${mins
           .toString()
           .padStart(2, '0')}:${secs.toString().padStart(2, '0')}`}
