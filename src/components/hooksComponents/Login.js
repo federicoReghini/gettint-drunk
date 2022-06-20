@@ -1,6 +1,11 @@
-import { View, Text } from 'react-native';
 import React, { useState } from 'react';
+
+// native components
+import { View, Text } from 'react-native';
 import { Button, TextInput, StyleSheet, Dimensions } from 'react-native-web';
+
+// styles
+import { styles } from '../../assets/styles/signupLogin';
 
 const formData = {
     email: '',
@@ -69,25 +74,3 @@ const Login = () => {
 }
 
 export default Login;
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100vh',
-    },
-    title: {
-        margin: 20
-    },
-    inputContainer:{
-        marginBottom: 20,
-    },
-    submit: {
-        width: '80%'
-    },
-    textInput:{
-        margin: 10
-    }
-})
