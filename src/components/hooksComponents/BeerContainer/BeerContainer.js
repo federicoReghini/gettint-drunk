@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image } from 'react-native-web';
+import { Image, View } from 'react-native-web';
 const beerIcon = require('../../../assets/img/icon/birra.png')
 const shotIcon = require('../../../assets/img/icon/shot.png')
 
