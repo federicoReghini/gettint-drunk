@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 // native components
 import { View, Text } from 'react-native';
-import { Button, TextInput, StyleSheet, Dimensions } from 'react-native-web';
+import { Button, TextInput } from 'react-native-web';
 
 // styles
-import { styles } from '../../assets/styles/signupLogin';
+import { styles } from '../../assets/styles/styleSignupLogin';
 
 const formData = {
     email: '',
@@ -50,13 +50,13 @@ const Login = () => {
 
             <View style={styles.inputContainer}>
                 <TextInput
-                style={styles.textInput}
+                    style={styles.textInput}
                     onChange={handleChange('email')}
                     placeholder={'Insert email'}
                 />
 
                 <TextInput
-                style={styles.textInput}
+                    style={styles.textInput}
                     secureTextEntry
                     onChange={handleChange('password')}
                     placeholder={'Insert password'}
@@ -65,7 +65,7 @@ const Login = () => {
 
             <Button
                 title={'Login'}
-                style={styles.submit}
+                style={styles.btn}
                 disabled={state.isDisable}
                 onPress={handleSubmit}
             />

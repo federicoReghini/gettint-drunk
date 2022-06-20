@@ -4,7 +4,7 @@ import { WEBSOCKET } from "./config";
 const socket = new WebSocket(WEBSOCKET);
 
 export const openConnection = () => {
-    socket.send('Connected to server')
+    // socket.send('Connected to server')
 }
 
 export const closeConnection = () => {
@@ -14,11 +14,11 @@ export const closeConnection = () => {
 export const wsMessage = () => {
     socket.onmessage = event => {
         // listen to data sent from the websocket server
-        const message = JSON.parse(event.data)
+        const message = JSON.parse(event.data);
         console.log(message)
     }
 }
 
 export const sendDataToWs = (data) => {
-    socket.send(data)
+    // socket.send(data)
 }

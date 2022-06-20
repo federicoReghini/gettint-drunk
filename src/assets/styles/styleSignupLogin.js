@@ -14,8 +14,8 @@ export const styles = StyleSheet.create({
   inputContainer: {
     marginBottom: 20,
   },
-  submit: {
-    width: '80%'
+  btn: {
+    borderRadius: 20,
   },
   textInput: {
     margin: 10,
