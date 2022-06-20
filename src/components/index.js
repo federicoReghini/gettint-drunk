@@ -1,13 +1,15 @@
 import BeerContainer from "./hooksComponents/BeerContainer/BeerContainer";
 import ButtonNf from "./hooksComponents/ButtonNf";
-import Login from "./hooksComponents/Login";
-import Signup from "./hooksComponents/Signup";
+import LoginNf from "./hooksComponents/LoginNf";
+import HomeNf from "./hooksComponents/pageComponents/HomeNf";
+import SignupNf from "./hooksComponents/SignupNf";
 import SwitchNf from "./hooksComponents/SwitchNf";
 
 export {
-    Login,
-    Signup,
+    LoginNf,
+    SignupNf,
     ButtonNf,
     SwitchNf,
-    BeerContainer
+    BeerContainer,
+    HomeNf
 }

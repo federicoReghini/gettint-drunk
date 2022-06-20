@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // native components
-import { Button, Pressable, Text } from 'react-native-web';
+import { Pressable, Text } from 'react-native-web';
 import { styles } from '../../assets/styles/styleButtonNf';
 
 /**

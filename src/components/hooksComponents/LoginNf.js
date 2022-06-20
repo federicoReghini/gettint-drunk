@@ -16,7 +16,7 @@ const initState = {
     isDisable: true
 }
 
-const Login = () => {
+const LoginNf = () => {
 
     const [state, setState] = useState(initState);
 
@@ -73,4 +73,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default LoginNf;
