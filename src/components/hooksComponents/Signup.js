@@ -8,7 +8,7 @@ import { Button, TextInput } from 'react-native-web';
 import { checkMail, checkPassword } from '../../utils/validation';
 
 // styles
-import { styles } from '../../assets/styles/signupLogin';
+import { styles } from '../../assets/styles/styleSignupLogin';
 
 const initState = {
   isDisable: true
@@ -87,7 +87,7 @@ const Signup = () => {
 
           <Button
               title={'Sign up'}
-              style={styles.submit}
+              style={styles.btn}
               disabled={state.isDisable}
               onPress={handleSubmit}
           />
