@@ -1,3 +1,4 @@
+import BeerContainer from "./hooksComponents/BeerContainer/BeerContainer";
 import ButtonNf from "./hooksComponents/ButtonNf";
 import Login from "./hooksComponents/Login";
 import Signup from "./hooksComponents/Signup";
@@ -8,4 +9,5 @@ export {
     Signup,
     ButtonNf,
     SwitchNf,
+    BeerContainer
 }
