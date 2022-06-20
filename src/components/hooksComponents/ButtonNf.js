@@ -6,9 +6,10 @@ import { Button, Pressable, Text } from 'react-native-web';
 import { styles } from '../../assets/styles/styleButtonNf';
 
 /**
- * @param  {string} {title
- * @param  {Function} callback
- * @param  {boolean} isDisabled}
+ * Button Custom with 3 props
+ * @param  {string} title
+ * @param  {func} onPress
+ * @param  {boolean} isDisabled
  */
 const ButtonNf = ({ title, onPress, isDisabled }) => {
   return (
