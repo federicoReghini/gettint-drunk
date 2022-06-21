@@ -22,7 +22,7 @@ const formData = {
   confirmPassword: ''
 }
 
-const Signup = () => {
+const SignupNf = () => {
 
   const [state, setState] = useState(initState);
 
@@ -95,4 +95,4 @@ const Signup = () => {
   )
 }
 
-export default Signup;
+export default SignupNf;

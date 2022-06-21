@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // native components
-import { Switch } from 'react-native-web';
+import { Switch, Text } from 'react-native-web';
 
 /**
  * switch custom
@@ -21,6 +21,7 @@ const SwitchNf = ({ isOn, onValueChange }) => {
         trackColor='#939393'
         value={isOn}
       />
+      {isOn ? <Text>Pubblic</Text> : <Text>Private</Text>}
     </>
   )
 }
