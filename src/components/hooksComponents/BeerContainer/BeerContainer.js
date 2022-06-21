@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image } from 'react-native-web';
+import { Image, View } from 'react-native-web';
 const beerIcon = require('../../../assets/img/icon/birra.png')
 const shotIcon = require('../../../assets/img/icon/shot.png')
 
@@ -11,10 +11,12 @@ export default function BeerContainer(props) {
     }
 
     const generateFirstSeriesOfBeer = () => {
+        console.log('prima serie')
         let arrayContainer = []
         for (let index = 0; index < (scoreIsDecimal.cleanScore > 4 ? 4 : scoreIsDecimal.cleanScore); index++) {
             arrayContainer.push(
                 <Image
+                    style={{ height: 30, width: 40 }}
                     key={index}
                     source={beerIcon} />
             )
@@ -23,6 +25,7 @@ export default function BeerContainer(props) {
     }
 
     const generateSecondtSeriesOfBeer = () => {
+        console.log('seconda')
         let arrayContainer = []
         for (let index = 5; index <= scoreIsDecimal.cleanScore; index++) {
             arrayContainer.push(
@@ -34,7 +37,7 @@ export default function BeerContainer(props) {
         return arrayContainer;
     }
     return (
-        <View>
+        <View style={{ height: 30, width: 40 }}>
             <View>{/* beer container */}
                 <View>{/* 1st beer container */}
                     {generateFirstSeriesOfBeer()}
@@ -48,6 +51,7 @@ export default function BeerContainer(props) {
             {scoreIsDecimal.isDecimal &&
                 <View>
                     <Image
+                        style={{ height: 30, width: 40 }}
                         source={shotIcon} />
                 </View>
             }
