@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 // native components
 import { Modal, View } from 'react-native-web';
+import { styles } from '../../../assets/styles/styleButtonNf';
 
 // library Components
 import ButtonNf from '../../hooksComponents/ButtonNf';
@@ -91,7 +92,7 @@ const CreateLobby = ({ user, listOfPlayers, onTapStartGame }) => {
   }
 
   return (
-    <View>
+    <View style={styles.CreateLobbyContainer}>
       <ButtonNf title={user?.nickname} />
       <ButtonNf title='Add players' onPress={onHandleChange('isModalVisible')} />
       <SwitchNf isOn={state.isOn} onValueChange={onHandleChange('isOn')} />

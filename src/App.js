@@ -17,11 +17,10 @@ const onValueChange = () => {
   setfirst(!first)
 }
 
-
   return (
     <>
       <View style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        {/* <ButtonNf title='prova' onPress={()=> console.log('premuto')} /> */}
+        {/* <ButtonNf title='prova' onPress={()=> console.log('premuto')}/> */}
       {/* <SwitchNf isOn={first} onValueChange={()=> setfirst(!first)} /> */}
       <CreateLobby />
       </View>

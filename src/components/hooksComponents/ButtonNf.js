@@ -18,7 +18,7 @@ const ButtonNf = ({ title, onPress, isDisabled }) => {
         disabled={isDisabled}
         accessibilityRole="button"
         onPress={onPress}
-        style={styles.btn}
+        style={styles.btnPrimary}
       >
         <Text style={styles.btnText}>
           {title}
