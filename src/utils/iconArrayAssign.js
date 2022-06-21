@@ -57,18 +57,22 @@ const bossIconCard = {
     flipped: barneyntDrunk
 }
 
-const iconTaked = []
-
+const ICONTAKED = []
+/**
+ * assign cards to player id
+ * @param  {number} id
+ */
 const assignIdToIconCard = (id) => {
 
     let iconIndex = Math.floor(Math.random() * 7);
-    while ((iconTaked.find(element => element === iconIndex)) !== undefined) {
+    while ((ICONTAKED.find(element => element === iconIndex)) !== undefined) {
         iconIndex = Math.floor(Math.random() * 7);
     }
     iconArrayCard[iconIndex].belongsTo = id;
-    iconTaked.push(iconIndex)
+    ICONTAKED.push(iconIndex)
+    return iconArrayCard[iconIndex]
 }
 
-export { iconArrayCard, bossIconCard, assignIdToIconCard, iconTaked }
+export { iconArrayCard, bossIconCard, assignIdToIconCard, ICONTAKED }
 
 
