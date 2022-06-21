@@ -1,18 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Image, View, Text } from 'react-native-web';
 import { assignIdToIconCard } from '../../utils/iconArrayAssign';
 import BeerContainer from './BeerContainer/BeerContainer';
-export default function userInfoContainer() {
-    let playerIcon = {}
-    const idTmp = 0
+const UserInfoContainer = () => {
+    const [state, setState] = useState({
+        playerIcon: {}
+    })
+    const IDTMP = 0
     useEffect(() => {
-        playerIcon = assignIdToIconCard(0)
+        setState({
+            playerIcon: assignIdToIconCard(IDTMP)
+        })
     }, [])
     return (
         <View>
             <View>{/* cardIcon */}
-                <Image
-                    source={playerIcon?.regular} />
+
+                <Image style={{ height: 50, width: 30 }}
+                    source={state.playerIcon.regular} />
             </View>
             <View>{/* Score in beers/shot */}
                 <BeerContainer
@@ -25,3 +30,5 @@ export default function userInfoContainer() {
         </View>
     )
 }
+
+export default UserInfoContainer

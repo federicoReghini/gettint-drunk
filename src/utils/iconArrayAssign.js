@@ -23,32 +23,32 @@ const shanksDrunk = require('../assets/img/cardIcon/shanks_drunk.jpg')
 const shanksntDrunk = require('../assets/img/cardIcon/shanks_ntdrunk.jpg')
 
 let iconArrayCard = [{
-    regular: benderDrunk,
-    flipped: benderntDrunk,
+    regular: benderntDrunk,
+    flipped: benderDrunk,
     belongsTo: ''
 }, {
-    regular: brianDrunk,
-    flipped: brianntDrunk,
+    regular: brianntDrunk,
+    flipped: brianDrunk,
     belongsTo: ''
 }, {
-    regular: homerDrunk,
-    flipped: homerntDrunk,
+    regular: homerntDrunk,
+    flipped: homerDrunk,
     belongsTo: ''
 }, {
-    regular: peterDrunk,
-    flipped: peterntDrunk,
+    regular: peterntDrunk,
+    flipped: peterDrunk,
     belongsTo: ''
 }, {
-    regular: rockDrunk,
-    flipped: rockntDrunk,
+    regular: rockntDrunk,
+    flipped: rockDrunk,
     belongsTo: ''
 }, {
-    regular: rogerDrunk,
-    flipped: rogerntDrunk,
+    regular: rogerntDrunk,
+    flipped: rogerDrunk,
     belongsTo: ''
 }, {
-    regular: shanksDrunk,
-    flipped: shanksntDrunk,
+    regular: shanksntDrunk,
+    flipped: shanksDrunk,
     belongsTo: ''
 }]
 
