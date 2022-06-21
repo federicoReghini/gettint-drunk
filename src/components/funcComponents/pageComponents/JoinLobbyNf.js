@@ -41,7 +41,7 @@ const initState = {
 const hoursMinSecs = {hours:0, minutes: 0, seconds: 10}
 
 
-const JoinLobbyNf = () => {
+const JoinLobbyNf = ({onEndTimer}) => {
 
   const [state, setState] = useState(initState)
 
@@ -56,7 +56,7 @@ const JoinLobbyNf = () => {
       {
         state.players.length > 0 && state.players.map(player)
       }
-      <CountDownNf players={state.players} hoursMinSecs={hoursMinSecs} />
+      <CountDownNf onEndTimer={onEndTimer} hoursMinSecs={hoursMinSecs} />
     </View>
   )
 }
