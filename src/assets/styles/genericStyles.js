@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   genericContainer: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   txtc: {
     textAlign: 'center'
@@ -14,5 +14,16 @@ export const styles = StyleSheet.create({
   },
   mH: {
     marginHorizontal: 'auto'
+  },
+  pH: {
+    // paddingHorizontal: 20
+    padding: 20
+  },
+  flexR: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    paddingVertical: 10,
   }
 })
