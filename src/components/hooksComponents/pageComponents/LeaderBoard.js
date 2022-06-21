@@ -61,30 +61,36 @@ const LeaderBoard = () => {
 
   function playerList(player, key) {
     return (
-      <View
-        key={`${key}-${player.score}`}
-        style={styles.leaderBoardContainer}
-      >
-        <Text
-          style={{
-            color: player.id === id ? '#bce7c8' : '#000',
-            fontSize: 20,
-            textShadowColor: 'rgba(0, 0, 0, 0.75)',
-            textShadowOffset: { width: 1, height: 1 },
-          }}
+      <View style={styles.leaderBoardContainer}>
+        <View
+          key={`${key}-${player.score}`}
+          style={styles.leaderRow}
         >
-          {
-            player.id === id && <Image source={beer} style={{ width: 20, height: 20 }} />
-          }
-          {player.nickname}
+          <Text
+            style={{
+              color: player.id === id ? '#bce7c8' : '#000',
+              fontSize: 20,
+              textShadowColor: 'rgba(0, 0, 0, 0.75)',
+              textShadowOffset: { width: 1, height: 1 },
+              textAlign: 'center'
+            }}
+          >
+            {
+              player.id === id && <Image source={beer} style={{ width: 20, height: 20 }} />
+            }
+            {player.nickname}
 
-        </Text>
-        <Text>
-          {player.score}
-        </Text>
-        {/* <View style={gstyles.flexR}> */}
-        {/* </View> */}
+          </Text>
 
+          {/* <View style={gstyles.flexR}> */}
+          {/* </View> */}
+
+        </View>
+        <View style={styles.leaderRow}>
+          <Text>
+            {player.score}
+          </Text>
+        </View>
       </View>
     )
   }
