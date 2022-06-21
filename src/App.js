@@ -21,7 +21,7 @@ const onValueChange = () => {
     <>
       <View style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         {/* <ButtonNf title='prova' onPress={()=> console.log('premuto')} /> */}
-      <JoinLobbyNf />
+      <SwitchNf isOn={first} onValueChange={()=> setfirst(!first)} />
       </View>
     </>
   );
