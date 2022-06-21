@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 // native components
-import { View, Text, Image, FlatList, ImageBackground, Pressable } from 'react-native-web';
+import { View, Text, Image, ImageBackground, Pressable } from 'react-native-web';
 
 // styles
 import { styles } from '../../../assets/styles/styleLeaderBoard';
@@ -115,30 +115,30 @@ const LeaderBoard = ({ onClickNavigate }) => {
   return (
     <ImageBackground source={bg} style={{ width: '100%', height: '100%' }}>
 
-       <Pressable
-         onPress={onClickNavigate}
-       >
-         <Image source={ship} style={styles.imgShip} />
-       </Pressable>
-     <View style={{backgroundColor: 'rgba(255, 246, 143, .6)', paddingVertical: 20, marginTop: 40}}>
-      
-       <View style={styles.titleWrapper}>
-         <Text style={styles.leader}>
-           Leader
-         </Text>
-         <Text style={{ ...styles.leader, ...styles.board }}>
-           Board
-         </Text>
-       </View>
-      
-       <View style={styles.tableHead}>
-         <Text style={styles.nickname}>Nickname</Text>
-         <Text style={{ ...styles.nickname, ...styles.score }}>score</Text>
-       </View>
-       {
-         state.players.length > 0 && state.players.sort(sortPlayer).map(playerList)
-       }
-     </View>
+      <Pressable
+        onPress={onClickNavigate}
+      >
+        <Image source={ship} style={styles.imgShip} />
+      </Pressable>
+      <View style={{ backgroundColor: 'rgba(255, 246, 143, .6)', paddingVertical: 20, marginTop: 40 }}>
+
+        <View style={styles.titleWrapper}>
+          <Text style={styles.leader}>
+            Leader
+          </Text>
+          <Text style={{ ...styles.leader, ...styles.board }}>
+            Board
+          </Text>
+        </View>
+
+        <View style={styles.tableHead}>
+          <Text style={styles.nickname}>Nickname</Text>
+          <Text style={{ ...styles.nickname, ...styles.score }}>score</Text>
+        </View>
+        {
+          state.players.length > 0 && state.players.sort(sortPlayer).map(playerList)
+        }
+      </View>
     </ImageBackground>
   )
 }
