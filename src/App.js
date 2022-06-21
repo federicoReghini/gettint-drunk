@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { View } from "react-native-web";
 import { ButtonNf, HomeNf, JoinLobbyNf, Login, Signup, SwitchNf } from "./components";
+import CreateLobby from "./components/funcComponents/pageComponents/CreateLobby";
 import { closeConnection, openConnection, sendDataToWs, wsMessage } from "./services/genericWebSocket";
 
 function App() {
@@ -21,7 +22,8 @@ const onValueChange = () => {
     <>
       <View style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         {/* <ButtonNf title='prova' onPress={()=> console.log('premuto')} /> */}
-      <SwitchNf isOn={first} onValueChange={()=> setfirst(!first)} />
+      {/* <SwitchNf isOn={first} onValueChange={()=> setfirst(!first)} /> */}
+      <CreateLobby />
       </View>
     </>
   );

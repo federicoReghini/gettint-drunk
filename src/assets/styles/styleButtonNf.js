@@ -5,11 +5,13 @@ export const styles = StyleSheet.create({
     backgroundColor: '#ffbf43',
     padding: 15,
     borderRadius: 50,
-    margin: 10,
+    marginVertical: 10,
+    marginHorizontal: 'auto',
     shadowColor: '#171717',
     shadowOffset: {width: -2, height: 4},
     shadowOpacity: 0.2,
     shadowRadius: 3,
+    width: Platform.OS === 'web' ? '100%' : null
   },
   btnText: {
     fontSize: Platform.OS === 'web' ? 18 : 14,

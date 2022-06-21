@@ -1,4 +1,4 @@
-import { Platform, StyleSheet } from "react-native-web";
+import { StyleSheet } from "react-native-web";
 
 export const styles = StyleSheet.create({
   countDownContainer:{
