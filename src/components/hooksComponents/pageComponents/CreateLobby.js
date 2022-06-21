@@ -5,8 +5,8 @@ import { Modal, View } from 'react-native-web';
 import { styles } from '../../../assets/styles/styleButtonNf';
 
 // library Components
-import ButtonNf from '../../hooksComponents/ButtonNf';
-import SwitchNf from '../../hooksComponents/SwitchNf';
+import ButtonNf from '../ButtonNf';
+import SwitchNf from '../SwitchNf';
 
 const initState = {
   isOn: false,

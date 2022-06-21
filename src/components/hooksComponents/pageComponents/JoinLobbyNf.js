@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 // native components
 import { View, Text } from 'react-native-web';
-import ButtonNf from '../../hooksComponents/ButtonNf';
-import CountDownNf from '../../hooksComponents/CountDownNf';
+import ButtonNf from '../ButtonNf';
+import CountDownNf from '../CountDownNf';
 
 const initState = {
   players: [
@@ -43,7 +43,7 @@ const hoursMinSecs = {hours:0, minutes: 0, seconds: 10}
 
 const JoinLobbyNf = ({onEndTimer}) => {
 
-  const [state, setState] = useState(initState)
+  const [state, setState] = useState(initState);
 
   const player = (player, key) => {
     return (
