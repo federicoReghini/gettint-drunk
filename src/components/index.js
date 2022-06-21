@@ -8,6 +8,7 @@ import { iconArrayCard, bossIconCard, assignIdToIconCard } from "../utils/iconAr
 import JoinLobbyNf from "./funcComponents/pageComponents/JoinLobbyNf";
 import CountDownNf from "./hooksComponents/CountDownNf";
 import UserInfoContainer from "./hooksComponents/UserInfoContainer";
+import LobbyContainer from "./hooksComponents/LobbyContainer";
 export {
     LoginNf,
     SignupNf,
@@ -18,5 +19,6 @@ export {
     HomeNf,
     JoinLobbyNf,
     CountDownNf,
-    UserInfoContainer
+    UserInfoContainer,
+    LobbyContainer
 }
