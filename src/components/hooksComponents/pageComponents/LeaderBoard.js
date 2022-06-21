@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
 // native components
-import { View, Text, Image, FlatList, ImageBackground } from 'react-native-web';
+import { View, Text, Image, FlatList, ImageBackground, Pressable } from 'react-native-web';
 
 // styles
 import { styles } from '../../../assets/styles/styleLeaderBoard';
 
 import beer from '../../../assets/img/icon/birra.png';
+import ship from '../../../assets/img/icon/futuramaship.png';
 import bg from '../../../assets/img/background/leaderboardbg.jpg';
 
 const initState = {
@@ -51,7 +52,7 @@ const initState = {
 
 const id = 1
 
-const LeaderBoard = () => {
+const LeaderBoard = ({ onClickNavigate }) => {
 
   const [state, setState] = useState(initState);
 
@@ -61,14 +62,17 @@ const LeaderBoard = () => {
 
   function playerList(player, key) {
     return (
-      <View style={styles.leaderBoardContainer}>
+      <View
+        style={styles.leaderBoardContainer}
+        key={`${key}-${player.score}`}
+      >
         <View
-          key={`${key}-${player.score}`}
+
           style={styles.leaderRow}
         >
           <Text
             style={{
-              color: player.id === id ? '#bce7c8' : '#000',
+              color: player.id === id ? '#B72B29' : '#ffbf43',
               fontSize: 20,
               textShadowColor: 'rgba(0, 0, 0, 0.75)',
               textShadowOffset: { width: 1, height: 1 },
@@ -87,7 +91,12 @@ const LeaderBoard = () => {
 
         </View>
         <View style={styles.leaderRow}>
-          <Text>
+          <Text style={{
+            color: player.id === id ? '#B72B29' : '#fff',
+            fontSize: 20,
+            textShadowColor: 'rgba(0, 0, 0, 0.75)',
+            textShadowOffset: { width: 1, height: 1 },
+          }}>
             {player.score}
           </Text>
         </View>
@@ -105,23 +114,31 @@ const LeaderBoard = () => {
 
   return (
     <ImageBackground source={bg} style={{ width: '100%', height: '100%' }}>
-      <View style={styles.titleWrapper}>
-        <Text style={styles.leader}>
-          Leader
-        </Text>
-        <Text style={{ ...styles.leader, ...styles.board }}>
-          Board
-        </Text>
-      </View>
 
-      <View style={styles.tableHead}>
-        <Text>Nickname</Text>
-        <Text>score</Text>
-      </View>
-      {
-        state.players.length > 0 && state.players.sort(sortPlayer).map(playerList)
-      }
-      {/* <FlatList  /> */}
+       <Pressable
+         onPress={onClickNavigate}
+       >
+         <Image source={ship} style={styles.imgShip} />
+       </Pressable>
+     <View style={{backgroundColor: 'rgba(255, 246, 143, .6)', paddingVertical: 20, marginTop: 40}}>
+      
+       <View style={styles.titleWrapper}>
+         <Text style={styles.leader}>
+           Leader
+         </Text>
+         <Text style={{ ...styles.leader, ...styles.board }}>
+           Board
+         </Text>
+       </View>
+      
+       <View style={styles.tableHead}>
+         <Text style={styles.nickname}>Nickname</Text>
+         <Text style={{ ...styles.nickname, ...styles.score }}>score</Text>
+       </View>
+       {
+         state.players.length > 0 && state.players.sort(sortPlayer).map(playerList)
+       }
+     </View>
     </ImageBackground>
   )
 }
