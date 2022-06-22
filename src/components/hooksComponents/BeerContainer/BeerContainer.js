@@ -1,7 +1,8 @@
 import React from 'react'
 import { Image, View } from 'react-native';
-const beerIcon = require('../../../assets/img/icon/birra.png')
-const shotIcon = require('../../../assets/img/icon/shot.png')
+import beerIcon from '../../../assets/img/icon/birra.png'
+import shotIcon from '../../../assets/img/icon/shot.png'
+
 
 export default function BeerContainer(props) {
 

@@ -13,7 +13,7 @@ const UserContainer = () => {
         })
     }, [])
     return (
-        <View style={{ position: "absolute", left: '6%', top: '42%', flexDirection: 'column', alignItems: 'center', width: 130 }}>
+        <View style={{ flexDirection: 'column', alignItems: 'center' }}>
             <View>{/* cardIcon */}
 
                 <Image style={{ height: 140, width: 100 }}
