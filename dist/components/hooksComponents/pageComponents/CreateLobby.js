@@ -82,13 +82,15 @@ var CreateLobby = function CreateLobby(_ref) {
 
   var onTapAddPlayers = function onTapAddPlayers(player) {
     return function () {
+      var _newState$players, _newState$players2;
+
       var newState = Object.assign({}, state);
-      var FIND = newState.players.some(function (_ref2) {
+      var FIND = (_newState$players = newState.players) === null || _newState$players === void 0 ? void 0 : _newState$players.some(function (_ref2) {
         var nickname = _ref2.nickname;
-        return player.nickname === nickname;
+        return (player === null || player === void 0 ? void 0 : player.nickname) === nickname;
       });
       if (FIND) return;
-      newState.players.push(player);
+      (_newState$players2 = newState.players) === null || _newState$players2 === void 0 ? void 0 : _newState$players2.push(player);
       setState(_objectSpread({}, newState));
     };
   };
@@ -98,7 +100,9 @@ var CreateLobby = function CreateLobby(_ref) {
 
 
   var onTapGameStart = function onTapGameStart() {
-    if (state.players.length >= 2) {
+    var _state$players;
+
+    if ((state === null || state === void 0 ? void 0 : (_state$players = state.players) === null || _state$players === void 0 ? void 0 : _state$players.length) >= 2) {
       onTapStartGame();
     }
   };
@@ -122,9 +126,9 @@ var CreateLobby = function CreateLobby(_ref) {
 
   var playerList = function playerList(player, key) {
     return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
-      key: "".concat(key, "-").concat(player.id)
+      key: "".concat(key, "-").concat(player === null || player === void 0 ? void 0 : player.id)
     }, /*#__PURE__*/_react.default.createElement(_ButtonNf.default, {
-      title: player.nickname,
+      title: player === null || player === void 0 ? void 0 : player.nickname,
       onPress: onTapAddPlayers(player)
     }));
   };
@@ -137,14 +141,14 @@ var CreateLobby = function CreateLobby(_ref) {
     title: "Add players",
     onPress: onHandleChange('isModalVisible')
   }), /*#__PURE__*/_react.default.createElement(_SwitchNf.default, {
-    isOn: state.isOn,
+    isOn: state === null || state === void 0 ? void 0 : state.isOn,
     onValueChange: onHandleChange('isOn')
   }), /*#__PURE__*/_react.default.createElement(_ButtonNf.default, {
     title: "Start game",
     onPress: onTapGameStart
   }), /*#__PURE__*/_react.default.createElement(_reactNative.Modal, {
     transparent: false,
-    visible: state.isModalVisible
+    visible: state === null || state === void 0 ? void 0 : state.isModalVisible
   }, (listOfPlayers === null || listOfPlayers === void 0 ? void 0 : listOfPlayers.length) > 0 && listOfPlayers.map(playerList)));
 };
 

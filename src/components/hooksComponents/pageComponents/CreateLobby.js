@@ -47,11 +47,11 @@ const CreateLobby = ({ user, listOfPlayers, onTapStartGame }) => {
   const onTapAddPlayers = (player) => () => {
     const newState = Object.assign({}, state);
 
-    const FIND = newState.players.some(({ nickname }) => player.nickname === nickname)
+    const FIND = newState.players?.some(({ nickname }) => player?.nickname === nickname)
 
     if (FIND) return;
 
-    newState.players.push(player);
+    newState.players?.push(player);
 
     setState({
       ...newState
@@ -62,7 +62,7 @@ const CreateLobby = ({ user, listOfPlayers, onTapStartGame }) => {
    * functin for controll if conditions are true for start the game
    */
   const onTapGameStart = () => {
-    if (state.players.length >= 2) {
+    if (state?.players?.length >= 2) {
 
       onTapStartGame()
     }
@@ -85,8 +85,8 @@ const CreateLobby = ({ user, listOfPlayers, onTapStartGame }) => {
    */
   const playerList = (player, key) => {
     return (
-      <View key={`${key}-${player.id}`}>
-        <ButtonNf title={player.nickname} onPress={onTapAddPlayers(player)} />
+      <View key={`${key}-${player?.id}`}>
+        <ButtonNf title={player?.nickname} onPress={onTapAddPlayers(player)} />
       </View>
     )
   }
@@ -95,11 +95,11 @@ const CreateLobby = ({ user, listOfPlayers, onTapStartGame }) => {
     <View style={styles.CreateLobbyContainer}>
       <ButtonNf title={user?.nickname} />
       <ButtonNf title='Add players' onPress={onHandleChange('isModalVisible')} />
-      <SwitchNf isOn={state.isOn} onValueChange={onHandleChange('isOn')} />
+      <SwitchNf isOn={state?.isOn} onValueChange={onHandleChange('isOn')} />
       <ButtonNf title='Start game' onPress={onTapGameStart} />
       <Modal
         transparent={false}
-        visible={state.isModalVisible}
+        visible={state?.isModalVisible}
       >
 
         {

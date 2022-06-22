@@ -52,7 +52,7 @@ function App() {
       alignItems: 'center',
       justifyContent: 'center'
     }
-  }, /*#__PURE__*/React.createElement(_components.LeaderBoard, null)));
+  }));
 }
 
 var _default = App;

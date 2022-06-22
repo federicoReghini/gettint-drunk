@@ -23,7 +23,8 @@ const onValueChange = () => {
         {/* <ButtonNf title='prova' onPress={()=> console.log('premuto')}/> */}
       {/* <SwitchNf isOn={first} onValueChange={()=> setfirst(!first)} /> */}
       {/* <JoinLobbyNf /> */}
-      <LeaderBoard />
+      {/* <LeaderBoard /> */}
+      {/* <CreateLobby user={{ Id: 1, nickname: 'me' }} onTapStartGame={()=> console.log('tap')} /> */}
       </View>
     </>
   );
