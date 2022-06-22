@@ -23,32 +23,32 @@ const shanksDrunk = require('../assets/img/cardIcon/shanks_drunk.jpg')
 const shanksntDrunk = require('../assets/img/cardIcon/shanks_ntdrunk.jpg')
 
 let iconArrayCard = [{
-    regular: benderDrunk,
-    flipped: benderntDrunk,
+    regular: benderntDrunk,
+    flipped: benderDrunk,
     belongsTo: ''
 }, {
-    regular: brianDrunk,
-    flipped: brianntDrunk,
+    regular: brianntDrunk,
+    flipped: brianDrunk,
     belongsTo: ''
 }, {
-    regular: homerDrunk,
-    flipped: homerntDrunk,
+    regular: homerntDrunk,
+    flipped: homerDrunk,
     belongsTo: ''
 }, {
-    regular: peterDrunk,
-    flipped: peterntDrunk,
+    regular: peterntDrunk,
+    flipped: peterDrunk,
     belongsTo: ''
 }, {
-    regular: rockDrunk,
-    flipped: rockntDrunk,
+    regular: rockntDrunk,
+    flipped: rockDrunk,
     belongsTo: ''
 }, {
-    regular: rogerDrunk,
-    flipped: rogerntDrunk,
+    regular: rogerntDrunk,
+    flipped: rogerDrunk,
     belongsTo: ''
 }, {
-    regular: shanksDrunk,
-    flipped: shanksntDrunk,
+    regular: shanksntDrunk,
+    flipped: shanksDrunk,
     belongsTo: ''
 }]
 
@@ -57,18 +57,22 @@ const bossIconCard = {
     flipped: barneyntDrunk
 }
 
-const iconTaked = []
-
+const ICONTAKED = []
+/**
+ * assign cards to player id
+ * @param  {number} id
+ */
 const assignIdToIconCard = (id) => {
 
     let iconIndex = Math.floor(Math.random() * 7);
-    while ((iconTaked.find(element => element === iconIndex)) !== undefined) {
-        iconIndex = Math.floor(Math.random() * 7);
-    }
+    /*  while ((ICONTAKED.find(element => element === iconIndex)) !== undefined) {
+         iconIndex = Math.floor(Math.random() * 7);
+     } */
     iconArrayCard[iconIndex].belongsTo = id;
-    iconTaked.push(iconIndex)
+    ICONTAKED.push(iconIndex)
+    return iconArrayCard[iconIndex]
 }
 
-export { iconArrayCard, bossIconCard, assignIdToIconCard, iconTaked }
+export { iconArrayCard, bossIconCard, assignIdToIconCard, ICONTAKED }
 
 
