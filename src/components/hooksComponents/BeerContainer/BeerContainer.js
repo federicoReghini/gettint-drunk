@@ -17,7 +17,7 @@ export default function BeerContainer(props) {
         for (let index = 0; index < (scoreIsDecimal.cleanScore > 4 ? 4 : scoreIsDecimal.cleanScore); index++) {
             arrayContainer.push(
                 <Image
-                    style={{ height: 60, width: 35 }}
+                    style={{ height: '70%', width: '70%' }}
                     key={index}
                     source={beerIcon} />
             )
@@ -31,7 +31,7 @@ export default function BeerContainer(props) {
         for (let index = 5; index <= scoreIsDecimal.cleanScore; index++) {
             arrayContainer.push(
                 <Image
-                    style={{ height: 60, width: 35, marginVertical: -50, marginLeft: 10 }}
+                    style={{ height: '70%', width: '70%', marginTop: "-180%", marginLeft: '15%' }}
                     key={index}
                     source={beerIcon} />
             )
@@ -39,21 +39,25 @@ export default function BeerContainer(props) {
         return arrayContainer;
     }
     return (
-        <View style={{ height: 30, width: 40, flexDirection: 'row', marginLeft: -70 }}>
-            <View>{/* beer container */}
-                <View style={{ flexDirection: 'row' }}>{/* 1st beer container */}
+        <View style={{ height: '100%', width: '100%', flexDirection: 'row', marginLeft: -70, justifyContent: 'center', alignItems: 'center' }}>
+            <View style={{
+                height: '100%', width: '100%'
+            }}>{/* beer container */}
+                <View style={{ flexDirection: 'row', height: '100%', width: '100%' }}>{/* 1st beer container */}
                     {generateFirstSeriesOfBeer()}
                 </View>
                 {scoreIsDecimal.cleanScore > 4 &&
-                    <View style={{ flexDirection: 'row' }}>{/* 2st beer container */}
+                    <View style={{ flexDirection: 'row', height: '100%', width: '100%' }}>{/* 2st beer container */}
                         {generateSecondtSeriesOfBeer()}
                     </View>
                 }
             </View>
             {scoreIsDecimal.isDecimal &&
-                <View>
+                <View style={{
+                    height: '100%', width: '100%'
+                }}>
                     <Image
-                        style={{ height: 65, width: 30 }}
+                        style={{ height: '65%', width: '65%', marginLeft: '165%' }}
                         source={shotIcon} />
                 </View>
             }
