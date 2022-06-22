@@ -31,7 +31,7 @@ var ButtonNf = function ButtonNf(_ref) {
     disabled: isDisabled,
     accessibilityRole: "button",
     onPress: onPress,
-    style: _styleButtonNf.styles.btn
+    style: _styleButtonNf.styles.btnPrimary
   }, /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Text, {
     style: _styleButtonNf.styles.btnText
   }, title)));

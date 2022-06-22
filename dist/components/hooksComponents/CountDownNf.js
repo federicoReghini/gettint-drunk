@@ -31,7 +31,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var CountDownTimer = function CountDownTimer(_ref) {
   var hoursMinSecs = _ref.hoursMinSecs,
-      players = _ref.players;
+      onEndTimer = _ref.onEndTimer;
   var _hoursMinSecs$hours = hoursMinSecs.hours,
       hours = _hoursMinSecs$hours === void 0 ? 0 : _hoursMinSecs$hours,
       _hoursMinSecs$minutes = hoursMinSecs.minutes,
@@ -48,14 +48,17 @@ var CountDownTimer = function CountDownTimer(_ref) {
       setTime = _useState2[1];
 
   var callbackUseEffect = function callbackUseEffect() {
-    if (players.length === 7) {
-      var timerId = setInterval(function () {
-        return tick();
-      }, 1000);
-      return function () {
-        return clearInterval(timerId);
-      };
+    var timerId = setInterval(function () {
+      return tick();
+    }, 1000);
+
+    if (secs === 0 && onEndTimer) {
+      onEndTimer();
     }
+
+    return function () {
+      return clearInterval(timerId);
+    };
   };
 
   (0, _react.useEffect)(callbackUseEffect);

@@ -8,18 +8,20 @@ exports.styles = void 0;
 var _reactNativeWeb = require("react-native-web");
 
 var styles = _reactNativeWeb.StyleSheet.create({
-  btn: {
+  btnPrimary: {
     backgroundColor: '#ffbf43',
     padding: 15,
     borderRadius: 50,
-    margin: 10,
+    marginVertical: 10,
+    marginHorizontal: 'auto',
     shadowColor: '#171717',
     shadowOffset: {
       width: -2,
       height: 4
     },
     shadowOpacity: 0.2,
-    shadowRadius: 3
+    shadowRadius: 3,
+    width: _reactNativeWeb.Platform.OS === 'web' ? '100%' : null
   },
   btnText: {
     fontSize: _reactNativeWeb.Platform.OS === 'web' ? 18 : 14,
@@ -30,6 +32,15 @@ var styles = _reactNativeWeb.StyleSheet.create({
       width: 1,
       height: 1
     }
+  },
+  CreateLobbyContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 50,
+    // width: Platform.OS === 'web' ?'50%': '100%',
+    width: '100%',
+    height: '100%'
   }
 });
 

@@ -11,7 +11,11 @@ var _reactNativeWeb = require("react-native-web");
 
 var _components = require("./components");
 
+var _CreateLobby = _interopRequireDefault(require("./components/hooksComponents/pageComponents/CreateLobby"));
+
 var _genericWebSocket = require("./services/genericWebSocket");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -48,7 +52,7 @@ function App() {
       alignItems: 'center',
       justifyContent: 'center'
     }
-  }, /*#__PURE__*/React.createElement(_components.JoinLobbyNf, null)));
+  }, /*#__PURE__*/React.createElement(_components.LeaderBoard, null)));
 }
 
 var _default = App;
