@@ -28,8 +28,8 @@ function BeerContainer(props) {
     for (var index = 0; index < (scoreIsDecimal.cleanScore > 4 ? 4 : scoreIsDecimal.cleanScore); index++) {
       arrayContainer.push( /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
         style: {
-          height: 30,
-          width: 40
+          height: 60,
+          width: 35
         },
         key: index,
         source: beerIcon
@@ -45,6 +45,12 @@ function BeerContainer(props) {
 
     for (var index = 5; index <= scoreIsDecimal.cleanScore; index++) {
       arrayContainer.push( /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
+        style: {
+          height: 60,
+          width: 35,
+          marginVertical: -50,
+          marginLeft: 10
+        },
         key: index,
         source: beerIcon
       }));
@@ -56,12 +62,22 @@ function BeerContainer(props) {
   return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: {
       height: 30,
-      width: 40
+      width: 40,
+      flexDirection: 'row',
+      marginLeft: -70
     }
-  }, /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_reactNative.View, null, generateFirstSeriesOfBeer()), scoreIsDecimal.cleanScore > 4 && /*#__PURE__*/_react.default.createElement(_reactNative.View, null, generateSecondtSeriesOfBeer())), scoreIsDecimal.isDecimal && /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: {
-      height: 30,
-      width: 40
+      flexDirection: 'row'
+    }
+  }, generateFirstSeriesOfBeer()), scoreIsDecimal.cleanScore > 4 && /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+    style: {
+      flexDirection: 'row'
+    }
+  }, generateSecondtSeriesOfBeer())), scoreIsDecimal.isDecimal && /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
+    style: {
+      height: 65,
+      width: 30
     },
     source: shotIcon
   })));

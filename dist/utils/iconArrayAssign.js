@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.iconTaked = exports.iconArrayCard = exports.bossIconCard = exports.assignIdToIconCard = void 0;
+exports.iconArrayCard = exports.bossIconCard = exports.assignIdToIconCard = exports.ICONTAKED = void 0;
 
 var barneyDrunk = require('../assets/img/cardIcon/barney_drunk.jpg');
 
@@ -38,32 +38,32 @@ var shanksDrunk = require('../assets/img/cardIcon/shanks_drunk.jpg');
 var shanksntDrunk = require('../assets/img/cardIcon/shanks_ntdrunk.jpg');
 
 var iconArrayCard = [{
-  regular: benderDrunk,
-  flipped: benderntDrunk,
+  regular: benderntDrunk,
+  flipped: benderDrunk,
   belongsTo: ''
 }, {
-  regular: brianDrunk,
-  flipped: brianntDrunk,
+  regular: brianntDrunk,
+  flipped: brianDrunk,
   belongsTo: ''
 }, {
-  regular: homerDrunk,
-  flipped: homerntDrunk,
+  regular: homerntDrunk,
+  flipped: homerDrunk,
   belongsTo: ''
 }, {
-  regular: peterDrunk,
-  flipped: peterntDrunk,
+  regular: peterntDrunk,
+  flipped: peterDrunk,
   belongsTo: ''
 }, {
-  regular: rockDrunk,
-  flipped: rockntDrunk,
+  regular: rockntDrunk,
+  flipped: rockDrunk,
   belongsTo: ''
 }, {
-  regular: rogerDrunk,
-  flipped: rogerntDrunk,
+  regular: rogerntDrunk,
+  flipped: rogerDrunk,
   belongsTo: ''
 }, {
-  regular: shanksDrunk,
-  flipped: shanksntDrunk,
+  regular: shanksntDrunk,
+  flipped: shanksDrunk,
   belongsTo: ''
 }];
 exports.iconArrayCard = iconArrayCard;
@@ -72,20 +72,23 @@ var bossIconCard = {
   flipped: barneyntDrunk
 };
 exports.bossIconCard = bossIconCard;
-var iconTaked = [];
-exports.iconTaked = iconTaked;
+var ICONTAKED = [];
+/**
+ * assign cards to player id
+ * @param  {number} id
+ */
+
+exports.ICONTAKED = ICONTAKED;
 
 var assignIdToIconCard = function assignIdToIconCard(id) {
   var iconIndex = Math.floor(Math.random() * 7);
-
-  while (iconTaked.find(function (element) {
-    return element === iconIndex;
-  }) !== undefined) {
-    iconIndex = Math.floor(Math.random() * 7);
-  }
+  /*  while ((ICONTAKED.find(element => element === iconIndex)) !== undefined) {
+       iconIndex = Math.floor(Math.random() * 7);
+   } */
 
   iconArrayCard[iconIndex].belongsTo = id;
-  iconTaked.push(iconIndex);
+  ICONTAKED.push(iconIndex);
+  return iconArrayCard[iconIndex];
 };
 
 exports.assignIdToIconCard = assignIdToIconCard;

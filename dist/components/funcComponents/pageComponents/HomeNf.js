@@ -9,6 +9,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactNative = require("react-native");
 
+var _genericStyles = require("../../../assets/styles/genericStyles");
+
 var _ButtonNf = _interopRequireDefault(require("../../hooksComponents/ButtonNf"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -25,7 +27,9 @@ var HomeNf = function HomeNf(_ref) {
   var onQuickMatch = _ref.onQuickMatch,
       onCreateLobby = _ref.onCreateLobby,
       onLeaderBoard = _ref.onLeaderBoard;
-  return /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_ButtonNf.default, {
+  return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+    style: _genericStyles.styles.genericContainerFlex1
+  }, /*#__PURE__*/_react.default.createElement(_ButtonNf.default, {
     title: 'Quick match',
     onPress: onQuickMatch
   }), /*#__PURE__*/_react.default.createElement(_ButtonNf.default, {

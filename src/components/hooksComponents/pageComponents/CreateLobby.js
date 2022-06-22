@@ -30,6 +30,7 @@ const initState = {
     },
   ]
 }
+
 /**
  * PageComponents for createLobby
  * @param  {object} user
