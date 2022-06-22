@@ -65,9 +65,9 @@ const ICONTAKED = []
 const assignIdToIconCard = (id) => {
 
     let iconIndex = Math.floor(Math.random() * 7);
-    while ((ICONTAKED.find(element => element === iconIndex)) !== undefined) {
-        iconIndex = Math.floor(Math.random() * 7);
-    }
+    /*  while ((ICONTAKED.find(element => element === iconIndex)) !== undefined) {
+         iconIndex = Math.floor(Math.random() * 7);
+     } */
     iconArrayCard[iconIndex].belongsTo = id;
     ICONTAKED.push(iconIndex)
     return iconArrayCard[iconIndex]

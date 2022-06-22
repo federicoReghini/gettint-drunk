@@ -13,26 +13,23 @@ const UserInfoContainer = () => {
         })
     }, [])
     return (
-        <View>
+        <View style={{ position: "absolute", left: '6%', top: '42%', flexDirection: 'column', alignItems: 'center', width: 130 }}>
             <View>{/* cardIcon */}
 
-                <Image style={{ height: 50, width: 30 }}
+                <Image style={{ height: 140, width: 100 }}
                     source={state.playerIcon.regular} />
             </View>
-            <View>{/* Score in beers/shot */}
+            <View style={{ height: 80 }}>{/* Score in beers/shot */}
                 <BeerContainer
                     score={7.5} />
             </View>
-            <View>
-                <Text>{7.5}</Text>
+            <View style={{ marginTop: -20 }}>
+                <Text style={{ fontSize: 30 }}>{7.5}</Text>
+            </View>
+            <View style={{ marginTop: 5 }}>
                 <Text>Nickname</Text>
             </View>
-            <View>
-                <Button
-                    title={'pesca una carta'}></Button>
-                <Button
-                    title={'Stop'}></Button>
-            </View>
+
         </View>
     )
 }
