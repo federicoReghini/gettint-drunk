@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { View } from "react-native-web";
+import { useEffect, useState } from "react";;
 import { ButtonNf, HomeNf, JoinLobbyNf, LobbyContainer, Login, Signup, SwitchNf } from "./components";
 import { View } from "react-native";
 import { ButtonNf, HomeNf, JoinLobbyNf, LeaderBoard, Login, Signup, SwitchNf } from "./components";
