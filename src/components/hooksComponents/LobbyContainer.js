@@ -1,6 +1,6 @@
 import React from 'react'
-import { View, ImageBackground, Button, Dimensions } from 'react-native-web';
-import UserInfoContainer from './UserInfoContainer';
+import { View, ImageBackground, Button, Dimensions } from 'react-native';
+import UserContainer from './UserContainer';
 const bgImage = require('../../assets/bgImage.png')
 export default function LobbyContainer() {
     const generateTestUser = () => {
@@ -9,8 +9,8 @@ export default function LobbyContainer() {
         for (let index = 0; index < 7; index++) {
             arrayTmp.push(
                 <View>
-                    {/* <UserInfoContainer
-                    key={index}></UserInfoContainer> */}
+                    {/* <UserContainer
+                    key={index}></UserContainer> */}
                 </View>)
         }
         return arrayTmp;

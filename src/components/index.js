@@ -9,7 +9,7 @@ import SignupNf from "./hooksComponents/SignupNf";
 import SwitchNf from "./hooksComponents/SwitchNf";
 import CountDownNf from "./hooksComponents/CountDownNf";
 import LobbyContainer from "./hooksComponents/LobbyContainer";
-import UserInfoContainer from "./hooksComponents/UserInfoContainer";
+import UserContainer from "./hooksComponents/UserContainer";
 
 // Hooks components pageComponents
 import JoinLobbyNf from "./hooksComponents/pageComponents/JoinLobbyNf";
@@ -30,7 +30,7 @@ export {
     HomeNf,
     JoinLobbyNf,
     CountDownNf,
-    UserInfoContainer,
+    UserContainer,
     LobbyContainer,
     LeaderBoard,
     CreateLobby
