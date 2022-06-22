@@ -9,7 +9,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _reactNativeWeb = require("react-native-web");
+var _reactNative = require("react-native");
 
 var _styleLeaderBoard = require("../../../assets/styles/styleLeaderBoard");
 
@@ -88,12 +88,12 @@ var LeaderBoard = function LeaderBoard(_ref) {
   }
 
   function playerList(player, key) {
-    return /*#__PURE__*/_react.default.createElement(_reactNativeWeb.View, {
+    return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
       style: _styleLeaderBoard.styles.leaderBoardContainer,
       key: "".concat(key, "-").concat(player.score)
-    }, /*#__PURE__*/_react.default.createElement(_reactNativeWeb.View, {
+    }, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
       style: _styleLeaderBoard.styles.leaderRow
-    }, /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Text, {
+    }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
       style: {
         color: player.id === id ? '#B72B29' : '#ffbf43',
         fontSize: 20,
@@ -104,15 +104,15 @@ var LeaderBoard = function LeaderBoard(_ref) {
         },
         textAlign: 'center'
       }
-    }, player.id === id && /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Image, {
+    }, player.id === id && /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
       source: _birra.default,
       style: {
         width: 20,
         height: 20
       }
-    }), player.nickname)), /*#__PURE__*/_react.default.createElement(_reactNativeWeb.View, {
+    }), player.nickname)), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
       style: _styleLeaderBoard.styles.leaderRow
-    }, /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Text, {
+    }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
       style: {
         color: player.id === id ? '#B72B29' : '#fff',
         fontSize: 20,
@@ -132,34 +132,34 @@ var LeaderBoard = function LeaderBoard(_ref) {
   }
 
   (0, _react.useEffect)(callbackUseEffect, []);
-  return /*#__PURE__*/_react.default.createElement(_reactNativeWeb.ImageBackground, {
+  return /*#__PURE__*/_react.default.createElement(_reactNative.ImageBackground, {
     source: _leaderboardbg.default,
     style: {
       width: '100%',
       height: '100%'
     }
-  }, /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Pressable, {
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.Pressable, {
     onPress: onClickNavigate
-  }, /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Image, {
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
     source: _futuramaship.default,
     style: _styleLeaderBoard.styles.imgShip
-  })), /*#__PURE__*/_react.default.createElement(_reactNativeWeb.View, {
+  })), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: {
       backgroundColor: 'rgba(255, 246, 143, .6)',
       paddingVertical: 20,
       marginTop: 40
     }
-  }, /*#__PURE__*/_react.default.createElement(_reactNativeWeb.View, {
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: _styleLeaderBoard.styles.titleWrapper
-  }, /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Text, {
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: _styleLeaderBoard.styles.leader
-  }, "Leader"), /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Text, {
+  }, "Leader"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: _objectSpread(_objectSpread({}, _styleLeaderBoard.styles.leader), _styleLeaderBoard.styles.board)
-  }, "Board")), /*#__PURE__*/_react.default.createElement(_reactNativeWeb.View, {
+  }, "Board")), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: _styleLeaderBoard.styles.tableHead
-  }, /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Text, {
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: _styleLeaderBoard.styles.nickname
-  }, "Nickname"), /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Text, {
+  }, "Nickname"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: _objectSpread(_objectSpread({}, _styleLeaderBoard.styles.nickname), _styleLeaderBoard.styles.score)
   }, "score")), state.players.length > 0 && state.players.sort(sortPlayer).map(playerList)));
 };

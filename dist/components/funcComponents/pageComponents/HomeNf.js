@@ -7,7 +7,7 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _reactNativeWeb = require("react-native-web");
+var _reactNative = require("react-native");
 
 var _ButtonNf = _interopRequireDefault(require("../../hooksComponents/ButtonNf"));
 
@@ -25,7 +25,7 @@ var HomeNf = function HomeNf(_ref) {
   var onQuickMatch = _ref.onQuickMatch,
       onCreateLobby = _ref.onCreateLobby,
       onLeaderBoard = _ref.onLeaderBoard;
-  return /*#__PURE__*/_react.default.createElement(_reactNativeWeb.View, null, /*#__PURE__*/_react.default.createElement(_ButtonNf.default, {
+  return /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_ButtonNf.default, {
     title: 'Quick match',
     onPress: onQuickMatch
   }), /*#__PURE__*/_react.default.createElement(_ButtonNf.default, {

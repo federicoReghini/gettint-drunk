@@ -5,9 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.styles = void 0;
 
-var _reactNativeWeb = require("react-native-web");
+var _reactNative = require("react-native");
 
-var styles = _reactNativeWeb.StyleSheet.create({
+var styles = _reactNative.StyleSheet.create({
   leaderBoardContainer: {
     width: '100vw',
     flexDirection: 'row',
@@ -23,7 +23,7 @@ var styles = _reactNativeWeb.StyleSheet.create({
     textAlign: 'center'
   },
   leader: {
-    fontSize: _reactNativeWeb.Platform.OS === 'web' ? 24 : 18,
+    fontSize: _reactNative.Platform.OS === 'web' ? 24 : 18,
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
     textShadowOffset: {
       width: 1,
@@ -34,7 +34,7 @@ var styles = _reactNativeWeb.StyleSheet.create({
     color: '#e7c403'
   },
   board: {
-    fontSize: _reactNativeWeb.Platform.OS === 'web' ? 22 : 18,
+    fontSize: _reactNative.Platform.OS === 'web' ? 22 : 18,
     color: '#f2e8e0'
   },
   titleWrapper: {

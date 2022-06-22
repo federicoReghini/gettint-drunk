@@ -7,7 +7,7 @@ exports.default = void 0;
 
 var _react = require("react");
 
-var _reactNativeWeb = require("react-native-web");
+var _reactNative = require("react-native");
 
 var _components = require("./components");
 
@@ -45,7 +45,7 @@ function App() {
     setfirst(!first);
   };
 
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_reactNativeWeb.View, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_reactNative.View, {
     style: {
       height: '100vh',
       display: 'flex',

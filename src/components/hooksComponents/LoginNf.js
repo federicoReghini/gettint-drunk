@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
 // native components
-import { View, Text } from 'react-native';
-import { Button, TextInput } from 'react-native-web';
+import { View, Text, Button, TextInput } from 'react-native';
 
 // styles
 import { styles } from '../../assets/styles/styleSignupLogin';

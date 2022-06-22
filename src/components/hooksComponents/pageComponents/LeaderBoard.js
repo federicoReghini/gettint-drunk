@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 // native components
-import { View, Text, Image, ImageBackground, Pressable } from 'react-native-web';
+import { View, Text, Image, ImageBackground, Pressable } from 'react-native';
 
 // styles
 import { styles } from '../../../assets/styles/styleLeaderBoard';

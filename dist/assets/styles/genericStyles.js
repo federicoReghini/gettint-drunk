@@ -5,9 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.styles = void 0;
 
-var _reactNativeWeb = require("react-native-web");
+var _reactNative = require("react-native");
 
-var styles = _reactNativeWeb.StyleSheet.create({
+var styles = _reactNative.StyleSheet.create({
   genericContainer: {
     display: 'flex',
     alignItems: 'center',

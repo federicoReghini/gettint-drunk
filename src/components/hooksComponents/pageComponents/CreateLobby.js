@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // native components
-import { Modal, View } from 'react-native-web';
+import { Modal, View } from 'react-native';
 import { styles } from '../../../assets/styles/styleButtonNf';
 
 // library Components

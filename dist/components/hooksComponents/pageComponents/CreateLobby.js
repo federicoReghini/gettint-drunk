@@ -9,7 +9,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _reactNativeWeb = require("react-native-web");
+var _reactNative = require("react-native");
 
 var _styleButtonNf = require("../../../assets/styles/styleButtonNf");
 
@@ -121,7 +121,7 @@ var CreateLobby = function CreateLobby(_ref) {
 
 
   var playerList = function playerList(player, key) {
-    return /*#__PURE__*/_react.default.createElement(_reactNativeWeb.View, {
+    return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
       key: "".concat(key, "-").concat(player.id)
     }, /*#__PURE__*/_react.default.createElement(_ButtonNf.default, {
       title: player.nickname,
@@ -129,7 +129,7 @@ var CreateLobby = function CreateLobby(_ref) {
     }));
   };
 
-  return /*#__PURE__*/_react.default.createElement(_reactNativeWeb.View, {
+  return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: _styleButtonNf.styles.CreateLobbyContainer
   }, /*#__PURE__*/_react.default.createElement(_ButtonNf.default, {
     title: user === null || user === void 0 ? void 0 : user.nickname
@@ -142,7 +142,7 @@ var CreateLobby = function CreateLobby(_ref) {
   }), /*#__PURE__*/_react.default.createElement(_ButtonNf.default, {
     title: "Start game",
     onPress: onTapGameStart
-  }), /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Modal, {
+  }), /*#__PURE__*/_react.default.createElement(_reactNative.Modal, {
     transparent: false,
     visible: state.isModalVisible
   }, (listOfPlayers === null || listOfPlayers === void 0 ? void 0 : listOfPlayers.length) > 0 && listOfPlayers.map(playerList)));

@@ -1,5 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { Text, View } from 'react-native-web';
+import React, { useEffect, useState } from 'react';
+
+// native components
+import { Text, View } from 'react-native';
+
+// styles
 import { styles } from '../../assets/styles/styleCountDownNf';
 
 const CountDownTimer = ({ hoursMinSecs, onEndTimer }) => {

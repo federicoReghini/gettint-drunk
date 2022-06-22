@@ -5,9 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.styles = void 0;
 
-var _reactNativeWeb = require("react-native-web");
+var _reactNative = require("react-native");
 
-var styles = _reactNativeWeb.StyleSheet.create({
+var styles = _reactNative.StyleSheet.create({
   btnPrimary: {
     backgroundColor: '#ffbf43',
     padding: 15,
@@ -21,10 +21,10 @@ var styles = _reactNativeWeb.StyleSheet.create({
     },
     shadowOpacity: 0.2,
     shadowRadius: 3,
-    width: _reactNativeWeb.Platform.OS === 'web' ? '100%' : null
+    width: _reactNative.Platform.OS === 'web' ? '100%' : null
   },
   btnText: {
-    fontSize: _reactNativeWeb.Platform.OS === 'web' ? 18 : 14,
+    fontSize: _reactNative.Platform.OS === 'web' ? 18 : 14,
     color: '#fff',
     textAlign: 'center',
     textShadowColor: 'rgba(0, 0, 0, 0.75)',

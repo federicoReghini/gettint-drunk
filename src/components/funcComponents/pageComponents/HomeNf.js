@@ -1,7 +1,7 @@
 import React from 'react';
 
 // native components
-import { View } from 'react-native-web';
+import { View } from 'react-native';
 import ButtonNf from '../../hooksComponents/ButtonNf';
 
 /**
@@ -10,26 +10,26 @@ import ButtonNf from '../../hooksComponents/ButtonNf';
  * @param  {function} onCreateLobby
  * @param  {function} onLeaderBoard
  */
-const HomeNf = ({onQuickMatch, onCreateLobby, onLeaderBoard}) => {
+const HomeNf = ({ onQuickMatch, onCreateLobby, onLeaderBoard }) => {
 
   return (
     <View>
       <ButtonNf
-      title={'Quick match'}
-      onPress={onQuickMatch}
+        title={'Quick match'}
+        onPress={onQuickMatch}
       />
 
-       <ButtonNf
-      title={'create lobby'}
-      onPress={onCreateLobby}
+      <ButtonNf
+        title={'create lobby'}
+        onPress={onCreateLobby}
       />
 
-       <ButtonNf
-      title={'Leader board'}
-      onPress={onLeaderBoard}
+      <ButtonNf
+        title={'Leader board'}
+        onPress={onLeaderBoard}
       />
     </View>
   )
 }
 
-export default HomeNf
+export default HomeNf;

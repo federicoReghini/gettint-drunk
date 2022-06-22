@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // native components
-import { View, Text } from 'react-native-web';
+import { View } from 'react-native';
 import ButtonNf from '../ButtonNf';
 import CountDownNf from '../CountDownNf';
 

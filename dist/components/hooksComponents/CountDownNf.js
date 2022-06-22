@@ -9,7 +9,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _reactNativeWeb = require("react-native-web");
+var _reactNative = require("react-native");
 
 var _styleCountDownNf = require("../../assets/styles/styleCountDownNf");
 
@@ -77,9 +77,9 @@ var CountDownTimer = function CountDownTimer(_ref) {
     return setTime([parseInt(hours), parseInt(minutes), parseInt(seconds)]);
   };
 
-  return /*#__PURE__*/_react.default.createElement(_reactNativeWeb.View, {
+  return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: _styleCountDownNf.styles.countDownContainer
-  }, /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Text, {
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: _styleCountDownNf.styles.countDown
   }, "".concat(hrs.toString().padStart(2, '0'), ":").concat(mins.toString().padStart(2, '0'), ":").concat(secs.toString().padStart(2, '0'))));
 };

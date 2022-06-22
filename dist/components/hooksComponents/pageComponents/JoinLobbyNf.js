@@ -9,7 +9,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _reactNativeWeb = require("react-native-web");
+var _reactNative = require("react-native");
 
 var _ButtonNf = _interopRequireDefault(require("../ButtonNf"));
 
@@ -78,7 +78,7 @@ var JoinLobbyNf = function JoinLobbyNf(_ref) {
     });
   };
 
-  return /*#__PURE__*/_react.default.createElement(_reactNativeWeb.View, null, state.players.length > 0 && state.players.map(player), /*#__PURE__*/_react.default.createElement(_CountDownNf.default, {
+  return /*#__PURE__*/_react.default.createElement(_reactNative.View, null, state.players.length > 0 && state.players.map(player), /*#__PURE__*/_react.default.createElement(_CountDownNf.default, {
     onEndTimer: onEndTimer,
     hoursMinSecs: hoursMinSecs
   }));

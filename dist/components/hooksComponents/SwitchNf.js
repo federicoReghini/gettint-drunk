@@ -9,7 +9,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _reactNativeWeb = require("react-native-web");
+var _reactNative = require("react-native");
 
 var _genericStyles = require("../../assets/styles/genericStyles");
 
@@ -25,9 +25,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var SwitchNf = function SwitchNf(_ref) {
   var isOn = _ref.isOn,
       onValueChange = _ref.onValueChange;
-  return /*#__PURE__*/_react.default.createElement(_reactNativeWeb.View, {
+  return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: _genericStyles.styles.genericContainer
-  }, /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Switch, {
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.Switch, {
     onValueChange: onValueChange,
     activeThumbColor: "#939393",
     activeTrackColor: "#ffbf43",
@@ -35,7 +35,7 @@ var SwitchNf = function SwitchNf(_ref) {
     trackColor: "#939393",
     value: isOn,
     style: _genericStyles.styles.genericMt
-  }), isOn ? /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Text, null, "Public") : /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Text, null, "Private"));
+  }), isOn ? /*#__PURE__*/_react.default.createElement(_reactNative.Text, null, "Public") : /*#__PURE__*/_react.default.createElement(_reactNative.Text, null, "Private"));
 };
 
 SwitchNf.defaultProps = {

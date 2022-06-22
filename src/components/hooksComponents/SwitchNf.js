@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // native components
-import { Switch, Text, View } from 'react-native-web';
+import { Switch, Text, View } from 'react-native';
 import { styles } from '../../assets/styles/genericStyles';
 
 /**

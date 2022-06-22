@@ -11,8 +11,6 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactNative = require("react-native");
 
-var _reactNativeWeb = require("react-native-web");
-
 var _validation = require("../../utils/validation");
 
 var _styleSignupLogin = require("../../assets/styles/styleSignupLogin");
@@ -84,29 +82,29 @@ var SignupNf = function SignupNf() {
     style: _styleSignupLogin.styles.title
   }, "Sign up"), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: _styleSignupLogin.styles.inputContainer
-  }, /*#__PURE__*/_react.default.createElement(_reactNativeWeb.TextInput, {
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.TextInput, {
     style: _styleSignupLogin.styles.textInput,
     onChange: handleChange('name'),
     placeholder: 'Insert name'
-  }), /*#__PURE__*/_react.default.createElement(_reactNativeWeb.TextInput, {
+  }), /*#__PURE__*/_react.default.createElement(_reactNative.TextInput, {
     style: _styleSignupLogin.styles.textInput,
     onChange: handleChange('nickname'),
     placeholder: 'Insert nickname'
-  }), /*#__PURE__*/_react.default.createElement(_reactNativeWeb.TextInput, {
+  }), /*#__PURE__*/_react.default.createElement(_reactNative.TextInput, {
     style: _styleSignupLogin.styles.textInput,
     onChange: handleChange('email'),
     placeholder: 'Insert email'
-  }), /*#__PURE__*/_react.default.createElement(_reactNativeWeb.TextInput, {
+  }), /*#__PURE__*/_react.default.createElement(_reactNative.TextInput, {
     style: _styleSignupLogin.styles.textInput,
     secureTextEntry: true,
     onChange: handleChange('password'),
     placeholder: 'Insert password'
-  }), /*#__PURE__*/_react.default.createElement(_reactNativeWeb.TextInput, {
+  }), /*#__PURE__*/_react.default.createElement(_reactNative.TextInput, {
     style: _styleSignupLogin.styles.textInput,
     secureTextEntry: true,
     onChange: handleChange('confirmPassword'),
     placeholder: 'Insert confirm password'
-  })), /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Button, {
+  })), /*#__PURE__*/_react.default.createElement(_reactNative.Button, {
     title: 'Sign up',
     style: _styleSignupLogin.styles.btn,
     disabled: state.isDisable,
