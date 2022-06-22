@@ -1,26 +1,26 @@
-const barneyDrunk = require('../assets/img/cardIcon/barney_drunk.jpg')
-const barneyntDrunk = require('../assets/img/cardIcon/barney_ntdrunk.jpg')
+import barneyDrunk from '../assets/img/cardIcon/barney_drunk.jpg'
+import barneyntDrunk from '../assets/img/cardIcon/barney_ntdrunk.jpg'
 
-const benderDrunk = require('../assets/img/cardIcon/bender_drunk.jpg')
-const benderntDrunk = require('../assets/img/cardIcon/bender_ntdrunk.jpg')
+import benderDrunk from '../assets/img/cardIcon/bender_drunk.jpg'
+import benderntDrunk from '../assets/img/cardIcon/bender_ntdrunk.jpg'
 
-const brianDrunk = require('../assets/img/cardIcon/brian_drunk.jpg')
-const brianntDrunk = require('../assets/img/cardIcon/brian_ntdrunk.jpg')
+import brianDrunk from '../assets/img/cardIcon/brian_drunk.jpg'
+import brianntDrunk from '../assets/img/cardIcon/brian_ntdrunk.jpg'
 
-const homerDrunk = require('../assets/img/cardIcon/homer_drunk.jpg')
-const homerntDrunk = require('../assets/img/cardIcon/homer_ntdrunk.jpg')
+import homerDrunk from '../assets/img/cardIcon/homer_drunk.jpg'
+import homerntDrunk from '../assets/img/cardIcon/homer_ntdrunk.jpg'
 
-const peterDrunk = require('../assets/img/cardIcon/peter_drunk.jpg')
-const peterntDrunk = require('../assets/img/cardIcon/peter_ntdrunk.jpg')
+import peterDrunk from '../assets/img/cardIcon/peter_drunk.jpg'
+import peterntDrunk from '../assets/img/cardIcon/peter_ntdrunk.jpg'
 
-const rockDrunk = require('../assets/img/cardIcon/rockr_drunk.jpg')
-const rockntDrunk = require('../assets/img/cardIcon/rockr_ntdrunk.jpg')
+import rockDrunk from '../assets/img/cardIcon/rockr_drunk.jpg'
+import rockntDrunk from '../assets/img/cardIcon/rockr_ntdrunk.jpg'
 
-const rogerDrunk = require('../assets/img/cardIcon/roger_drunk.jpg')
-const rogerntDrunk = require('../assets/img/cardIcon/roger_ntdrunk.jpg')
+import rogerDrunk from '../assets/img/cardIcon/roger_drunk.jpg'
+import rogerntDrunk from '../assets/img/cardIcon/roger_ntdrunk.jpg'
 
-const shanksDrunk = require('../assets/img/cardIcon/shanks_drunk.jpg')
-const shanksntDrunk = require('../assets/img/cardIcon/shanks_ntdrunk.jpg')
+import shanksDrunk from '../assets/img/cardIcon/shanks_drunk.jpg'
+import shanksntDrunk from '../assets/img/cardIcon/shanks_ntdrunk.jpg'
 
 let iconArrayCard = [{
     regular: benderntDrunk,
