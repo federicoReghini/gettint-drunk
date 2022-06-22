@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
 // native components
-import { StyleSheet, Text, View } from 'react-native';
-import { Button, TextInput } from 'react-native-web';
+import { Text, View, Button, TextInput } from 'react-native';
 
 // validation
 import { checkMail, checkPassword } from '../../utils/validation';
@@ -11,88 +10,88 @@ import { checkMail, checkPassword } from '../../utils/validation';
 import { styles } from '../../assets/styles/styleSignupLogin';
 
 const initState = {
-  isDisable: true
+    isDisable: true
 }
 
 const formData = {
-  name: '',
-  nickname: '',
-  email: '',
-  password: '',
-  confirmPassword: ''
+    name: '',
+    nickname: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
 }
 
 const SignupNf = () => {
 
-  const [state, setState] = useState(initState);
+    const [state, setState] = useState(initState);
 
-  const handleChange = (property) => (e) => {
-      const newState = Object.assign({}, state);
+    const handleChange = (property) => (e) => {
+        const newState = Object.assign({}, state);
 
-      if (formData.password === formData.confirmPassword && checkMail(formData.email)) {
+        if (formData.password === formData.confirmPassword && checkMail(formData.email)) {
 
-          newState.isDisable = false;
-      } else {
+            newState.isDisable = false;
+        } else {
 
-          newState.isDisable = true;
-      }
+            newState.isDisable = true;
+        }
 
-      setState({ ...state, isDisable: newState.isDisable });
+        setState({ ...state, isDisable: newState.isDisable });
 
-      formData[property] = e.target.value;
-  }
+        formData[property] = e.target.value;
+    }
 
-  const handleSubmit = () => {
-      // api post
-      console.log(formData);
-  }
+    const handleSubmit = () => {
+        // api post
+        console.log(formData);
+    }
 
-  return (
-      <View style={styles.container}>
+    return (
+        <View style={styles.container}>
 
-          <Text style={styles.title}>
-              Sign up
-          </Text>
+            <Text style={styles.title}>
+                Sign up
+            </Text>
 
-          <View style={styles.inputContainer}>
-              <TextInput
-              style={styles.textInput}
-                  onChange={handleChange('name')}
-                  placeholder={'Insert name'}
-              />
+            <View style={styles.inputContainer}>
                 <TextInput
-              style={styles.textInput}
-                  onChange={handleChange('nickname')}
-                  placeholder={'Insert nickname'}
-              />
+                    style={styles.textInput}
+                    onChange={handleChange('name')}
+                    placeholder={'Insert name'}
+                />
                 <TextInput
-              style={styles.textInput}
-                  onChange={handleChange('email')}
-                  placeholder={'Insert email'}
-              />
+                    style={styles.textInput}
+                    onChange={handleChange('nickname')}
+                    placeholder={'Insert nickname'}
+                />
+                <TextInput
+                    style={styles.textInput}
+                    onChange={handleChange('email')}
+                    placeholder={'Insert email'}
+                />
 
-              <TextInput
-              style={styles.textInput}
-                  secureTextEntry
-                  onChange={handleChange('password')}
-                  placeholder={'Insert password'}
-              />
-               <TextInput
-              style={styles.textInput}
-                  secureTextEntry
-                  onChange={handleChange('confirmPassword')}
-                  placeholder={'Insert confirm password'}
-              />
-          </View>
+                <TextInput
+                    style={styles.textInput}
+                    secureTextEntry
+                    onChange={handleChange('password')}
+                    placeholder={'Insert password'}
+                />
+                <TextInput
+                    style={styles.textInput}
+                    secureTextEntry
+                    onChange={handleChange('confirmPassword')}
+                    placeholder={'Insert confirm password'}
+                />
+            </View>
 
-          <Button
-              title={'Sign up'}
-              style={styles.btn}
-              disabled={state.isDisable}
-              onPress={handleSubmit}
-          />
-      </View>
-  )
+            <Button
+                title={'Sign up'}
+                style={styles.btn}
+                disabled={state.isDisable}
+                onPress={handleSubmit}
+            />
+        </View>
+    )
 }
 
 export default SignupNf;

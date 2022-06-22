@@ -7,7 +7,7 @@ exports.default = BeerContainer;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _reactNativeWeb = require("react-native-web");
+var _reactNative = require("react-native");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22,10 +22,15 @@ function BeerContainer(props) {
   };
 
   var generateFirstSeriesOfBeer = function generateFirstSeriesOfBeer() {
+    console.log('prima serie');
     var arrayContainer = [];
 
     for (var index = 0; index < (scoreIsDecimal.cleanScore > 4 ? 4 : scoreIsDecimal.cleanScore); index++) {
-      arrayContainer.push( /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Image, {
+      arrayContainer.push( /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
+        style: {
+          height: 30,
+          width: 40
+        },
         key: index,
         source: beerIcon
       }));
@@ -35,10 +40,11 @@ function BeerContainer(props) {
   };
 
   var generateSecondtSeriesOfBeer = function generateSecondtSeriesOfBeer() {
+    console.log('seconda');
     var arrayContainer = [];
 
     for (var index = 5; index <= scoreIsDecimal.cleanScore; index++) {
-      arrayContainer.push( /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Image, {
+      arrayContainer.push( /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
         key: index,
         source: beerIcon
       }));
@@ -47,7 +53,16 @@ function BeerContainer(props) {
     return arrayContainer;
   };
 
-  return /*#__PURE__*/_react.default.createElement(_reactNativeWeb.View, null, /*#__PURE__*/_react.default.createElement(_reactNativeWeb.View, null, /*#__PURE__*/_react.default.createElement(_reactNativeWeb.View, null, generateFirstSeriesOfBeer()), scoreIsDecimal.cleanScore > 4 && /*#__PURE__*/_react.default.createElement(_reactNativeWeb.View, null, generateSecondtSeriesOfBeer())), scoreIsDecimal.isDecimal && /*#__PURE__*/_react.default.createElement(_reactNativeWeb.View, null, /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Image, {
+  return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+    style: {
+      height: 30,
+      width: 40
+    }
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_reactNative.View, null, generateFirstSeriesOfBeer()), scoreIsDecimal.cleanScore > 4 && /*#__PURE__*/_react.default.createElement(_reactNative.View, null, generateSecondtSeriesOfBeer())), scoreIsDecimal.isDecimal && /*#__PURE__*/_react.default.createElement(_reactNative.View, null, /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
+    style: {
+      height: 30,
+      width: 40
+    },
     source: shotIcon
   })));
 }

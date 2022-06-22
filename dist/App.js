@@ -7,11 +7,15 @@ exports.default = void 0;
 
 var _react = require("react");
 
-var _reactNativeWeb = require("react-native-web");
+var _reactNative = require("react-native");
 
 var _components = require("./components");
 
+var _CreateLobby = _interopRequireDefault(require("./components/hooksComponents/pageComponents/CreateLobby"));
+
 var _genericWebSocket = require("./services/genericWebSocket");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -41,14 +45,14 @@ function App() {
     setfirst(!first);
   };
 
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_reactNativeWeb.View, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_reactNative.View, {
     style: {
       height: '100vh',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center'
     }
-  }, /*#__PURE__*/React.createElement(_components.JoinLobbyNf, null)));
+  }, /*#__PURE__*/React.createElement(_components.LeaderBoard, null)));
 }
 
 var _default = App;

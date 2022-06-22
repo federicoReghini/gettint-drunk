@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // native components
-import { Pressable, Text } from 'react-native-web';
+import { Text, TouchableOpacity } from 'react-native';
 import { styles } from '../../assets/styles/styleButtonNf';
 
 /**
@@ -14,16 +14,16 @@ import { styles } from '../../assets/styles/styleButtonNf';
 const ButtonNf = ({ title, onPress, isDisabled }) => {
   return (
     <>
-      <Pressable
+      <TouchableOpacity
         disabled={isDisabled}
         accessibilityRole="button"
         onPress={onPress}
-        style={styles.btn}
+        style={styles.btnPrimary}
       >
         <Text style={styles.btnText}>
           {title}
         </Text>
-      </Pressable>
+      </TouchableOpacity>
     </>
   )
 }

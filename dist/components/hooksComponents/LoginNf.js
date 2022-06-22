@@ -11,8 +11,6 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactNative = require("react-native");
 
-var _reactNativeWeb = require("react-native-web");
-
 var _styleSignupLogin = require("../../assets/styles/styleSignupLogin");
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -79,16 +77,16 @@ var LoginNf = function LoginNf() {
     style: _styleSignupLogin.styles.title
   }, "Login"), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: _styleSignupLogin.styles.inputContainer
-  }, /*#__PURE__*/_react.default.createElement(_reactNativeWeb.TextInput, {
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.TextInput, {
     style: _styleSignupLogin.styles.textInput,
     onChange: handleChange('email'),
     placeholder: 'Insert email'
-  }), /*#__PURE__*/_react.default.createElement(_reactNativeWeb.TextInput, {
+  }), /*#__PURE__*/_react.default.createElement(_reactNative.TextInput, {
     style: _styleSignupLogin.styles.textInput,
     secureTextEntry: true,
     onChange: handleChange('password'),
     placeholder: 'Insert password'
-  })), /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Button, {
+  })), /*#__PURE__*/_react.default.createElement(_reactNative.Button, {
     title: 'Login',
     style: _styleSignupLogin.styles.btn,
     disabled: state.isDisable,

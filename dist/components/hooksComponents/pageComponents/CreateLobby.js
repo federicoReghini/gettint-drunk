@@ -11,9 +11,13 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactNative = require("react-native");
 
-var _validation = require("../../utils/validation");
+var _styleButtonNf = require("../../../assets/styles/styleButtonNf");
 
-var _styleSignupLogin = require("../../assets/styles/styleSignupLogin");
+var _ButtonNf = _interopRequireDefault(require("../ButtonNf"));
+
+var _SwitchNf = _interopRequireDefault(require("../SwitchNf"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -38,79 +42,111 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var initState = {
-  isDisable: true
+  isOn: false,
+  isModalVisible: false,
+  players: [{
+    id: 0,
+    nickname: 'fad'
+  }, {
+    id: 1,
+    nickname: 'dasd'
+  }, {
+    id: 2,
+    nickname: 'faasdffdd'
+  }, {
+    id: 3,
+    nickname: 'sdfs'
+  }]
 };
-var formData = {
-  name: '',
-  nickname: '',
-  email: '',
-  password: '',
-  confirmPassword: ''
-};
+/**
+ * PageComponents for createLobby
+ * @param  {object} user
+ * @param  {Array[object]} listOfPlayers
+ * @param  {function} onTapStartGame Function to handle the start of the game. There must be at least 2 players(yourself and one more + cpu)
+ */
 
-var SignupNf = function SignupNf() {
+var CreateLobby = function CreateLobby(_ref) {
+  var user = _ref.user,
+      listOfPlayers = _ref.listOfPlayers,
+      onTapStartGame = _ref.onTapStartGame;
+
   var _useState = (0, _react.useState)(initState),
       _useState2 = _slicedToArray(_useState, 2),
       state = _useState2[0],
       setState = _useState2[1];
+  /**
+   * Function for add player to state.players if they weren't add yet
+   * @param  {object} player
+   */
 
-  var handleChange = function handleChange(property) {
-    return function (e) {
+
+  var onTapAddPlayers = function onTapAddPlayers(player) {
+    return function () {
       var newState = Object.assign({}, state);
-
-      if (formData.password === formData.confirmPassword && (0, _validation.checkMail)(formData.email)) {
-        newState.isDisable = false;
-      } else {
-        newState.isDisable = true;
-      }
-
-      setState(_objectSpread(_objectSpread({}, state), {}, {
-        isDisable: newState.isDisable
-      }));
-      formData[property] = e.target.value;
+      var FIND = newState.players.some(function (_ref2) {
+        var nickname = _ref2.nickname;
+        return player.nickname === nickname;
+      });
+      if (FIND) return;
+      newState.players.push(player);
+      setState(_objectSpread({}, newState));
     };
   };
+  /**
+   * functin for controll if conditions are true for start the game
+   */
 
-  var handleSubmit = function handleSubmit() {
-    // api post
-    console.log(formData);
+
+  var onTapGameStart = function onTapGameStart() {
+    if (state.players.length >= 2) {
+      onTapStartGame();
+    }
+  };
+  /**
+   * set a boolean value to his opposite
+   * @param  {string} property
+   */
+
+
+  var onHandleChange = function onHandleChange(property) {
+    return function () {
+      setState(_objectSpread(_objectSpread({}, state), {}, _defineProperty({}, property, !state[property])));
+    };
+  };
+  /**
+   * make a map of the player coming form server and onPress add them to state.players
+   * @param  {object} player
+   * @param  {number} key
+   */
+
+
+  var playerList = function playerList(player, key) {
+    return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+      key: "".concat(key, "-").concat(player.id)
+    }, /*#__PURE__*/_react.default.createElement(_ButtonNf.default, {
+      title: player.nickname,
+      onPress: onTapAddPlayers(player)
+    }));
   };
 
   return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
-    style: _styleSignupLogin.styles.container
-  }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
-    style: _styleSignupLogin.styles.title
-  }, "Sign up"), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
-    style: _styleSignupLogin.styles.inputContainer
-  }, /*#__PURE__*/_react.default.createElement(_reactNative.TextInput, {
-    style: _styleSignupLogin.styles.textInput,
-    onChange: handleChange('name'),
-    placeholder: 'Insert name'
-  }), /*#__PURE__*/_react.default.createElement(_reactNative.TextInput, {
-    style: _styleSignupLogin.styles.textInput,
-    onChange: handleChange('nickname'),
-    placeholder: 'Insert nickname'
-  }), /*#__PURE__*/_react.default.createElement(_reactNative.TextInput, {
-    style: _styleSignupLogin.styles.textInput,
-    onChange: handleChange('email'),
-    placeholder: 'Insert email'
-  }), /*#__PURE__*/_react.default.createElement(_reactNative.TextInput, {
-    style: _styleSignupLogin.styles.textInput,
-    secureTextEntry: true,
-    onChange: handleChange('password'),
-    placeholder: 'Insert password'
-  }), /*#__PURE__*/_react.default.createElement(_reactNative.TextInput, {
-    style: _styleSignupLogin.styles.textInput,
-    secureTextEntry: true,
-    onChange: handleChange('confirmPassword'),
-    placeholder: 'Insert confirm password'
-  })), /*#__PURE__*/_react.default.createElement(_reactNative.Button, {
-    title: 'Sign up',
-    style: _styleSignupLogin.styles.btn,
-    disabled: state.isDisable,
-    onPress: handleSubmit
-  }));
+    style: _styleButtonNf.styles.CreateLobbyContainer
+  }, /*#__PURE__*/_react.default.createElement(_ButtonNf.default, {
+    title: user === null || user === void 0 ? void 0 : user.nickname
+  }), /*#__PURE__*/_react.default.createElement(_ButtonNf.default, {
+    title: "Add players",
+    onPress: onHandleChange('isModalVisible')
+  }), /*#__PURE__*/_react.default.createElement(_SwitchNf.default, {
+    isOn: state.isOn,
+    onValueChange: onHandleChange('isOn')
+  }), /*#__PURE__*/_react.default.createElement(_ButtonNf.default, {
+    title: "Start game",
+    onPress: onTapGameStart
+  }), /*#__PURE__*/_react.default.createElement(_reactNative.Modal, {
+    transparent: false,
+    visible: state.isModalVisible
+  }, (listOfPlayers === null || listOfPlayers === void 0 ? void 0 : listOfPlayers.length) > 0 && listOfPlayers.map(playerList)));
 };
 
-var _default = SignupNf;
+var _default = CreateLobby;
 exports.default = _default;

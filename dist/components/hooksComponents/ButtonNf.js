@@ -9,7 +9,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _reactNativeWeb = require("react-native-web");
+var _reactNative = require("react-native");
 
 var _styleButtonNf = require("../../assets/styles/styleButtonNf");
 
@@ -27,12 +27,12 @@ var ButtonNf = function ButtonNf(_ref) {
   var title = _ref.title,
       onPress = _ref.onPress,
       isDisabled = _ref.isDisabled;
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Pressable, {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_reactNative.TouchableOpacity, {
     disabled: isDisabled,
     accessibilityRole: "button",
     onPress: onPress,
-    style: _styleButtonNf.styles.btn
-  }, /*#__PURE__*/_react.default.createElement(_reactNativeWeb.Text, {
+    style: _styleButtonNf.styles.btnPrimary
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: _styleButtonNf.styles.btnText
   }, title)));
 };

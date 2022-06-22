@@ -9,11 +9,11 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _reactNativeWeb = require("react-native-web");
+var _reactNative = require("react-native");
 
-var _ButtonNf = _interopRequireDefault(require("../../hooksComponents/ButtonNf"));
+var _ButtonNf = _interopRequireDefault(require("../ButtonNf"));
 
-var _CountDownNf = _interopRequireDefault(require("../../hooksComponents/CountDownNf"));
+var _CountDownNf = _interopRequireDefault(require("../CountDownNf"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -63,7 +63,9 @@ var hoursMinSecs = {
   seconds: 10
 };
 
-var JoinLobbyNf = function JoinLobbyNf() {
+var JoinLobbyNf = function JoinLobbyNf(_ref) {
+  var onEndTimer = _ref.onEndTimer;
+
   var _useState = (0, _react.useState)(initState),
       _useState2 = _slicedToArray(_useState, 2),
       state = _useState2[0],
@@ -76,8 +78,8 @@ var JoinLobbyNf = function JoinLobbyNf() {
     });
   };
 
-  return /*#__PURE__*/_react.default.createElement(_reactNativeWeb.View, null, state.players.length > 0 && state.players.map(player), /*#__PURE__*/_react.default.createElement(_CountDownNf.default, {
-    players: state.players,
+  return /*#__PURE__*/_react.default.createElement(_reactNative.View, null, state.players.length > 0 && state.players.map(player), /*#__PURE__*/_react.default.createElement(_CountDownNf.default, {
+    onEndTimer: onEndTimer,
     hoursMinSecs: hoursMinSecs
   }));
 };

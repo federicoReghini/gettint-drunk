@@ -11,9 +11,15 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactNative = require("react-native");
 
-var _validation = require("../../utils/validation");
+var _styleLeaderBoard = require("../../../assets/styles/styleLeaderBoard");
 
-var _styleSignupLogin = require("../../assets/styles/styleSignupLogin");
+var _birra = _interopRequireDefault(require("../../../assets/img/icon/birra.png"));
+
+var _futuramaship = _interopRequireDefault(require("../../../assets/img/icon/futuramaship.png"));
+
+var _leaderboardbg = _interopRequireDefault(require("../../../assets/img/background/leaderboardbg.jpg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -38,79 +44,125 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var initState = {
-  isDisable: true
+  players: [{
+    id: 0,
+    nickname: 'Federico',
+    score: 200
+  }, {
+    id: 1,
+    nickname: 'Nicola',
+    score: 400
+  }, {
+    id: 2,
+    nickname: 'Luca',
+    score: 100
+  }, {
+    id: 3,
+    nickname: 'Andrdsaea',
+    score: 4300
+  }, {
+    id: 4,
+    nickname: 'dff',
+    score: 242300
+  }, {
+    id: 5,
+    nickname: 'fdfsfs',
+    score: 243400
+  }, {
+    id: 6,
+    nickname: 'fsdfsdatdt',
+    score: 22200
+  }]
 };
-var formData = {
-  name: '',
-  nickname: '',
-  email: '',
-  password: '',
-  confirmPassword: ''
-};
+var id = 1;
 
-var SignupNf = function SignupNf() {
+var LeaderBoard = function LeaderBoard(_ref) {
+  var onClickNavigate = _ref.onClickNavigate;
+
   var _useState = (0, _react.useState)(initState),
       _useState2 = _slicedToArray(_useState, 2),
       state = _useState2[0],
       setState = _useState2[1];
 
-  var handleChange = function handleChange(property) {
-    return function (e) {
-      var newState = Object.assign({}, state);
+  function callbackUseEffect() {//api call for get players nickname and score
+  }
 
-      if (formData.password === formData.confirmPassword && (0, _validation.checkMail)(formData.email)) {
-        newState.isDisable = false;
-      } else {
-        newState.isDisable = true;
+  function playerList(player, key) {
+    return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+      style: _styleLeaderBoard.styles.leaderBoardContainer,
+      key: "".concat(key, "-").concat(player.score)
+    }, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+      style: _styleLeaderBoard.styles.leaderRow
+    }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+      style: {
+        color: player.id === id ? '#B72B29' : '#ffbf43',
+        fontSize: 20,
+        textShadowColor: 'rgba(0, 0, 0, 0.75)',
+        textShadowOffset: {
+          width: 1,
+          height: 1
+        },
+        textAlign: 'center'
       }
+    }, player.id === id && /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
+      source: _birra.default,
+      style: {
+        width: 20,
+        height: 20
+      }
+    }), player.nickname)), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+      style: _styleLeaderBoard.styles.leaderRow
+    }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+      style: {
+        color: player.id === id ? '#B72B29' : '#fff',
+        fontSize: 20,
+        textShadowColor: 'rgba(0, 0, 0, 0.75)',
+        textShadowOffset: {
+          width: 1,
+          height: 1
+        }
+      }
+    }, player.score)));
+  }
 
-      setState(_objectSpread(_objectSpread({}, state), {}, {
-        isDisable: newState.isDisable
-      }));
-      formData[property] = e.target.value;
-    };
-  };
+  function sortPlayer(a, b) {
+    if (a.score > b.score) return -1;
+    if (a.score == b.score) return 0;
+    if (a.score < b.score) return 1;
+  }
 
-  var handleSubmit = function handleSubmit() {
-    // api post
-    console.log(formData);
-  };
-
-  return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
-    style: _styleSignupLogin.styles.container
+  (0, _react.useEffect)(callbackUseEffect, []);
+  return /*#__PURE__*/_react.default.createElement(_reactNative.ImageBackground, {
+    source: _leaderboardbg.default,
+    style: {
+      width: '100%',
+      height: '100%'
+    }
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.Pressable, {
+    onPress: onClickNavigate
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
+    source: _futuramaship.default,
+    style: _styleLeaderBoard.styles.imgShip
+  })), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+    style: {
+      backgroundColor: 'rgba(255, 246, 143, .6)',
+      paddingVertical: 20,
+      marginTop: 40
+    }
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+    style: _styleLeaderBoard.styles.titleWrapper
   }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
-    style: _styleSignupLogin.styles.title
-  }, "Sign up"), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
-    style: _styleSignupLogin.styles.inputContainer
-  }, /*#__PURE__*/_react.default.createElement(_reactNative.TextInput, {
-    style: _styleSignupLogin.styles.textInput,
-    onChange: handleChange('name'),
-    placeholder: 'Insert name'
-  }), /*#__PURE__*/_react.default.createElement(_reactNative.TextInput, {
-    style: _styleSignupLogin.styles.textInput,
-    onChange: handleChange('nickname'),
-    placeholder: 'Insert nickname'
-  }), /*#__PURE__*/_react.default.createElement(_reactNative.TextInput, {
-    style: _styleSignupLogin.styles.textInput,
-    onChange: handleChange('email'),
-    placeholder: 'Insert email'
-  }), /*#__PURE__*/_react.default.createElement(_reactNative.TextInput, {
-    style: _styleSignupLogin.styles.textInput,
-    secureTextEntry: true,
-    onChange: handleChange('password'),
-    placeholder: 'Insert password'
-  }), /*#__PURE__*/_react.default.createElement(_reactNative.TextInput, {
-    style: _styleSignupLogin.styles.textInput,
-    secureTextEntry: true,
-    onChange: handleChange('confirmPassword'),
-    placeholder: 'Insert confirm password'
-  })), /*#__PURE__*/_react.default.createElement(_reactNative.Button, {
-    title: 'Sign up',
-    style: _styleSignupLogin.styles.btn,
-    disabled: state.isDisable,
-    onPress: handleSubmit
-  }));
+    style: _styleLeaderBoard.styles.leader
+  }, "Leader"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+    style: _objectSpread(_objectSpread({}, _styleLeaderBoard.styles.leader), _styleLeaderBoard.styles.board)
+  }, "Board")), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+    style: _styleLeaderBoard.styles.tableHead
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+    style: _styleLeaderBoard.styles.nickname
+  }, "Nickname"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+    style: _objectSpread(_objectSpread({}, _styleLeaderBoard.styles.nickname), _styleLeaderBoard.styles.score)
+  }, "score")), state.players.length > 0 && state.players.sort(sortPlayer).map(playerList)));
 };
 
-var _default = SignupNf;
+var _default = LeaderBoard;
 exports.default = _default;

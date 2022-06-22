@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // native components
-import { Switch, Text } from 'react-native-web';
+import { Switch, Text, View } from 'react-native';
+import { styles } from '../../assets/styles/genericStyles';
 
 /**
  * switch custom
@@ -12,17 +13,18 @@ import { Switch, Text } from 'react-native-web';
 const SwitchNf = ({ isOn, onValueChange }) => {
 
   return (
-    <>
+    <View style={styles.genericContainer}>
       <Switch
         onValueChange={onValueChange}
-        activeThumbColor='#fff'
+        activeThumbColor='#939393'
         activeTrackColor='#ffbf43'
-        thumbColor='#FAFAFA'
+        thumbColor='#ffbf43'
         trackColor='#939393'
         value={isOn}
+        style={styles.genericMt}
       />
-      {isOn ? <Text>Pubblic</Text> : <Text>Private</Text>}
-    </>
+      {isOn ? <Text>Public</Text> : <Text>Private</Text>}
+    </View>
   )
 }
 

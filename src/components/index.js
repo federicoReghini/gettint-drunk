@@ -1,14 +1,25 @@
+// Func components
+import HomeNf from "./funcComponents/pageComponents/HomeNf";
+
+// Hooks components ui
 import BeerContainer from "./hooksComponents/BeerContainer/BeerContainer";
 import ButtonNf from "./hooksComponents/ButtonNf";
 import LoginNf from "./hooksComponents/LoginNf";
-import HomeNf from "./funcComponents/pageComponents/HomeNf";
 import SignupNf from "./hooksComponents/SignupNf";
 import SwitchNf from "./hooksComponents/SwitchNf";
-import { iconArrayCard, bossIconCard, assignIdToIconCard } from "../utils/iconArrayAssign";
-import JoinLobbyNf from "./funcComponents/pageComponents/JoinLobbyNf";
 import CountDownNf from "./hooksComponents/CountDownNf";
 import UserInfoContainer from "./hooksComponents/UserInfoContainer";
 import LobbyContainer from "./hooksComponents/LobbyContainer";
+
+// Hooks components pageComponents
+import JoinLobbyNf from "./hooksComponents/pageComponents/JoinLobbyNf";
+import LeaderBoard from "./hooksComponents/pageComponents/LeaderBoard";
+import CreateLobby from "./hooksComponents/pageComponents/CreateLobby";
+
+
+// utils
+import { iconArrayCard, bossIconCard, assignIdToIconCard } from "../utils/iconArrayAssign";
+
 export {
     LoginNf,
     SignupNf,
@@ -20,5 +31,7 @@ export {
     JoinLobbyNf,
     CountDownNf,
     UserInfoContainer,
-    LobbyContainer
+    LobbyContainer,
+    LeaderBoard,
+    CreateLobby
 }
