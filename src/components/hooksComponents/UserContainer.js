@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Image, View, Text, Button } from 'react-native-web';
+import { Image, View, Text, Button } from 'react-native';
 import { assignIdToIconCard } from '../../utils/iconArrayAssign';
 import BeerContainer from './BeerContainer/BeerContainer';
-const UserInfoContainer = () => {
+const UserContainer = () => {
     const [state, setState] = useState({
         playerIcon: {}
     })
@@ -34,4 +34,4 @@ const UserInfoContainer = () => {
     )
 }
 
-export default UserInfoContainer
+export default UserContainer
