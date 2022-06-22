@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Image, View, Text, Button } from 'react-native';
+import { Image, View, Text } from 'react-native';
 import { assignIdToIconCard } from '../../utils/iconArrayAssign';
 import BeerContainer from './BeerContainer/BeerContainer';
 const UserContainer = () => {

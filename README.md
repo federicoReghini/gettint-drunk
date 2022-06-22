@@ -75,3 +75,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### `0.2.0`
 
 Refactoring of dependencies we use react-native to import components instead of react-native-web
+
+### `0.3.0`
+
+Has been created a dir lib and put all the folders inside. Also there's a default index where has been imported and exported all the components. inside each fold there will be a index.js for export functions etc.
