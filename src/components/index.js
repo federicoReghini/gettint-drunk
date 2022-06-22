@@ -8,8 +8,8 @@ import LoginNf from "./hooksComponents/LoginNf";
 import SignupNf from "./hooksComponents/SignupNf";
 import SwitchNf from "./hooksComponents/SwitchNf";
 import CountDownNf from "./hooksComponents/CountDownNf";
-import UserInfoContainer from "./hooksComponents/UserInfoContainer";
 import LobbyContainer from "./hooksComponents/LobbyContainer";
+import UserInfoContainer from "./hooksComponents/UserInfoContainer";
 
 // Hooks components pageComponents
 import JoinLobbyNf from "./hooksComponents/pageComponents/JoinLobbyNf";
