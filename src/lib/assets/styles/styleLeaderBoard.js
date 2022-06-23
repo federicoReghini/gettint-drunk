@@ -2,7 +2,7 @@ import { Platform, StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   leaderBoardContainer: {
-    width: '100vw',
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     paddingVertical: 15,
@@ -46,8 +46,8 @@ export const styles = StyleSheet.create({
   },
   imgShip: {
     position: 'relative',
-    top: 5,
-    left: 5,
+    top: 20,
+    left: 10,
     width: 50,
     height: 50
   }

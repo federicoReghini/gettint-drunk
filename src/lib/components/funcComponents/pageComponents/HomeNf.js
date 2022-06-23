@@ -2,7 +2,7 @@ import React from 'react';
 
 // native components
 import { View } from 'react-native';
-import { styles } from '../../../assets/styles/genericStyles';
+// import { styles } from '../../../assets/styles/genericStyles';
 import ButtonNf from '../../hooksComponents/ButtonNf';
 
 /**
@@ -14,7 +14,7 @@ import ButtonNf from '../../hooksComponents/ButtonNf';
 const HomeNf = ({ onQuickMatch, onCreateLobby, onLeaderBoard }) => {
 
   return (
-    <View style={styles.genericContainerFlex1}>
+    <View>
       <ButtonNf
         title={'Quick match'}
         onPress={onQuickMatch}

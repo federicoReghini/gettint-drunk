@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 // native components
-import { View, Text, Image, ImageBackground, Pressable } from 'react-native';
+import { View, Text, Image, ImageBackground, Pressable, Platform } from 'react-native';
 
 // styles
 import { styles } from '../../../assets/styles/styleLeaderBoard';
@@ -63,42 +63,47 @@ const LeaderBoard = ({ onClickNavigate }) => {
   function playerList(player, key) {
     return (
       <View
-        style={styles.leaderBoardContainer}
         key={`${key}-${player.score}`}
       >
         <View
+          style={styles.leaderBoardContainer}
 
-          style={styles.leaderRow}
         >
-          <Text
-            style={{
-              color: player.id === id ? '#B72B29' : '#ffbf43',
+          <View
+
+            style={styles.leaderRow}
+          >
+            <Text
+              style={{
+                color: player.id === id ? '#B72B29' : '#ffbf43',
+                fontSize: 20,
+                textShadowColor: 'rgba(0, 0, 0, 0.75)',
+                textShadowOffset: { width: 1, height: 1 },
+                textAlign: 'center'
+              }}
+            >
+              {
+                player.id === id && <Image source={beer} style={{ width: 20, height: 20 }} />
+              }
+              {player.nickname}
+
+            </Text>
+
+            {/* <View style={gstyles.flexR}> */}
+            {/* </View> */}
+
+          </View>
+          <View style={styles.leaderRow}>
+            <Text style={{
+              color: player.id === id ? '#B72B29' : '#fff',
               fontSize: 20,
               textShadowColor: 'rgba(0, 0, 0, 0.75)',
               textShadowOffset: { width: 1, height: 1 },
               textAlign: 'center'
-            }}
-          >
-            {
-              player.id === id && <Image source={beer} style={{ width: 20, height: 20 }} />
-            }
-            {player.nickname}
-
-          </Text>
-
-          {/* <View style={gstyles.flexR}> */}
-          {/* </View> */}
-
-        </View>
-        <View style={styles.leaderRow}>
-          <Text style={{
-            color: player.id === id ? '#B72B29' : '#fff',
-            fontSize: 20,
-            textShadowColor: 'rgba(0, 0, 0, 0.75)',
-            textShadowOffset: { width: 1, height: 1 },
-          }}>
-            {player.score}
-          </Text>
+            }}>
+              {player.score}
+            </Text>
+          </View>
         </View>
       </View>
     )
@@ -113,7 +118,10 @@ const LeaderBoard = ({ onClickNavigate }) => {
   useEffect(callbackUseEffect, [])
 
   return (
-    <ImageBackground source={bg} style={{ width: '100%', height: '100%' }}>
+    <ImageBackground 
+    source={bg} 
+    style={{ width: '100%', height: Platform.OS === 'web' ? '100vh' : '100%', flex: Platform.OS === 'web' ? 0 : 1 }}
+    >
 
       <Pressable
         onPress={onClickNavigate}
