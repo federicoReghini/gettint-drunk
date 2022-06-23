@@ -52,12 +52,14 @@ export function responseApiError(error) {
     };
 }
 
-export async function postApi(resource, obj) {
+export async function postApi(resource, obj, header = null) {
     return axiosInstance
-        .post(resource, obj)
-        .then(responseApi())
-        .catch(responseApiError());
-}
+      .post(resource, obj, {
+        headers: header !== null ? { Authorization: `Bearer ${header}` } : "",
+      })
+      .then(responseApi())
+      .catch(responseApiError());
+  }
 
 export async function getApi(resource) {
     //function for get api call
