@@ -16,7 +16,7 @@ const initState = {
     isDisable: true
 }
 
-const LoginNf = () => {
+const LoginNf = ({ onPressSubmit }) => {
 
     const [state, setState] = useState(initState);
 
@@ -38,6 +38,7 @@ const LoginNf = () => {
 
     const handleSubmit = () => {
         login(formData);
+        onPressSubmit();
     }
 
     return (

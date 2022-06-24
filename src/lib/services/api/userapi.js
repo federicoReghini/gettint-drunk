@@ -7,7 +7,6 @@ export async function signUp(body) {
 export async function login(body) {
   await postApi('signin', body);
 }
-
 export async function getUsers(token) {
   await getApi('users', token);
 }
