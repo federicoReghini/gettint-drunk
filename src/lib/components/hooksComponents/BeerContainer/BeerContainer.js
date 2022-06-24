@@ -12,46 +12,38 @@ export default function BeerContainer(props) {
     }
 
     const generateFirstSeriesOfBeer = () => {
-        console.log('prima serie')
-        let arrayContainer = []
-        for (let index = 0; index < (scoreIsDecimal.cleanScore > 4 ? 4 : scoreIsDecimal.cleanScore); index++) {
-            arrayContainer.push(
-                <Image
-                    style={{ height: '70%', width: '70%' }}
-                    key={index}
-                    source={beerIcon} />
-            )
-        }
-        return arrayContainer;
+    return [...new Array(scoreIsDecimal.cleanScore > 3 ? 3 : scoreIsDecimal.cleanScore).keys()].map(index => <Image
+            style={{ height: '100%', width: '30%',marginLeft: "-5%" }}
+            key={index}
+            source={beerIcon} />);
     }
 
     const generateSecondtSeriesOfBeer = () => {
         console.log('seconda')
-        let arrayContainer = []
-        for (let index = 5; index <= scoreIsDecimal.cleanScore; index++) {
-            arrayContainer.push(
-                <Image
-                    style={{ height: '70%', width: '70%', marginTop: "-180%", marginLeft: '15%' }}
-                    key={index}
-                    source={beerIcon} />
-            )
-        }
-        return arrayContainer;
+        return [...new Array(scoreIsDecimal.cleanScore - 3 > 3 ? 3 : scoreIsDecimal.cleanScore - 3).keys()].map(index => <Image
+            style={{ height: '100%', width: '30%',marginLeft: "-5%"  }}
+            key={index}
+            source={beerIcon} />);
     }
     return (
-        <View style={{ height: '100%', width: '100%', flexDirection: 'row', marginLeft: -70, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ height: '100%', width: '100%'}}>
             <View style={{
-                height: '100%', width: '100%'
+                height: '100%', width: '100%',marginLeft:"5%",marginTop:"-5%"
             }}>{/* beer container */}
-                <View style={{ flexDirection: 'row', height: '100%', width: '100%' }}>{/* 1st beer container */}
+                <View style={{ flexDirection: 'row', height: '50%', width: '100%',justifyContent:"center" }}>{/* 1st beer container */}
                     {generateFirstSeriesOfBeer()}
                 </View>
                 {scoreIsDecimal.cleanScore > 4 &&
-                    <View style={{ flexDirection: 'row', height: '100%', width: '100%' }}>{/* 2st beer container */}
+                    <View style={{ flexDirection: 'row', height: '50%', width: '100%',marginTop:"-20%",justifyContent:"center" }}>{/* 2st beer container */}
                         {generateSecondtSeriesOfBeer()}
                     </View>
                 }
-            </View>
+                <View style={{ height: '100%', width: '100%'}}>
+                {scoreIsDecimal.cleanScore = 7 &&
+                    <View style={{ flexDirection: 'row', height: '50%', width: '100%',marginTop:"-10%",justifyContent:"center" }}>{/* 2st beer container */}
+                        <Image
+            style={{ height: '100%', width: '30%',marginLeft: "-5%"  }}
+            source={beerIcon} />
             {scoreIsDecimal.isDecimal &&
                 <View style={{
                     height: '100%', width: '100%'
@@ -61,6 +53,12 @@ export default function BeerContainer(props) {
                         source={shotIcon} />
                 </View>
             }
+                    </View>
+                }
+                </View>
+                
+            </View>
+            
         </View>
     )
 }
