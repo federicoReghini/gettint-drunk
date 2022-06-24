@@ -85,3 +85,7 @@ Refactoring of dependencies we use react-native to import components instead of 
 ### `0.3.5`
 
 Added baseUrl for api call and ws
+
+### `0.4.0`
+
+Added api calls functions and storage
