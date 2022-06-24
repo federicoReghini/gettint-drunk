@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { deleteLobby } from "./api/lobbyapi";
 // config
 import { BASEURL, TIMEOUT } from "./config";
 
@@ -7,6 +7,18 @@ const axiosInstance = axios.create({
     baseURL: BASEURL,
     timeout: TIMEOUT
 })
+
+axiosInstance.interceptors.response.use(function (response) {
+    return response;
+   }, function (error) {
+    console.log("error",error)
+     if(error?.response.status === 500 && error?.config?.url === "lobby"){//passare successivamente errore modificato
+        (async()=>{
+            await deleteLobby("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJOaWNvUm9iaW5AZ21haWwuY29tIiwicm9sZXMiOlsiVVNFUiJdLCJpYXQiOjE2NTYwODA1NTUsImV4cCI6MTY1NjA4NDE1NX0.HJ5Ss8LkiS8qhLv2U-ofi5WeMS0D8Fww8Z9v3jbSosQ") 
+        })()
+       
+    } 
+   })
 
 // axiosInstance.interceptors.response.use(function (response) {
 //     // Any status code that lie within the range of 2xx cause this function to trigger

@@ -1,5 +1,6 @@
 import { getApi, postApi, deleteApi, putApi } from "../genericServices";
 
+
 export async function signUp(body) {
   await postApi('user/registration', body);
 }
