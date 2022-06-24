@@ -5,6 +5,7 @@ import { View, Text, Button, TextInput } from 'react-native';
 
 // styles
 import { styles } from '../../assets/styles/styleSignupLogin';
+import { login } from '../../services/api/userapi';
 
 const formData = {
     email: '',
@@ -36,8 +37,7 @@ const LoginNf = () => {
     }
 
     const handleSubmit = () => {
-        // api post
-        console.log(formData);
+        login(formData);
     }
 
     return (
