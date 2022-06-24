@@ -1,34 +1,34 @@
 import React, { useState } from 'react';
 
 // native components
-import { Text, View, Button, TextInput } from 'react-native';
+import { Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
 
 // validation
 import { checkMail, checkPassword } from '../../utils/validation';
 
 // styles
 import { styles } from '../../assets/styles/styleSignupLogin';
+import { signUp } from '../../services/api/userapi';
 
 const initState = {
     isDisable: true
 }
 
 const formData = {
-    name: '',
-    nickname: '',
+    username: '',
     email: '',
     password: '',
-    confirmPassword: ''
 }
+let confirmPsw = '';
 
-const SignupNf = () => {
+const SignupNf = ({ onPressSubmit, onGoToRegistration }) => {
 
     const [state, setState] = useState(initState);
 
     const handleChange = (property) => (e) => {
         const newState = Object.assign({}, state);
 
-        if (formData.password === formData.confirmPassword && checkMail(formData.email)) {
+        if (formData.password === confirmPsw && checkMail(formData.email)) {
 
             newState.isDisable = false;
         } else {
@@ -38,12 +38,16 @@ const SignupNf = () => {
 
         setState({ ...state, isDisable: newState.isDisable });
 
+        if (property === 'confirmPassword') {
+            return confirmPsw = e.target.value;
+        }
         formData[property] = e.target.value;
+
     }
 
     const handleSubmit = () => {
-        // api post
-        console.log(formData);
+        signUp(formData);
+        onPressSubmit();
     }
 
     return (
@@ -54,15 +58,11 @@ const SignupNf = () => {
             </Text>
 
             <View style={styles.inputContainer}>
+
                 <TextInput
                     style={styles.textInput}
-                    onChange={handleChange('name')}
-                    placeholder={'Insert name'}
-                />
-                <TextInput
-                    style={styles.textInput}
-                    onChange={handleChange('nickname')}
-                    placeholder={'Insert nickname'}
+                    onChange={handleChange('username')}
+                    placeholder={'Insert username'}
                 />
                 <TextInput
                     style={styles.textInput}
@@ -82,14 +82,28 @@ const SignupNf = () => {
                     onChange={handleChange('confirmPassword')}
                     placeholder={'Insert confirm password'}
                 />
-            </View>
 
-            <Button
-                title={'Sign up'}
-                style={styles.btn}
-                disabled={state.isDisable}
-                onPress={handleSubmit}
-            />
+                <View>
+                    <TouchableOpacity
+                        onPress={onGoToRegistration}
+                        style={{margin: 20}}
+                    >
+                        <Text
+                            style={styles.text}
+                        >
+                            Registration
+                        </Text>
+                    </TouchableOpacity>
+
+                </View>
+
+                <Button
+                    title={'Sign up'}
+                    style={styles.btn}
+                    disabled={state.isDisable}
+                    onPress={handleSubmit}
+                />
+            </View>
         </View>
     )
 }
