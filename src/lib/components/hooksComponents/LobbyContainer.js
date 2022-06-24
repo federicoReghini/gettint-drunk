@@ -6,29 +6,13 @@ import { useEffect, useState } from 'react';
 import { postApi } from '../../services/genericServices';
 const LobbyContainer = () => {
 
-    const [state,setState] = useState({
-        lobbyId : null
-    })
-    useEffect(()=>{
-        (async()=>{
-            const lobby = await postApi("/lobby",{},"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaWFvQGNpYW8uaXQiLCJyb2xlcyI6WyJVU0VSIl0sImlhdCI6MTY1NTk5NDI2MiwiZXhwIjoxNjU1OTk3ODYyfQ.y-LMOpSJr2LZ2K2Y1mE9bmCuVjMT9wvpLt1fsuG2FfU")
-            setState({
-                ...state,
-                lobbyId: lobby
-            }) 
-        })()
-        console.log("lobby",state.lobbyId)
-    },[])
+    
     const generateTestUser = () => {
-        let arrayTmp = []
-        for (let index = 0; index < 7; index++) {
-            arrayTmp.push(
-                <View style={{ width: "calc(100% / 7)", height: '100%' }}>
-                    <UserContainer
-                        key={index}></UserContainer>
-                </View>)
-        }
-        return arrayTmp;
+        return [...new Array(7).keys()].map(index => <View  key={index} style={{ width: "calc(100% / 7)", height: '100%' }}>
+        <UserContainer
+           ></UserContainer>
+    </View>)
+       
     }
     return (
         <ImageBackground source={bgImage} style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: '100vh', width: '100vw', position: 'relative' }}
