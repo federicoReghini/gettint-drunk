@@ -3,10 +3,10 @@
 import LeaderBoard from "./lib/components/hooksComponents/pageComponents/LeaderBoard";
 import LobbyContainer from "./lib/components/hooksComponents/LobbyContainer";
 import SignupNf from "./lib/components/hooksComponents/SignupNf";
-import { setStorage } from "./lib/utils/storage";
+/* import { setStorage } from "./lib/utils/storage"; */
 function App() {
 
-  setStorage('test', 'ciao')
+  /* setStorage('test', 'ciao') */
 
   return (
     <>
