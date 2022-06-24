@@ -48,7 +48,7 @@ const CreateLobbyNf = ({ user, listOfPlayers, onTapStartGame }) => {
   const onTapAddPlayers = (player) => () => {
     const newState = Object.assign({}, state);
 
-    const FIND = newState.players?.some(({ nickname }) => player?.nickname === nickname)
+    const FIND = newState.players?.some(({ nickname }) => player?.nickname === nickname);
 
     if (FIND) return;
 
@@ -113,4 +113,4 @@ const CreateLobbyNf = ({ user, listOfPlayers, onTapStartGame }) => {
   )
 }
 
-export default CreateLobbyNf
+export default CreateLobbyNf;

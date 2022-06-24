@@ -2,7 +2,23 @@ import React from 'react'
 import { View, ImageBackground, Button, Dimensions } from 'react-native';
 import UserContainer from './UserContainer';
 import bgImage from '../../assets/bgImage.png'
+import { useEffect, useState } from 'react';
+import { postApi } from '../../services/genericServices';
 const LobbyContainer = () => {
+
+    const [state,setState] = useState({
+        lobbyId : null
+    })
+    useEffect(()=>{
+        (async()=>{
+            const lobby = await postApi("/lobby",{},"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaWFvQGNpYW8uaXQiLCJyb2xlcyI6WyJVU0VSIl0sImlhdCI6MTY1NTk5NTU0NiwiZXhwIjoxNjU1OTk5MTQ2fQ.UnSWIm1iQUHmX-27-3N4a83iOAxLXwUM0QWkefszjGM")
+            setState({
+                ...state,
+                lobbyId: lobby
+            }) 
+        })()
+        console.log("lobby",state.lobbyId)
+    },[])
     const generateTestUser = () => {
         let arrayTmp = []
         for (let index = 0; index < 7; index++) {
