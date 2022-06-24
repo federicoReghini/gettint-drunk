@@ -37,7 +37,7 @@ const initState = {
  * @param  {Array[object]} listOfPlayers
  * @param  {function} onTapStartGame Function to handle the start of the game. There must be at least 2 players(yourself and one more + cpu)
  */
-const CreateLobby = ({ user, listOfPlayers, onTapStartGame }) => {
+const CreateLobbyNf = ({ user, listOfPlayers, onTapStartGame }) => {
 
   const [state, setState] = useState(initState)
 
@@ -48,7 +48,7 @@ const CreateLobby = ({ user, listOfPlayers, onTapStartGame }) => {
   const onTapAddPlayers = (player) => () => {
     const newState = Object.assign({}, state);
 
-    const FIND = newState.players?.some(({ nickname }) => player?.nickname === nickname)
+    const FIND = newState.players?.some(({ nickname }) => player?.nickname === nickname);
 
     if (FIND) return;
 
@@ -113,4 +113,4 @@ const CreateLobby = ({ user, listOfPlayers, onTapStartGame }) => {
   )
 }
 
-export default CreateLobby
+export default CreateLobbyNf;

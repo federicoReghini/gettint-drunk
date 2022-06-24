@@ -39,4 +39,4 @@ ButtonNf.propTypes = {
   onPress: PropTypes.func
 }
 
-export default ButtonNf
+export default ButtonNf;

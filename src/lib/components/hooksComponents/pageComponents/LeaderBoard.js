@@ -52,7 +52,7 @@ const initState = {
 
 const id = 1
 
-const LeaderBoard = ({ onClickNavigate }) => {
+const LeaderBoardNf = ({ onClickNavigate }) => {
 
   const [state, setState] = useState(initState);
 
@@ -79,7 +79,7 @@ const LeaderBoard = ({ onClickNavigate }) => {
                 fontSize: 20,
                 textShadowColor: 'rgba(0, 0, 0, 0.75)',
                 textShadowOffset: { width: 1, height: 1 },
-                textAlign: 'center'
+                textAlign: 'center',
               }}
             >
               {
@@ -99,7 +99,7 @@ const LeaderBoard = ({ onClickNavigate }) => {
               fontSize: 20,
               textShadowColor: 'rgba(0, 0, 0, 0.75)',
               textShadowOffset: { width: 1, height: 1 },
-              textAlign: 'center'
+              textAlign: 'center',
             }}>
               {player.score}
             </Text>
@@ -151,4 +151,4 @@ const LeaderBoard = ({ onClickNavigate }) => {
   )
 }
 
-export default LeaderBoard
+export default LeaderBoardNf

@@ -13,10 +13,9 @@ export const styles = StyleSheet.create({
   },
   leaderRow: {
     width: '50%',
-    textAlign: 'center'
   },
   leader: {
-    fontSize: Platform.OS === 'web' ? 24 : 18,
+    fontSize: Platform.OS === 'web' ? 24 : 22,
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
     textShadowOffset: { width: 1, height: 1 },
     textAlign: 'center',
@@ -24,7 +23,7 @@ export const styles = StyleSheet.create({
     color: '#e7c403'
   },
   board: {
-    fontSize: Platform.OS === 'web' ? 22 : 18,
+    fontSize: Platform.OS === 'web' ? 22 : 20,
     color: '#f2e8e0'
   },
   titleWrapper: {

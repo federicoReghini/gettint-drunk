@@ -13,8 +13,8 @@ import UserContainer from "./hooksComponents/UserContainer";
 
 // Hooks components pageComponents
 import JoinLobbyNf from "./hooksComponents/pageComponents/JoinLobbyNf";
-import LeaderBoard from "./hooksComponents/pageComponents/LeaderBoard";
-import CreateLobby from "./hooksComponents/pageComponents/CreateLobby";
+import LeaderBoardNf from "./hooksComponents/pageComponents/LeaderBoard";
+import CreateLobbyNf from "./hooksComponents/pageComponents/CreateLobby";
 
 
 // utils
@@ -32,6 +32,6 @@ export {
     CountDownNf,
     UserContainer,
     LobbyContainer,
-    LeaderBoard,
-    CreateLobby
+    LeaderBoardNf,
+    CreateLobbyNf
 }
