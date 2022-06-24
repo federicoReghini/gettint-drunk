@@ -11,7 +11,7 @@ const LobbyContainer = () => {
     })
     useEffect(()=>{
         (async()=>{
-            const lobby = await postApi("/lobby",{},"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaWFvQGNpYW8uaXQiLCJyb2xlcyI6WyJVU0VSIl0sImlhdCI6MTY1NTk5NDI2MiwiZXhwIjoxNjU1OTk3ODYyfQ.y-LMOpSJr2LZ2K2Y1mE9bmCuVjMT9wvpLt1fsuG2FfU")
+            const lobby = await postApi("/lobby",{},"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaWFvQGNpYW8uaXQiLCJyb2xlcyI6WyJVU0VSIl0sImlhdCI6MTY1NTk5NTU0NiwiZXhwIjoxNjU1OTk5MTQ2fQ.UnSWIm1iQUHmX-27-3N4a83iOAxLXwUM0QWkefszjGM")
             setState({
                 ...state,
                 lobbyId: lobby

@@ -60,26 +60,32 @@ export async function postApi(resource, obj, header = null) {
       .then(responseApi())
       .catch(responseApiError());
   }
-
-export async function getApi(resource) {
+  
+  export async function getApi(resource, header = null) {
     //function for get api call
     return axiosInstance
-        .get(resource)
-        .then(responseApi())
-        .catch(responseApiError());
-}
-
-export async function putApi(resource, obj) {
+      .get(resource, {
+        headers: header !== null ? { Authorization: `Bearer ${header}` } : "",
+      })
+      .then(responseApi())
+      .catch(responseApiError());
+  }
+  
+  export async function putApi(resource, obj, header = null) {
     //function for put api call
     return axiosInstance
-        .put(resource, obj)
-        .then(responseApi())
-        .catch(responseApiError());
-}
-
-export async function deleteApi(resource) {
+      .put(resource, obj, {
+        headers: header !== null ? { Authorization: `Bearer ${header}` } : "",
+      })
+      .then(responseApi())
+      .catch(responseApiError());
+  }
+  
+  export async function deleteApi(resource, header = null) {
     return axiosInstance
-        .delete(resource)
-        .then(responseApi())
-        .catch(responseApiError());
-}
+      .delete(resource, {
+        headers: header !== null ? { Authorization: `Bearer ${header}` } : "",
+      })
+      .then(responseApi())
+      .catch(responseApiError());
+  }
