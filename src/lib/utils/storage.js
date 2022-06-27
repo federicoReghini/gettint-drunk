@@ -15,6 +15,8 @@ async function getStorage(key) {
         const value = await AsyncStorage.getItem(key);
         if (value) {
             return JSON.parse(value);
+        }else {
+            return null;
         }
     } catch (error) {
         return error.message;
