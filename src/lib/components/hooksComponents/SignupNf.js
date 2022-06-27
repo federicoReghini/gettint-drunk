@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types'
 
 // native components
 import { Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
@@ -106,6 +107,10 @@ const SignupNf = ({ onPressSubmit, onGoToRegistration }) => {
             </View>
         </View>
     )
+}
+
+SignupNf.propTypes = {
+    onPressSubmit: PropTypes.func
 }
 
 export default SignupNf;
