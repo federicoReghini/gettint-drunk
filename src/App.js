@@ -3,7 +3,9 @@
 import LeaderBoard from "./lib/components/hooksComponents/pageComponents/LeaderBoard";
 import LobbyContainer from "./lib/components/hooksComponents/LobbyContainer";
 import SignupNf from "./lib/components/hooksComponents/SignupNf";
-/* import { setStorage } from "./lib/utils/storage"; */
+import LoginNf from "./lib/components/hooksComponents/LoginNf";
+
+import { setStorage } from "./lib/utils/storage";
 function App() {
 
   /* setStorage('test', 'ciao') */
@@ -12,8 +14,8 @@ function App() {
     <>
       {/* <View style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}> */}
       {/* </View> */}
-      <LobbyContainer />
-     {/* <SignupNf /> */}
+      {/* <LobbyContainer /> */}
+      <LoginNf />
     </>
   );
 }

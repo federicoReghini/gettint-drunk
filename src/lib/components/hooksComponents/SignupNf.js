@@ -50,15 +50,14 @@ const SignupNf = ({ onPressSubmit, onGoToRegistration }) => {
     }
 
     const handleSubmit = async () => {
-        // await signUp(formData);
-        login({
+        await signUp(formData);
+        const res = await login({
             email: formData.email,
             password: formData.password
-        }).then(res => console.log(res.data))
+        });
 
-
-
-        // setStorage('token', token);
+        setStorage('token', res?.data?.token);
+        setStorage('refreshToken', res?.data?.refreshToken);
 
         onPressSubmit();
     }
@@ -122,8 +121,8 @@ const SignupNf = ({ onPressSubmit, onGoToRegistration }) => {
 }
 
 SignupNf.propTypes = {
-    onPressSubmit: PropTypes.func,
-    onGoToRegistration: PropTypes.func
+    onPressSubmit: PropTypes.func.isRequired,
+    onGoToRegistration: PropTypes.func.isRequired
 }
 
 export default SignupNf;
