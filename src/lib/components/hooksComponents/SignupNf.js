@@ -10,7 +10,7 @@ import { checkMail, checkPassword } from '../../utils/validation';
 // styles
 import { styles } from '../../assets/styles/styleSignupLogin';
 import { login, signUp } from '../../services/api/userapi';
-import { setStorage, getStorage } from '../../utils/storage';
+import { setStorage } from '../../utils/storage';
 
 const initState = {
     isDisable: true
@@ -50,6 +50,7 @@ const SignupNf = ({ onPressSubmit }) => {
     const handleSubmit = async () => {
         try {
             await signUp(formData);
+            
             const res = await login({
                 email: formData.email,
                 password: formData.password

@@ -39,15 +39,16 @@ const LoginNf = ({ onPressSubmit, onGoToRegistration }) => {
     }
 
     const handleSubmit = async () => {
-      try {
-        const res = await login(formData);
+        try {
+            const res = await login(formData);
 
-        setStorage('token', res?.data?.token);
-        setStorage('refreshToken', res?.data?.refreshToken);
-        onPressSubmit();
-      } catch (error) {
-        console.log(error?.message);
-      }
+            await setStorage('token', res?.data?.token);
+            await setStorage('refreshToken', res?.data?.refreshToken);
+
+            onPressSubmit();
+        } catch (error) {
+            console.log(error?.message);
+        }
     }
 
     return (
