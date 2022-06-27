@@ -10,7 +10,7 @@ import beer from '../../../assets/img/icon/birra.png';
 import ship from '../../../assets/img/icon/futuramaship.png';
 import bg from '../../../assets/img/background/leaderboardbg.jpg';
 import { getUsers } from '../../../services/api/userapi';
-import { getExpireStorage, getStorage, setStorage } from '../../../utils/storage';
+import { getStorage } from '../../../utils/storage';
 
 const initState = {
   players: []
@@ -26,14 +26,14 @@ const LeaderBoardNf = ({ onClickNavigate }) => {
     //api call for get players nickname and score
     (async () => {
 
-        const res = await getUsers();
+      const res = await getUsers();
 
-        user = await getStorage('user')
+      user = await getStorage('user')
 
-        setState({
-          ...state,
-          players: res?.data
-        })
+      setState({
+        ...state,
+        players: res?.data
+      })
     })()
   }
 
