@@ -1,22 +1,42 @@
 import axios from "axios";
+
 import { deleteLobby } from "./api/lobbyapi";
 // config
 import { BASEURL, TIMEOUT } from "./config";
-
+//storage
+import { getStorage, setStorage } from "../utils/storage";
+import { updateAuthToken } from "./api/userapi";
 const axiosInstance = axios.create({
   baseURL: BASEURL,
   timeout: TIMEOUT
 })
 
+
+
 axiosInstance.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
   console.log("error", error)
-  if (error?.response.status === 500 && error?.config?.url === "lobby" && error?.config?.method === "post") {//passare successivamente errore modificato
-    (async () => {
-      await deleteLobby("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJOaWNvUm9iaW5AZ21haWwuY29tIiwicm9sZXMiOlsiVVNFUiJdLCJpYXQiOjE2NTYwODA1NTUsImV4cCI6MTY1NjA4NDE1NX0.HJ5Ss8LkiS8qhLv2U-ofi5WeMS0D8Fww8Z9v3jbSosQ")
-    })()
+  switch (error.response.status) {
+    case (500):
+      if (error.config?.url === "lobby" && error.config?.method === "post") {//passare successivamente errore modificato
+        /*  (async () => {
+           const TOKEN = await getStorage('token')
+           await deleteLobby("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmdAc3RyaW5neS5pdCIsInJvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjU2MzM4NDM5LCJleHAiOjE2NTYzNDIwMzl9.KIp_pmac79d7vaRl-GsWTAV0nYjtdsxGQGBFieodr0w")
+         })() */
+      }
+      break;
+    case (401):
+      if (error.response.status === 401) {
+        (async () => {
+          const { token, refreshToken } = await updateAuthToken();
+          setStorage('token', token)
+          setStorage('refreshToken', refreshToken)
+        })()
+      }
   }
+
+
 })
 
 // axiosInstance.interceptors.response.use(function (response) {

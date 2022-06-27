@@ -4,8 +4,11 @@ import UserContainer from './UserContainer';
 import bgImage from '../../assets/bgImage.png'
 import { useEffect, useState } from 'react';
 import { getApi, postApi } from '../../services/genericServices';
-import { createLobby } from '../../services/api/lobbyapi';
+import { createLobby, quitLobby } from '../../services/api/lobbyapi';
 import { getUserById } from '../../services/api/userapi';
+//storage
+import { getStorage } from '../../utils/storage';
+import { openConnection, wsMessage, sendDataToWs } from '../../services/genericWebSocket';
 const LobbyContainer = () => {
 
     const [state, setState] = useState({
@@ -14,14 +17,15 @@ const LobbyContainer = () => {
 
     useEffect(() => {
         (async () => {
-
-            const LOBBYID = await createLobby("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmdAc3RyaW5neS5pdCIsInJvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjU2MzE1NjY3LCJleHAiOjE2NTYzMTkyNjd9.MuOWDYuj98v_RU2PP0k4slGFkvGEHPVJ0RottyB4Dd8")
+            const TOKEN = await getStorage('token')
+            const LOBBYID = await createLobby("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmdAc3RyaW5neS5pdCIsInJvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjU2MzQxNzIyLCJleHAiOjE2NTYzNDUzMjJ9.mfD5uFjr8S57-y3YeFVRAWfcL6Nc_9gw_Ai1fgUqPnE")
             setState({
                 ...state,
                 lobbyId: LOBBYID
             })
         })()
         console.log(state.lobbyId)
+        openConnection();
     }, [])
 
     const generateTestUser = () => {
@@ -36,6 +40,14 @@ const LobbyContainer = () => {
             resizeMode='cover'>
 
             <View style={{ position: 'absolute', height: '33%', width: '85%', top: '43%', left: '7%', flexDirection: 'row' }}>
+                <Button
+                    title='testWB'
+                    onPress={async () => {
+                        /* const QUIT = await quitLobby("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmdAc3RyaW5neS5pdCIsInJvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjU2MzQxNzIyLCJleHAiOjE2NTYzNDUzMjJ9.mfD5uFjr8S57-y3YeFVRAWfcL6Nc_9gw_Ai1fgUqPnE")
+                        console.log('quit', QUIT);
+ */
+                        sendDataToWs();
+                    }}></Button>
                 {generateTestUser()}
             </View>
 
