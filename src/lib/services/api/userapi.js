@@ -8,6 +8,11 @@ export async function signUp(body) {
 export async function login(body) {
   return await postApi('signin', body);
 }
+
+export async function updateAuthToken(body) {
+  return await postApi('updateAuthToken', body);
+}
+
 export async function getUsers(token) {
   return await getApi('users', token);
 }
