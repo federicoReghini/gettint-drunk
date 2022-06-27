@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import { getApi, postApi } from '../../services/genericServices';
 import { createLobby } from '../../services/api/lobbyapi';
 import { getUserById } from '../../services/api/userapi';
+//storage
+import { getStorage } from '../../utils/storage';
 const LobbyContainer = () => {
 
     const [state, setState] = useState({
@@ -14,8 +16,8 @@ const LobbyContainer = () => {
 
     useEffect(() => {
         (async () => {
-
-            const LOBBYID = await createLobby("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmdAc3RyaW5neS5pdCIsInJvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjU2MzE1NjY3LCJleHAiOjE2NTYzMTkyNjd9.MuOWDYuj98v_RU2PP0k4slGFkvGEHPVJ0RottyB4Dd8")
+            const TOKEN = await getStorage('token')
+            const LOBBYID = await createLobby(TOKEN)
             setState({
                 ...state,
                 lobbyId: LOBBYID

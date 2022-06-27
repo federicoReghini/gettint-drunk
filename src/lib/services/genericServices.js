@@ -1,8 +1,10 @@
 import axios from "axios";
+
 import { deleteLobby } from "./api/lobbyapi";
 // config
 import { BASEURL, TIMEOUT } from "./config";
-
+//storage
+import { getStorage } from "../utils/storage";
 const axiosInstance = axios.create({
   baseURL: BASEURL,
   timeout: TIMEOUT
@@ -14,9 +16,17 @@ axiosInstance.interceptors.response.use(function (response) {
   console.log("error", error)
   if (error?.response.status === 500 && error?.config?.url === "lobby" && error?.config?.method === "post") {//passare successivamente errore modificato
     (async () => {
-      await deleteLobby("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJOaWNvUm9iaW5AZ21haWwuY29tIiwicm9sZXMiOlsiVVNFUiJdLCJpYXQiOjE2NTYwODA1NTUsImV4cCI6MTY1NjA4NDE1NX0.HJ5Ss8LkiS8qhLv2U-ofi5WeMS0D8Fww8Z9v3jbSosQ")
+      const TOKEN = await getStorage('token')
+      await deleteLobby(TOKEN)
     })()
   }
+  if (error?.response.status === 401) {
+    (async () => {
+      const TOKEN = await getStorage('token')
+      await deleteLobby(TOKEN)
+    })()
+  }
+
 })
 
 // axiosInstance.interceptors.response.use(function (response) {
