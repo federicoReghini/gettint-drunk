@@ -16,12 +16,14 @@ import JoinLobbyNf from './components/hooksComponents/pageComponents/JoinLobbyNf
 import LeaderBoardNf from "./components/hooksComponents/pageComponents/LeaderBoardNf";
 import CreateLobbyNf from "./components/hooksComponents/pageComponents/CreateLobbyNf";
 
-
 // Storage functions
 import { setStorage, getStorage, removeStorage, clearStorage } from "./utils/storage";
 
 // utils
 import { iconArrayCard, bossIconCard, assignIdToIconCard } from "./utils/iconArrayAssign";
+
+// api
+import { login, signUp, deleteUser, editUser, getUserById, getUsers, updateAuthToken } from "./services/api/userapi";
 
 export {
     LoginNf,
@@ -40,5 +42,12 @@ export {
     setStorage,
     getStorage,
     removeStorage,
-    clearStorage
+    clearStorage,
+    login,
+    signUp, 
+    deleteUser, 
+    editUser, 
+    getUserById, 
+    getUsers, 
+    updateAuthToken
 }

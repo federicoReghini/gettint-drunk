@@ -9,8 +9,8 @@ export async function login(body) {
   return await postApi('signin', body);
 }
 
-export async function updateAuthToken(body) {
-  return await postApi('updateAuthToken', body);
+export async function updateAuthToken(token) {
+  return await postApi('updateAuthToken', token);
 }
 
 export async function getUsers() {
