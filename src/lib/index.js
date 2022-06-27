@@ -1,23 +1,24 @@
 // Func components
-import { HomeNf } from "./components";
+import HomeNf from "./components/funcComponents/pageComponents/HomeNf";
+
 // Hooks components ui
-import BeerContainer from "./components";
-import ButtonNf from "./components";
-import LoginNf from "./components";
-import SignupNf from "./components";
-import SwitchNf from "././components";
-import CountDownNf from "./components";
-import LobbyContainer from "./components";
-import UserContainer from "./components";
+import BeerContainer from "./components/hooksComponents/BeerContainer/BeerContainer";
+import ButtonNf from "./components/hooksComponents/ButtonNf";
+import LoginNf from "./components/hooksComponents/LoginNf";
+import SignupNf from "./components/hooksComponents/SignupNf";
+import SwitchNf from "././components/hooksComponents/SwitchNf";
+import CountDownNf from "./components/hooksComponents/CountDownNf";
+import LobbyContainer from "./components/hooksComponents/LobbyContainer";
+import UserContainer from "./components/hooksComponents/UserContainer";
 
 // Hooks components pageComponents
-import JoinLobbyNf from "./components";
-import LeaderBoard from "./components";
-import CreateLobby from "./components";
+import JoinLobbyNf from './components/hooksComponents/pageComponents/JoinLobbyNf';
+import LeaderBoardNf from "./components/hooksComponents/pageComponents/LeaderBoardNf";
+import CreateLobbyNf from "./components/hooksComponents/pageComponents/CreateLobbyNf";
+
 
 // Storage functions
 import { setStorage, getStorage, removeStorage, clearStorage } from "./utils/storage";
-
 
 // utils
 import { iconArrayCard, bossIconCard, assignIdToIconCard } from "./utils/iconArrayAssign";
@@ -34,10 +35,10 @@ export {
     CountDownNf,
     UserContainer,
     LobbyContainer,
-    LeaderBoard,
-    CreateLobby,
+    LeaderBoardNf,
+    CreateLobbyNf,
     setStorage,
-    getStorage, 
-    removeStorage, 
+    getStorage,
+    removeStorage,
     clearStorage
 }

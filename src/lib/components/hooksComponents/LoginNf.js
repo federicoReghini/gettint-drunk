@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 // native components
-import { View, Text, Button, TextInput } from 'react-native';
+import { View, Text, Button, TextInput, Platform, TouchableOpacity } from 'react-native';
 
 // styles
 import { styles } from '../../assets/styles/styleSignupLogin';
@@ -17,7 +18,7 @@ const initState = {
     isDisable: true
 }
 
-const LoginNf = ({ onPressSubmit }) => {
+const LoginNf = ({ onPressSubmit, onGoToRegistration }) => {
 
     const [state, setState] = useState(initState);
 
@@ -40,17 +41,19 @@ const LoginNf = ({ onPressSubmit }) => {
     const handleSubmit = async () => {
         const res = await login(formData);
 
-        setStorage('token', res?.data?.token)
-        setStorage('refreshToken', res?.data?.refreshToken)
+        setStorage('token', res?.data?.token);
+        setStorage('refreshToken', res?.data?.refreshToken);
         onPressSubmit();
     }
 
     return (
-        <View style={styles.container}>
+        <View>
 
-            <Text style={styles.title}>
-                Login
-            </Text>
+            {Platform.OS === 'web' &&
+                <Text style={styles.title}>
+                    Login
+                </Text>
+            }
 
             <View style={styles.inputContainer}>
                 <TextInput
@@ -65,16 +68,36 @@ const LoginNf = ({ onPressSubmit }) => {
                     onChange={handleChange('password')}
                     placeholder={'Insert password'}
                 />
+
+                <View>
+                    <TouchableOpacity
+                        onPress={onGoToRegistration}
+                        style={{ margin: 20 }}
+                    >
+                        <Text
+                            style={styles.text}
+                        >
+                            Registration
+                        </Text>
+                    </TouchableOpacity>
+
+                </View>
+
+                <Button
+                    title={'Login'}
+                    style={styles.btn}
+                    disabled={state.isDisable}
+                    onPress={handleSubmit}
+                />
             </View>
 
-            <Button
-                title={'Login'}
-                style={styles.btn}
-                disabled={state.isDisable}
-                onPress={handleSubmit}
-            />
         </View>
     )
+}
+
+LoginNf.propTypes = {
+    onPressSubmit: PropTypes.func.isRequired,
+    onGoToRegistration: PropTypes.func.isRequired
 }
 
 export default LoginNf;

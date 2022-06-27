@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 // native components
-import { Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, Button, TextInput } from 'react-native';
 
 // validation
 import { checkMail, checkPassword } from '../../utils/validation';
@@ -23,7 +23,7 @@ const formData = {
 }
 let confirmPsw = '';
 
-const SignupNf = ({ onPressSubmit, onGoToRegistration }) => {
+const SignupNf = ({ onPressSubmit }) => {
 
     const [state, setState] = useState(initState);
 
@@ -32,7 +32,7 @@ const SignupNf = ({ onPressSubmit, onGoToRegistration }) => {
 
         console.log(formData.password, confirmPsw);
 
-        if (formData.password === confirmPsw && checkMail(formData.email)) {
+        if (formData.password === confirmPsw && checkMail(formData.email) && checkPassword(formData.password)) {
 
             newState.isDisable = false;
         } else {
@@ -95,20 +95,6 @@ const SignupNf = ({ onPressSubmit, onGoToRegistration }) => {
                     placeholder={'Insert confirm password'}
                 />
 
-                <View>
-                    <TouchableOpacity
-                        onPress={onGoToRegistration}
-                        style={{ margin: 20 }}
-                    >
-                        <Text
-                            style={styles.text}
-                        >
-                            Registration
-                        </Text>
-                    </TouchableOpacity>
-
-                </View>
-
                 <Button
                     title={'Sign up'}
                     style={styles.btn}
@@ -122,7 +108,6 @@ const SignupNf = ({ onPressSubmit, onGoToRegistration }) => {
 
 SignupNf.propTypes = {
     onPressSubmit: PropTypes.func.isRequired,
-    onGoToRegistration: PropTypes.func.isRequired
 }
 
 export default SignupNf;

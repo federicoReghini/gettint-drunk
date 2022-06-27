@@ -2,7 +2,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 async function setStorage(key, value) {
     try {
-        const jsonValue = JSON.stringify(value);
+        const now = new Date();
+
+        const item = {
+            [key]: value,
+            expire: now.getTime()
+        }
+    
+        const jsonValue = JSON.stringify(item);
         await AsyncStorage.setItem(key, jsonValue);
     } catch (error) {
         return error?.message;
@@ -10,6 +17,21 @@ async function setStorage(key, value) {
 }
 
 async function getStorage(key) {
+
+    try {
+        const value = await AsyncStorage.getItem(key);
+        if (value) {
+            const json = JSON.parse(value);
+            return json[key];
+        }else {
+            return null;
+        }
+    } catch (error) {
+        return error.message;
+    }
+}
+
+async function getExpireStorage(key) {
 
     try {
         const value = await AsyncStorage.getItem(key);
@@ -45,6 +67,7 @@ async function clearStorage() {
 export {
     setStorage,
     getStorage,
+    getExpireStorage,
     removeStorage,
     clearStorage
 }

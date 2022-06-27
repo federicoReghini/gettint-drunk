@@ -13,12 +13,12 @@ export async function updateAuthToken(body) {
   return await postApi('updateAuthToken', body);
 }
 
-export async function getUsers(token) {
-  return await getApi('users', token);
+export async function getUsers() {
+  return await getApi('users');
 }
 
-export async function getUserById(id, token) {
-  return await getApi(`getuser/${id}`, token);
+export async function getUserById(id) {
+  return await getApi(`getuser/${id}`);
 }
 
 export async function deleteUser(token) {

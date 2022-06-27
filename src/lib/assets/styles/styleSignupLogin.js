@@ -1,13 +1,6 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100vh',
-  },
   title: {
     margin: 20,
     color: '#44403C',
@@ -24,11 +17,10 @@ export const styles = StyleSheet.create({
     padding: 50
   },
   btn: {
-    borderRadius: 20,
+    borderRadius: 50,
   },
   textInput: {
     margin: 10,
-    textAlign: 'start',
     borderColor: '#000'
   },
   text: {

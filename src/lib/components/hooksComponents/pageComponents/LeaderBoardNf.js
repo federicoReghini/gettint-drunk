@@ -9,45 +9,11 @@ import { styles } from '../../../assets/styles/styleLeaderBoard';
 import beer from '../../../assets/img/icon/birra.png';
 import ship from '../../../assets/img/icon/futuramaship.png';
 import bg from '../../../assets/img/background/leaderboardbg.jpg';
+import { getUsers } from '../../../services/api/userapi';
+import { getExpireStorage, getStorage, setStorage } from '../../../utils/storage';
 
 const initState = {
-  players: [
-    {
-      id: 0,
-      nickname: 'Federico',
-      score: 200
-    },
-    {
-      id: 1,
-      nickname: 'Nicola',
-      score: 400
-    },
-    {
-      id: 2,
-      nickname: 'Luca',
-      score: 100
-    },
-    {
-      id: 3,
-      nickname: 'Andrdsaea',
-      score: 4300
-    },
-    {
-      id: 4,
-      nickname: 'dff',
-      score: 242300
-    },
-    {
-      id: 5,
-      nickname: 'fdfsfs',
-      score: 243400
-    },
-    {
-      id: 6,
-      nickname: 'fsdfsdatdt',
-      score: 22200
-    },
-  ],
+  players: []
 }
 
 const id = 1
@@ -58,6 +24,15 @@ const LeaderBoardNf = ({ onClickNavigate }) => {
 
   function callbackUseEffect() {
     //api call for get players nickname and score
+    (async () => {
+
+        const res = await getUsers();
+
+        setState({
+          ...state,
+          players: res?.data
+        })
+    })()
   }
 
   function playerList(player, key) {
@@ -85,7 +60,7 @@ const LeaderBoardNf = ({ onClickNavigate }) => {
               {
                 player.id === id && <Image source={beer} style={{ width: 20, height: 20 }} />
               }
-              {player.nickname}
+              {player.username}
 
             </Text>
 
@@ -118,9 +93,9 @@ const LeaderBoardNf = ({ onClickNavigate }) => {
   useEffect(callbackUseEffect, [])
 
   return (
-    <ImageBackground 
-    source={bg} 
-    style={{ width: '100%', height: Platform.OS === 'web' ? '100vh' : '100%', flex: Platform.OS === 'web' ? 0 : 1 }}
+    <ImageBackground
+      source={bg}
+      style={{ width: '100%', height: Platform.OS === 'web' ? '100vh' : '100%', flex: Platform.OS === 'web' ? 0 : 1 }}
     >
 
       <Pressable
@@ -151,4 +126,4 @@ const LeaderBoardNf = ({ onClickNavigate }) => {
   )
 }
 
-export default LeaderBoardNf
+export default LeaderBoardNf;
