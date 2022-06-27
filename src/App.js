@@ -7,12 +7,10 @@ import LeaderBoardNf from "./lib/components/hooksComponents/pageComponents/Leade
 
 function App() {
 
-  /* setStorage('test', 'ciao') */
 
   return (
     <>
-      {/* <View style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}> */}
-      {/* </View> */}
+   
       <LobbyContainer />
       {/*   <LoginNf /> */}
     </>

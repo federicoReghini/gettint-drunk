@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // native components
 import { View } from 'react-native';
@@ -31,6 +32,12 @@ const HomeNf = ({ onQuickMatch, onCreateLobby, onLeaderBoard }) => {
       />
     </View>
   )
+}
+
+HomeNf.propTypes = {
+  onQuickMatch: PropTypes.func.isRequired,
+  onCreateLobby: PropTypes.func.isRequired,
+  onLeaderBoard: PropTypes.func.isRequired
 }
 
 export default HomeNf;
