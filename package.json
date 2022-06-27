@@ -1,6 +1,6 @@
 {
   "name": "gettint-drunk",
-  "version": "0.5.13",
+  "version": "0.5.14",
   "main": "dist/index.js",
   "private": false,
   "files": [

@@ -16,7 +16,7 @@ const initState = {
   players: []
 }
 
-const id = 1
+let user;
 
 const LeaderBoardNf = ({ onClickNavigate }) => {
 
@@ -27,6 +27,8 @@ const LeaderBoardNf = ({ onClickNavigate }) => {
     (async () => {
 
         const res = await getUsers();
+
+        user = await getStorage('user')
 
         setState({
           ...state,
@@ -50,7 +52,7 @@ const LeaderBoardNf = ({ onClickNavigate }) => {
           >
             <Text
               style={{
-                color: player.id === id ? '#B72B29' : '#ffbf43',
+                color: player.id === user?.id ? '#B72B29' : '#ffbf43',
                 fontSize: 20,
                 textShadowColor: 'rgba(0, 0, 0, 0.75)',
                 textShadowOffset: { width: 1, height: 1 },
@@ -58,7 +60,7 @@ const LeaderBoardNf = ({ onClickNavigate }) => {
               }}
             >
               {
-                player.id === id && <Image source={beer} style={{ width: 20, height: 20 }} />
+                player.id === user?.id && <Image source={beer} style={{ width: 20, height: 20 }} />
               }
               {player.username}
 
@@ -70,7 +72,7 @@ const LeaderBoardNf = ({ onClickNavigate }) => {
           </View>
           <View style={styles.leaderRow}>
             <Text style={{
-              color: player.id === id ? '#B72B29' : '#fff',
+              color: player.id === user?.id ? '#B72B29' : '#fff',
               fontSize: 20,
               textShadowColor: 'rgba(0, 0, 0, 0.75)',
               textShadowOffset: { width: 1, height: 1 },

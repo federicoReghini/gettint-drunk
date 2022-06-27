@@ -10,7 +10,7 @@ import { checkMail, checkPassword } from '../../utils/validation';
 // styles
 import { styles } from '../../assets/styles/styleSignupLogin';
 import { login, signUp } from '../../services/api/userapi';
-import { setStorage } from '../../utils/storage';
+import { setStorage, getStorage } from '../../utils/storage';
 
 const initState = {
     isDisable: true
@@ -30,8 +30,6 @@ const SignupNf = ({ onPressSubmit }) => {
     const handleChange = (property) => (e) => {
         const newState = Object.assign({}, state);
 
-        console.log(formData.password, confirmPsw);
-
         if (formData.password === confirmPsw && checkMail(formData.email) && checkPassword(formData.password)) {
 
             newState.isDisable = false;
@@ -50,16 +48,21 @@ const SignupNf = ({ onPressSubmit }) => {
     }
 
     const handleSubmit = async () => {
-        await signUp(formData);
-        const res = await login({
-            email: formData.email,
-            password: formData.password
-        });
+        try {
+            await signUp(formData);
+            const res = await login({
+                email: formData.email,
+                password: formData.password
+            });
 
-        setStorage('token', res?.data?.token);
-        setStorage('refreshToken', res?.data?.refreshToken);
+            await setStorage('token', res?.data?.token);
+            await setStorage('refreshToken', res?.data?.refreshToken);
+            await setStorage('user', res?.data);
 
-        onPressSubmit();
+            onPressSubmit();
+        } catch (error) {
+            console.log(error.message);
+        }
     }
 
     return (

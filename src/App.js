@@ -11,8 +11,8 @@ function App() {
   return (
     <>
    
-      <LobbyContainer />
-      {/*   <LoginNf /> */}
+      <LeaderBoardNf />
+        {/* <SignupNf /> */}
     </>
   );
 }
