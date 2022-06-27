@@ -6,6 +6,7 @@ import { View, Text, Button, TextInput } from 'react-native';
 // styles
 import { styles } from '../../assets/styles/styleSignupLogin';
 import { login } from '../../services/api/userapi';
+import { setStorage } from '../../utils/storage';
 
 const formData = {
     email: '',
@@ -36,8 +37,11 @@ const LoginNf = ({ onPressSubmit }) => {
         formData[property] = e.target.value;
     }
 
-    const handleSubmit = () => {
-        login(formData);
+    const handleSubmit = async () => {
+        const res = await login(formData);
+
+        setStorage('token', res?.data?.token)
+        setStorage('refreshToken', res?.data?.refreshToken)
         onPressSubmit();
     }
 
