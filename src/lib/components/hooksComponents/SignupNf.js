@@ -9,7 +9,8 @@ import { checkMail, checkPassword } from '../../utils/validation';
 
 // styles
 import { styles } from '../../assets/styles/styleSignupLogin';
-import { signUp } from '../../services/api/userapi';
+import { login, signUp } from '../../services/api/userapi';
+import { setStorage } from '../../utils/storage';
 
 const initState = {
     isDisable: true
@@ -29,6 +30,8 @@ const SignupNf = ({ onPressSubmit, onGoToRegistration }) => {
     const handleChange = (property) => (e) => {
         const newState = Object.assign({}, state);
 
+        console.log(formData.password, confirmPsw);
+
         if (formData.password === confirmPsw && checkMail(formData.email)) {
 
             newState.isDisable = false;
@@ -46,8 +49,17 @@ const SignupNf = ({ onPressSubmit, onGoToRegistration }) => {
 
     }
 
-    const handleSubmit = () => {
-        signUp(formData);
+    const handleSubmit = async () => {
+        // await signUp(formData);
+        login({
+            email: formData.email,
+            password: formData.password
+        }).then(res => console.log(res.data))
+
+
+
+        // setStorage('token', token);
+
         onPressSubmit();
     }
 
@@ -87,7 +99,7 @@ const SignupNf = ({ onPressSubmit, onGoToRegistration }) => {
                 <View>
                     <TouchableOpacity
                         onPress={onGoToRegistration}
-                        style={{margin: 20}}
+                        style={{ margin: 20 }}
                     >
                         <Text
                             style={styles.text}
@@ -110,7 +122,8 @@ const SignupNf = ({ onPressSubmit, onGoToRegistration }) => {
 }
 
 SignupNf.propTypes = {
-    onPressSubmit: PropTypes.func
+    onPressSubmit: PropTypes.func,
+    onGoToRegistration: PropTypes.func
 }
 
 export default SignupNf;
