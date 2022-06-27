@@ -8,7 +8,7 @@ export async function createLobby(token) {
 }
 
 export async function deleteLobby(token) {
-  await deleteApi(RESOURCE, {}, token);
+  await deleteApi(RESOURCE, token);
 }
 
 export async function editLobby(id, body, token) {
