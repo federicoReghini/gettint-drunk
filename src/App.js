@@ -8,7 +8,7 @@ import LoginNf from "./lib/components/hooksComponents/LoginNf";
 import { setStorage } from "./lib/utils/storage";
 function App() {
 
-  setStorage('test', 'ciao')
+  /* setStorage('test', 'ciao') */
 
   return (
     <>
