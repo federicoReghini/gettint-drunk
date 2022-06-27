@@ -5,10 +5,13 @@ import { deleteLobby } from "./api/lobbyapi";
 import { BASEURL, TIMEOUT } from "./config";
 //storage
 import { getStorage, setStorage } from "../utils/storage";
+import { updateAuthToken } from "./api/userapi";
 const axiosInstance = axios.create({
   baseURL: BASEURL,
   timeout: TIMEOUT
 })
+
+
 
 axiosInstance.interceptors.response.use(function (response) {
   return response;
@@ -17,10 +20,10 @@ axiosInstance.interceptors.response.use(function (response) {
   switch (error.response.status) {
     case (500):
       if (error.config?.url === "lobby" && error.config?.method === "post") {//passare successivamente errore modificato
-        (async () => {
-          const TOKEN = await getStorage('token')
-          await deleteLobby(TOKEN)
-        })()
+        /*  (async () => {
+           const TOKEN = await getStorage('token')
+           await deleteLobby("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmdAc3RyaW5neS5pdCIsInJvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjU2MzM4NDM5LCJleHAiOjE2NTYzNDIwMzl9.KIp_pmac79d7vaRl-GsWTAV0nYjtdsxGQGBFieodr0w")
+         })() */
       }
       break;
     case (401):

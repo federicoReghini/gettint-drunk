@@ -1,24 +1,34 @@
 // config
 import { WEBSOCKET } from "./config";
+/* import * as SockJS from 'sockjs-client';
+import * as Stomp from 'stompjs' */
 
-const socket = new WebSocket(WEBSOCKET);
+
+const SOCKET = new SockJS(WEBSOCKET);
+const STOMPCLIENT = Stomp.over(SOCKET);
 
 export const openConnection = () => {
-    // socket.send('Connected to server')
+    STOMPCLIENT.connect({}, (frame) => {
+        console.log('connected:', frame);
+        STOMPCLIENT.subscribe("/lobby/35", (res) => {
+            console.log(JSON.parse('res', res.body))
+        })
+    })
 }
 
-export const closeConnection = () => {
+/* export const closeConnection = () => {
     socket.close('disconnected to server')
-}
+} */
 
 export const wsMessage = () => {
-    socket.onmessage = event => {
+    STOMPCLIENT.onmessage = event => {
         // listen to data sent from the websocket server
         const message = JSON.parse(event.data);
-        console.log(message)
+        console.log('qui', message)
     }
 }
+export const sendDataToWs = () => {
 
-export const sendDataToWs = (data) => {
-    // socket.send(data)
+    STOMPCLIENT.send("/app/room/35/15")
 }
+
