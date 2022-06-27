@@ -4,7 +4,7 @@ import { postApi, deleteApi, putApi } from "../genericServices";
 const RESOURCE = 'lobby';
 
 export async function createLobby(token) {
-  await postApi(RESOURCE, {}, token);
+  return await postApi(RESOURCE, {}, token);
 }
 
 export async function deleteLobby(token) {
@@ -12,5 +12,5 @@ export async function deleteLobby(token) {
 }
 
 export async function editLobby(id, body, token) {
-  await putApi(`${RESOURCE}/${id}`, body, token);
+  return await putApi(`${RESOURCE}/${id}`, body, token);
 }

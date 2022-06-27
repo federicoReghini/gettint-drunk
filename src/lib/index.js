@@ -15,6 +15,9 @@ import JoinLobbyNf from "./components";
 import LeaderBoard from "./components";
 import CreateLobby from "./components";
 
+// Storage functions
+import { setStorage, getStorage, removeStorage, clearStorage } from "./utils/storage";
+
 
 // utils
 import { iconArrayCard, bossIconCard, assignIdToIconCard } from "./utils/iconArrayAssign";
@@ -32,5 +35,9 @@ export {
     UserContainer,
     LobbyContainer,
     LeaderBoard,
-    CreateLobby
+    CreateLobby,
+    setStorage,
+    getStorage, 
+    removeStorage, 
+    clearStorage
 }
