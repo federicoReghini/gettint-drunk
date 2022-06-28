@@ -40,6 +40,7 @@ const LoginNf = ({ onPressSubmit, onGoToRegistration }) => {
 
     const handleSubmit = async () => {
         try {
+            console.log(formData);
             const res = await login(formData);
 
             await setStorage('token', res?.data?.token);

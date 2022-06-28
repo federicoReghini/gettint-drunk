@@ -25,6 +25,8 @@ import { iconArrayCard, bossIconCard, assignIdToIconCard } from "./utils/iconArr
 // api
 import { login, signUp, deleteUser, editUser, getUserById, getUsers, updateAuthToken } from "./services/api/userapi";
 
+import { eventEmit, eventOn } from "./eventEmitter";
+
 export {
     LoginNf,
     SignupNf,
@@ -49,5 +51,7 @@ export {
     editUser, 
     getUserById, 
     getUsers, 
-    updateAuthToken
+    updateAuthToken,
+    eventEmit, 
+    eventOn
 }
