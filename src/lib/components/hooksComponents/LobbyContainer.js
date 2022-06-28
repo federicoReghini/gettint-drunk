@@ -9,13 +9,21 @@ import { getUserById } from '../../services/api/userapi';
 //storage
 import { getStorage } from '../../utils/storage';
 import { openConnection, wsMessage, sendDataToWs } from '../../services/genericWebSocket';
+import { eventOn } from '../../eventEmitter';
 const LobbyContainer = () => {
 
     const [state, setState] = useState({
-        lobbyId: null
+        lobbyId: null,
+        wsRes: null
     })
 
     useEffect(() => {
+        /*  eventOn("handleSocketResponse", (obj) => {
+             setState({
+                 ...state,
+                 wsRes: obj
+             })
+         }) */
         (async () => {
             const TOKEN = await getStorage('token')
             const LOBBYID = await createLobby("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmdAc3RyaW5neS5pdCIsInJvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjU2MzQxNzIyLCJleHAiOjE2NTYzNDUzMjJ9.mfD5uFjr8S57-y3YeFVRAWfcL6Nc_9gw_Ai1fgUqPnE")

@@ -10,9 +10,9 @@ function App() {
 
   return (
     <>
-   
-      <LeaderBoardNf />
-        {/* <SignupNf /> */}
+      <LobbyContainer />
+      {/*   <LeaderBoardNf /> */}
+      {/* <SignupNf /> */}
     </>
   );
 }

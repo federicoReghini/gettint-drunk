@@ -2,6 +2,7 @@
 import { WEBSOCKET } from "./config";
 import * as SockJS from 'sockjs-client';
 import * as Stomp from 'stompjs';
+import { eventEmit } from "../eventEmitter";
 
 
 const SOCKET = new SockJS(WEBSOCKET);
@@ -11,6 +12,7 @@ export const openConnection = () => {
     STOMPCLIENT.connect({}, (frame) => {
         console.log('connected:', frame);
         STOMPCLIENT.subscribe("/lobby/35", (res) => {
+            eventEmit("handleSocketResponse", res.body)
             console.log(JSON.parse('res', res.body))
         })
     })
