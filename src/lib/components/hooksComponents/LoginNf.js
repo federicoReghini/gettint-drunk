@@ -9,7 +9,7 @@ import { styles } from '../../assets/styles/styleSignupLogin';
 import { login } from '../../services/api/userapi';
 import { setStorage } from '../../utils/storage';
 
-const formData = {
+let formData = {
     email: '',
     password: ''
 }
@@ -35,21 +35,20 @@ const LoginNf = ({ onPressSubmit, onGoToRegistration }) => {
 
         setState({ ...state, isDisable: newState.isDisable });
 
-        formData[property] = e.target.value;
+        formData[property] = e;
     }
 
     const handleSubmit = async () => {
-        try {
-            console.log(formData);
+    
             const res = await login(formData);
 
-            await setStorage('token', res?.data?.token);
-            await setStorage('refreshToken', res?.data?.refreshToken);
+            await Promise.all([
+                setStorage('token', res?.data?.token),
+                setStorage('refreshToken', res?.data?.refreshToken),
+                setStorage('user', res?.data?.id)
+            ])
 
-            onPressSubmit();
-        } catch (error) {
-            console.log(error?.message);
-        }
+            Platform.OS === 'web'? onPressSubmit(): onPressSubmit(res);
     }
 
     return (
@@ -64,14 +63,14 @@ const LoginNf = ({ onPressSubmit, onGoToRegistration }) => {
             <View style={styles.inputContainer}>
                 <TextInput
                     style={styles.textInput}
-                    onChange={handleChange('email')}
+                    onChangeText={handleChange('email')}
                     placeholder={'Insert email'}
                 />
 
                 <TextInput
                     style={styles.textInput}
                     secureTextEntry
-                    onChange={handleChange('password')}
+                    onChangeText={handleChange('password')}
                     placeholder={'Insert password'}
                 />
 
