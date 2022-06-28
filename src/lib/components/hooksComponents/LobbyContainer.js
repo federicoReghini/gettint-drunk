@@ -49,27 +49,18 @@ const LobbyContainer = () => {
             <View style={{ position: 'absolute', height: '33%', width: '85%', top: '43%', left: '7%', flexDirection: 'row' }}>
                 {generateTestUser()}
             </View>
-            {state.wsRes !== null && state.wsRes?.hasOwnProperty === false ?
-                <View style={{
-                    flexDirection: 'row', top: 0, justifyContent: 'center', postion: 'absolute'
-                }}>
 
-                    <Button
-                        title={'pesca una carta'}></Button>
-                    <Button
-                        title={'Stop'}></Button>
+            <View style={{
+                flexDirection: 'row', top: 0, justifyContent: 'center', postion: 'absolute'
+            }}>
 
-                </View>
-                :
-                <View style={{
-                    flexDirection: 'row', top: 0, justifyContent: 'center', postion: 'absolute'
-                }}>
+                <Button
+                    title={'pesca una carta'}></Button>
+                <Button
+                    title={'Stop'}></Button>
 
-                    <Button
-                        title={'Start Game'}></Button>
+            </View>
 
-                </View>
-            }
         </ImageBackground >
 
     )
