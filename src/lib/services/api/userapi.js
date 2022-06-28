@@ -28,3 +28,7 @@ export async function deleteUser(token) {
 export async function editUser(body, token) {
   return await putApi('editprofile', body, token);
 }
+
+export async function playFastUser(token) {
+  return await putApi('lobby/-1', {}, token);
+}

@@ -1,6 +1,6 @@
 {
   "name": "gettint-drunk",
-  "version": "0.6.6",
+  "version": "0.7.1",
   "main": "dist/index.js",
   "private": false,
   "files": [
@@ -19,7 +19,6 @@
     "react-dom": "17.0.2",
     "react-native-web": "0.17.7",
     "react-scripts": "4.0.3",
-    "sockjs-client": "^1.6.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

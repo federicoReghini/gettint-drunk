@@ -9,13 +9,21 @@ import { getUserById } from '../../services/api/userapi';
 //storage
 import { getStorage } from '../../utils/storage';
 import { openConnection, wsMessage, sendDataToWs } from '../../services/genericWebSocket';
+import { eventOn } from '../../eventEmitter';
 const LobbyContainer = () => {
 
     const [state, setState] = useState({
-        lobbyId: null
+        lobbyId: null,
+        wsRes: null
     })
 
     useEffect(() => {
+        /*  eventOn("handleSocketResponse", (obj) => {
+             setState({
+                 ...state,
+                 wsRes: obj
+             })
+         }) */
         (async () => {
             const TOKEN = await getStorage('token')
             const LOBBYID = await createLobby("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmdAc3RyaW5neS5pdCIsInJvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjU2MzQxNzIyLCJleHAiOjE2NTYzNDUzMjJ9.mfD5uFjr8S57-y3YeFVRAWfcL6Nc_9gw_Ai1fgUqPnE")
@@ -40,25 +48,17 @@ const LobbyContainer = () => {
             resizeMode='cover'>
 
             <View style={{ position: 'absolute', height: '33%', width: '85%', top: '43%', left: '7%', flexDirection: 'row' }}>
-                <Button
-                    title='testWB'
-                    onPress={async () => {
-                        /* const QUIT = await quitLobby("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmdAc3RyaW5neS5pdCIsInJvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjU2MzQxNzIyLCJleHAiOjE2NTYzNDUzMjJ9.mfD5uFjr8S57-y3YeFVRAWfcL6Nc_9gw_Ai1fgUqPnE")
-                        console.log('quit', QUIT);
- */
-                        sendDataToWs();
-                    }}></Button>
                 {generateTestUser()}
             </View>
 
-            {/*  <View style={{
-                flexDirection: 'row', bottom: 50, justifyContent: 'center'
+            <View style={{
+                flexDirection: 'row', bottom: 50, justifyContent: 'center', postion: 'absolute'
             }}>
                 <Button
                     title={'pesca una carta'}></Button>
                 <Button
                     title={'Stop'}></Button>
-            </View> */}
+            </View>
         </ImageBackground >
 
     )
