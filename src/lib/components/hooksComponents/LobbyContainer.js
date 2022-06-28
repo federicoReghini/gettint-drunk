@@ -8,7 +8,7 @@ import { createLobby, quitLobby } from '../../services/api/lobbyapi';
 import { getUserById } from '../../services/api/userapi';
 //storage
 import { getStorage } from '../../utils/storage';
-import { openConnection, wsMessage, sendDataToWs } from '../../services/genericWebSocket';
+import { connectWS, WS } from '../../services/genericWebSocket';
 import { eventOn } from '../../eventEmitter';
 const LobbyContainer = () => {
 
@@ -33,7 +33,6 @@ const LobbyContainer = () => {
             })
         })()
         console.log(state.lobbyId)
-        openConnection();
     }, [])
 
     const generateTestUser = () => {
@@ -50,15 +49,27 @@ const LobbyContainer = () => {
             <View style={{ position: 'absolute', height: '33%', width: '85%', top: '43%', left: '7%', flexDirection: 'row' }}>
                 {generateTestUser()}
             </View>
+            {state.wsRes !== null && state.wsRes?.hasOwnProperty === false ?
+                <View style={{
+                    flexDirection: 'row', top: 0, justifyContent: 'center', postion: 'absolute'
+                }}>
 
-            <View style={{
-                flexDirection: 'row', bottom: 50, justifyContent: 'center', postion: 'absolute'
-            }}>
-                <Button
-                    title={'pesca una carta'}></Button>
-                <Button
-                    title={'Stop'}></Button>
-            </View>
+                    <Button
+                        title={'pesca una carta'}></Button>
+                    <Button
+                        title={'Stop'}></Button>
+
+                </View>
+                :
+                <View style={{
+                    flexDirection: 'row', top: 0, justifyContent: 'center', postion: 'absolute'
+                }}>
+
+                    <Button
+                        title={'Start Game'}></Button>
+
+                </View>
+            }
         </ImageBackground >
 
     )
