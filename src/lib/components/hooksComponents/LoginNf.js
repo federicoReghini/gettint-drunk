@@ -43,8 +43,11 @@ const LoginNf = ({ onPressSubmit, onGoToRegistration }) => {
             console.log(formData);
             const res = await login(formData);
 
-            await setStorage('token', res?.data?.token);
-            await setStorage('refreshToken', res?.data?.refreshToken);
+            await Promise.all([
+                setStorage('token', res?.data?.token),
+                setStorage('refreshToken', res?.data?.refreshToken),
+                setStorage('user', res?.data)
+            ])
 
             onPressSubmit();
         } catch (error) {
