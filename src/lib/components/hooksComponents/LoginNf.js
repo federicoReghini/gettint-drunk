@@ -39,16 +39,16 @@ const LoginNf = ({ onPressSubmit, onGoToRegistration }) => {
     }
 
     const handleSubmit = async () => {
-    
-            const res = await login(formData);
 
-            await Promise.all([
-                setStorage('token', res?.data?.token),
-                setStorage('refreshToken', res?.data?.refreshToken),
-                setStorage('user', res?.data?.id)
-            ])
+        const res = await login(formData);
 
-            Platform.OS === 'web'? onPressSubmit(): onPressSubmit(res);
+        await Promise.all([
+            setStorage('token', res?.data?.token),
+            setStorage('refreshToken', res?.data?.refreshToken),
+            setStorage('user', res?.data?.id)
+        ])
+
+        Platform.OS === 'web' ? onPressSubmit() : onPressSubmit(res);
     }
 
     return (
@@ -65,6 +65,7 @@ const LoginNf = ({ onPressSubmit, onGoToRegistration }) => {
                     style={styles.textInput}
                     onChangeText={handleChange('email')}
                     placeholder={'Insert email'}
+                    placeholderTextColor='#fff'
                 />
 
                 <TextInput
@@ -72,6 +73,7 @@ const LoginNf = ({ onPressSubmit, onGoToRegistration }) => {
                     secureTextEntry
                     onChangeText={handleChange('password')}
                     placeholder={'Insert password'}
+                    placeholderTextColor='#fff'
                 />
 
                 <View>
