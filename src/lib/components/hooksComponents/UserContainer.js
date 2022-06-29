@@ -31,7 +31,7 @@ const UserContainer = ({ username, id, cardValue }) => {
 
             <View style={{ height: '40%', width: '50%', justifyContent: 'center', position: "relative", alignItems: 'center' }}>{/* Score in beers/shot */}
                 <BeerContainer
-                    score={cardValue} />
+                    score={parseInt(cardValue)} />
                 <Image style={{ height: '120%', width: '120%', position: "absolute", zIndex: -1 }} source={beerTray} />
 
             </View>
