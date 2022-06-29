@@ -1,12 +1,20 @@
-// // config
-// import { WEBSOCKET } from "./config";
-// import * as SockJS from 'sockjs-client';
-// import * as Stomp from 'stompjs';
-// import { eventEmit } from "../eventEmitter";
+// config
+import { WEBSOCKET } from "./config";
+import { eventEmit } from "../eventEmitter";
 
 
-// const SOCKET = new SockJS(WEBSOCKET);
-// const STOMPCLIENT = Stomp.over(SOCKET);
+export const WS = new WebSocket(WEBSOCKET);
+
+export const connectWS = () => {
+    WS.onopen = () => {
+        console.log('connected to server')
+    };
+}
+
+
+
+/* const SOCKET = new SockJS(WEBSOCKET);
+const STOMPCLIENT = Stomp.over(SOCKET);
 
 // export const openConnection = () => {
 //     STOMPCLIENT.connect({}, (frame) => {
@@ -55,5 +63,5 @@
 //     }
 //     STOMPCLIENT.send(pathName);
 
-// }
+} */
 
