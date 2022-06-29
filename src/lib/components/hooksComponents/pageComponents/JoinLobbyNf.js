@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from 'react';
 
 // native components
+// native components
 import { View, Button } from 'react-native';
-import { connectWS, WS } from '../../../services/genericWebSocket';
+
+// library components
 import ButtonNf from '../ButtonNf';
-import CountDownNf from '../CountDownNf';
+
+// ws
+import { connectWS, WS } from '../../../services/genericWebSocket';
 
 
-
-
-const hoursMinSecs = { hours: 0, minutes: 0, seconds: 10 }
-
-
-const JoinLobbyNf = ({ onEndTimer, onStartMatch }) => {
-
-
-
+const JoinLobbyNf = ({ onStartMatch }) => {
 
   const [state, setState] = useState({
     lobby: null
@@ -58,7 +54,6 @@ const JoinLobbyNf = ({ onEndTimer, onStartMatch }) => {
           onPress={onStartMatch}
           title='Start Game' />
       </View>
-      <CountDownNf onEndTimer={onEndTimer} hoursMinSecs={hoursMinSecs} />
     </View>
   )
 }

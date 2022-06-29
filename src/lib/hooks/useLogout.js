@@ -1,25 +1,43 @@
 // utils
-import { clearStorage, getExpireStorage } from "../utils/storage";
+import { Platform } from "react-native";
+import { clearStorage, getExpireStorage, getStorage } from "../utils/storage";
 
 function useLogout() {
 
-    const logoutExpire = () => {
-        if ((getStorage('refreshToken')) !== null) {
+    const logoutExpire = async () => {
 
-            const refreshToken = getExpireStorage('refreshToken');
+        const now = new Date();
 
-            const now = new Date();
+        if(Platform.OS === 'web'){
 
-            if ((now.getTime() - refreshToken?.expire) > 14200000) {
-                clearStorage();
-            } else {
-                return null;
+            if ((await getStorage('refreshToken')) !== null) {
+    
+                const refreshToken = await getExpireStorage('refreshToken');
+    
+    
+                if ((now.getTime() - refreshToken?.expire) > 14200000) {
+                    await clearStorage();
+                } else {
+                    return null;
+                }
+            }
+        }else {
+            
+            if (arguments[0] !== null) {
+    
+                const refreshToken = arguments[1];
+        
+                if ((now.getTime() - refreshToken?.expire) > 14200000) {
+                    await clearStorage();
+                } else {
+                    return null;
+                }
             }
         }
     }
 
-    const logoutUser = () => {
-        clearStorage();
+    const logoutUser = async () => {
+        await clearStorage();
     }
 
     return { logoutExpire, logoutUser }

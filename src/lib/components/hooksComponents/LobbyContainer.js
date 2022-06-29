@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, ImageBackground, Button, Dimensions } from 'react-native';
+import { View, ImageBackground, Button, Dimensions, Platform } from 'react-native';
 import UserContainer from './UserContainer';
 import bgImage from '../../assets/bgImage.png'
 import { useEffect, useState } from 'react';
@@ -10,6 +10,7 @@ import { getUserById } from '../../services/api/userapi';
 import { getStorage } from '../../utils/storage';
 import { connectWS, WS } from '../../services/genericWebSocket';
 import { eventOn } from '../../eventEmitter';
+
 const LobbyContainer = () => {
 
     const [state, setState] = useState({
@@ -19,7 +20,8 @@ const LobbyContainer = () => {
 
     useEffect(() => {
         (async () => {
-            const TOKEN = await getStorage('token')
+            
+            // const TOKEN = await getStorage('token')
             const LOBBYID = await createLobby("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmdAc3RyaW5neS5pdCIsInJvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjU2MzQxNzIyLCJleHAiOjE2NTYzNDUzMjJ9.mfD5uFjr8S57-y3YeFVRAWfcL6Nc_9gw_Ai1fgUqPnE")
             setState({
                 ...state,
@@ -43,11 +45,11 @@ const LobbyContainer = () => {
 
     const generateUser = (element, index) => {
 
-        return (<View key={index} style={{ width: "calc(100% / 7)", height: '100%' }
+        return (<View key={index} style={{ width: Platform.OS === 'web' ? "calc(100% / 7)" : "30%", height: '100%' }
         }>
             <UserContainer
                 username={element.username}
-            /* score={element.score} */
+            //  score={element.score} 
             ></UserContainer>
         </View >)
         /*   return [...new Array(7).keys()].map(index => <View key={index} style={{ width: "calc(100% / 7)", height: '100%' }}>
@@ -57,7 +59,7 @@ const LobbyContainer = () => {
 
     }
     return (
-        <ImageBackground source={bgImage} style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: '100vh', width: '100vw', position: 'relative' }}
+        <ImageBackground source={bgImage} style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: Platform.OS === 'web' ? '100vh' : '100%', width: Platform.OS === 'web' ? '100vw' : '100%', position: 'relative' }}
             resizeMode='cover'>
 
             <View style={{ position: 'absolute', height: '33%', width: '85%', top: '43%', left: '7%', flexDirection: 'row' }}>
@@ -65,7 +67,7 @@ const LobbyContainer = () => {
             </View>
 
             <View style={{
-                flexDirection: 'row', top: 0, justifyContent: 'center', postion: 'absolute'
+                flexDirection: 'row', top: 0, justifyContent: 'center', position: 'absolute'
             }}>
 
                 <Button

@@ -88,13 +88,6 @@ const SignupNf = ({ onPressSubmit }) => {
                 
                 <TextInput
                     style={styles.textInput}
-                    onChangeText={handleChange('email')}
-                    placeholder={'Insert email'}
-                    placeholderTextColor='#fff'
-                />
-
-                <TextInput
-                    style={styles.textInput}
                     secureTextEntry
                     onChangeText={handleChange('password')}
                     placeholder={'Insert password'}
@@ -107,6 +100,14 @@ const SignupNf = ({ onPressSubmit }) => {
                     placeholder={'Insert confirm password'}
                     placeholderTextColor='#fff'
                 />
+                
+                <TextInput
+                    style={styles.textInput}
+                    onChangeText={handleChange('email')}
+                    placeholder={'Insert email'}
+                    placeholderTextColor='#fff'
+                />
+
 
                 <Button
                     title={'Sign up'}

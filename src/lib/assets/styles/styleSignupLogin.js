@@ -21,7 +21,8 @@ export const styles = StyleSheet.create({
   },
   textInput: {
     margin: 10,
-    borderColor: '#000'
+    borderColor: '#000',
+    color: '#fff'
   },
   text: {
     textAlign: "center",

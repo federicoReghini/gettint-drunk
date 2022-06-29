@@ -102,25 +102,49 @@ const LeaderBoardNf = ({ onClickNavigate }) => {
       >
         <Image source={ship} style={styles.imgShip} />
       </Pressable>
-      <ScrollView style={{ backgroundColor: 'rgba(255, 246, 143, .6)', paddingVertical: 20, marginTop: 40 }}>
 
-        <View style={styles.titleWrapper}>
-          <Text style={styles.leader}>
-            Leader
-          </Text>
-          <Text style={{ ...styles.leader, ...styles.board }}>
-            Board
-          </Text>
-        </View>
+      {
+        Platform.OS === 'web' ?
+          <View style={{ backgroundColor: 'rgba(255, 246, 143, .6)', paddingVertical: 20, marginTop: 40 }}>
 
-        <View style={styles.tableHead}>
-          <Text style={styles.nickname}>Nickname</Text>
-          <Text style={{ ...styles.nickname, ...styles.score }}>score</Text>
-        </View>
-        {
-          state.players.length > 0 && state.players.sort(sortPlayer).map(playerList)
-        }
-      </ScrollView>
+            <View style={styles.titleWrapper}>
+              <Text style={styles.leader}>
+                Leader
+              </Text>
+              <Text style={{ ...styles.leader, ...styles.board }}>
+                Board
+              </Text>
+            </View>
+
+            <View style={styles.tableHead}>
+              <Text style={styles.nickname}>Nickname</Text>
+              <Text style={{ ...styles.nickname, ...styles.score }}>score</Text>
+            </View>
+            {
+              state.players.length > 0 && state.players.sort(sortPlayer).map(playerList)
+            }
+          </View>
+          :
+          <ScrollView style={{ backgroundColor: 'rgba(255, 246, 143, .6)', paddingVertical: 20, marginTop: 40 }}>
+
+            <View style={styles.titleWrapper}>
+              <Text style={styles.leader}>
+                Leader
+              </Text>
+              <Text style={{ ...styles.leader, ...styles.board }}>
+                Board
+              </Text>
+            </View>
+
+            <View style={styles.tableHead}>
+              <Text style={styles.nickname}>Nickname</Text>
+              <Text style={{ ...styles.nickname, ...styles.score }}>score</Text>
+            </View>
+            {
+              state.players.length > 0 && state.players.sort(sortPlayer).map(playerList)
+            }
+          </ScrollView>
+      }
     </ImageBackground>
   )
 }
