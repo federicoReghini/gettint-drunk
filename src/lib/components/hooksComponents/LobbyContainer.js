@@ -73,7 +73,7 @@ const LobbyContainer = () => {
 
                 <View style={{ width: "10%", marginRight: "2%" }}>
                     <Button
-                        title={'pesca una carta'} />
+                        title={'Card'} />
                 </View>
                 <View style={{ width: "10%" }}>
                     <Button

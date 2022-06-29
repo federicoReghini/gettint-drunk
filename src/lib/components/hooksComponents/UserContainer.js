@@ -33,9 +33,7 @@ const UserContainer = ({ username, id, cardValue }) => {
                 <BeerContainer
                     score={cardValue} />
                 <Image style={{ height: '120%', width: '120%', position: "absolute", zIndex: -1 }} source={beerTray} />
-                <View style={{ position: 'absolute', left: "50%", top: "50%", transform: [{ translateX: -50 }, { translateY: -50 }] }}>
-                    <Text style={{ fontSize: 30, backgroundColor: "white", borderRadius: 50, padding: 5 }}>{7.5}</Text>
-                </View>
+
             </View>
 
 

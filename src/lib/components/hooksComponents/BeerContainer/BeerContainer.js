@@ -33,7 +33,7 @@ export default function BeerContainer(props) {
                 <View style={{ flexDirection: 'row', height: '50%', width: '100%', justifyContent: "center" }}>{/* 1st beer container */}
                     {generateFirstSeriesOfBeer()}
                 </View>
-                {scoreIsDecimal.cleanScore > 4 &&
+                {scoreIsDecimal.cleanScore >= 4 &&
                     <View style={{ flexDirection: 'row', height: '50%', width: '100%', marginTop: "-20%", justifyContent: "center" }}>{/* 2st beer container */}
                         {generateSecondtSeriesOfBeer()}
                     </View>

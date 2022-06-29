@@ -11,9 +11,9 @@ function App() {
 
   return (
     <>
-      {/* <LobbyContainer /> */}
-        {/* <LeaderBoardNf /> */}
-        <CreateLobbyNf />
+      <LobbyContainer />
+      {/* <LeaderBoardNf /> */}
+      {/*   <CreateLobbyNf /> */}
       {/* <SignupNf /> */}
     </>
   );
