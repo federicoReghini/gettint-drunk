@@ -3,7 +3,7 @@ import { Image, View, Text } from 'react-native';
 import { assignIdToIconCard } from '../../utils/iconArrayAssign';
 import BeerContainer from './BeerContainer/BeerContainer';
 import beerTray from './../../assets/beerTray.png'
-const UserContainer = () => {
+const UserContainer = ({ username }) => {
     const [state, setState] = useState({
         playerIcon: {}
     })
@@ -20,7 +20,7 @@ const UserContainer = () => {
                     fontSize: 20, fontWeight: 700, textShadowColor: 'rgba(0, 0, 0, 0.75)',
                     textShadowOffset: { width: 0, height: 1 },
                     textShadowRadius: 10, color: 'white'
-                }}>Nickname</Text>
+                }}>{username}</Text>
             </View>
             <View style={{ width: '50%', height: '50%', marginBottom: "5%" }}>{/* cardIcon */}
 

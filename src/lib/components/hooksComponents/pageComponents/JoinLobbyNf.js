@@ -1,61 +1,63 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // native components
-import { View } from 'react-native';
+import { View, Button } from 'react-native';
+import { connectWS, WS } from '../../../services/genericWebSocket';
 import ButtonNf from '../ButtonNf';
 import CountDownNf from '../CountDownNf';
 
-const initState = {
-  players: [
-    {
-      id: 0,
-      nickname: 'Federico'
-    },
-    {
-      id: 1,
-      nickname: 'Nicola'
-    },
-    {
-      id: 2,
-      nickname: 'Luca'
-    },
-    {
-      id: 3,
-      nickname: 'Andrea'
-    },
-    {
-      id: 4,
-      nickname: 'Andrea'
-    },
-    {
-      id: 5,
-      nickname: 'Andrea'
-    },
-    {
-      id: 6,
-      nickname: 'Andrea'
-    },
-  ],
-}
-
-const hoursMinSecs = {hours:0, minutes: 0, seconds: 10}
 
 
-const JoinLobbyNf = ({onEndTimer}) => {
 
-  const [state, setState] = useState(initState);
+const hoursMinSecs = { hours: 0, minutes: 0, seconds: 10 }
+
+
+const JoinLobbyNf = ({ onEndTimer, onStartMatch }) => {
+
+
+
+
+  const [state, setState] = useState({
+    lobby: null
+  });
+
+  useEffect(() => {
+    connectWS();
+
+    WS.onmessage = (e) => {
+
+      if (e.data[0] === "{") {
+
+        setState({
+          lobby: JSON.parse(e.data)
+        })
+      }
+
+    }
+  }, [])
+
 
   const player = (player, key) => {
+
     return (
-      <ButtonNf key={`${key}-${player?.id}`} title={`Player ${player?.nickname}`} />
+
+      <ButtonNf key={`${key}-${player?.id}`} title={`Player ${player?.username}`} />
     )
   }
 
+
+
   return (
     <View>
+
       {
-        state.players.length > 0 && state.players.map(player)
+        state.lobby?.user?.length > 0 && state.lobby?.user?.map(player)
       }
+      <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'center', marginVertical: '0.5%' }}>
+        <Button
+          onPress={onStartMatch}
+          title='Start Game' />
+      </View>
       <CountDownNf onEndTimer={onEndTimer} hoursMinSecs={hoursMinSecs} />
     </View>
   )
