@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 // native components
-import { View, Text, Image, ImageBackground, Pressable, Platform } from 'react-native';
+import { View, Text, Image, ImageBackground, Pressable, Platform, ScrollView } from 'react-native';
 
 // styles
 import { styles } from '../../../assets/styles/styleLeaderBoard';
@@ -66,9 +66,6 @@ const LeaderBoardNf = ({ onClickNavigate }) => {
 
             </Text>
 
-            {/* <View style={gstyles.flexR}> */}
-            {/* </View> */}
-
           </View>
           <View style={styles.leaderRow}>
             <Text style={{
@@ -105,7 +102,7 @@ const LeaderBoardNf = ({ onClickNavigate }) => {
       >
         <Image source={ship} style={styles.imgShip} />
       </Pressable>
-      <View style={{ backgroundColor: 'rgba(255, 246, 143, .6)', paddingVertical: 20, marginTop: 40 }}>
+      <ScrollView style={{ backgroundColor: 'rgba(255, 246, 143, .6)', paddingVertical: 20, marginTop: 40 }}>
 
         <View style={styles.titleWrapper}>
           <Text style={styles.leader}>
@@ -123,7 +120,7 @@ const LeaderBoardNf = ({ onClickNavigate }) => {
         {
           state.players.length > 0 && state.players.sort(sortPlayer).map(playerList)
         }
-      </View>
+      </ScrollView>
     </ImageBackground>
   )
 }

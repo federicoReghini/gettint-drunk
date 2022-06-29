@@ -39,7 +39,26 @@ const initState = {
  */
 const CreateLobbyNf = ({ user, listOfPlayers, onTapStartGame }) => {
 
-  const [state, setState] = useState(initState)
+  const [state, setState] = useState(initState);
+
+  useEffect(() => {
+    (async () => {
+      const USERS = await getUsers();
+      const MYID = await getStorage('user');
+      const ME = await getUserById(MYID);
+
+      console.log(USERS.data);
+      console.log(MYID);
+      console.log(ME.data);
+
+      setState({
+        ...state,
+        listOfPlayers: USERS.data,
+        me: ME.data
+      })
+
+    })()
+  }, [])
 
   /**
    * Function for add player to state.players if they weren't add yet
