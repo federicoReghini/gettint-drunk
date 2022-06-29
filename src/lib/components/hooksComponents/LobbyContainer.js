@@ -20,9 +20,8 @@ const LobbyContainer = () => {
 
     useEffect(() => {
         (async () => {
-            
-            // const TOKEN = await getStorage('token')
-            const LOBBYID = await createLobby("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdHJpbmdAc3RyaW5neS5pdCIsInJvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjU2MzQxNzIyLCJleHAiOjE2NTYzNDUzMjJ9.mfD5uFjr8S57-y3YeFVRAWfcL6Nc_9gw_Ai1fgUqPnE")
+            const TOKEN = await getStorage('token')
+            const LOBBYID = await createLobby(TOKEN)
             setState({
                 ...state,
                 lobbyId: LOBBYID
@@ -49,7 +48,9 @@ const LobbyContainer = () => {
         }>
             <UserContainer
                 username={element.username}
-            //  score={element.score} 
+                id={element.id}
+                cardValue={element.cardValue}
+            /* score={element.score} */
             ></UserContainer>
         </View >)
         /*   return [...new Array(7).keys()].map(index => <View key={index} style={{ width: "calc(100% / 7)", height: '100%' }}>
@@ -67,14 +68,17 @@ const LobbyContainer = () => {
             </View>
 
             <View style={{
-                flexDirection: 'row', top: 0, justifyContent: 'center', position: 'absolute'
+                flexDirection: 'row', bottom: "5%", justifyContent: 'center', position: 'absolute', width: '100%'
             }}>
 
-                <Button
-                    title={'pesca una carta'}></Button>
-                <Button
-                    title={'Stop'}></Button>
-
+                <View style={{ width: "10%", marginRight: "2%" }}>
+                    <Button
+                        title={'pesca una carta'} />
+                </View>
+                <View style={{ width: "10%" }}>
+                    <Button
+                        title={'Stop'} />
+                </View>
             </View>
 
         </ImageBackground >

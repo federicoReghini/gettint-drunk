@@ -3,16 +3,13 @@ import { Image, View, Text } from 'react-native';
 import { assignIdToIconCard } from '../../utils/iconArrayAssign';
 import BeerContainer from './BeerContainer/BeerContainer';
 import beerTray from './../../assets/beerTray.png'
-const UserContainer = ({ username }) => {
+const UserContainer = ({ username, id, cardValue }) => {
     const [state, setState] = useState({
         playerIcon: {}
     })
-
-    const IDTMP = 0
-
     useEffect(() => {
         setState({
-            playerIcon: assignIdToIconCard(IDTMP)
+            playerIcon: assignIdToIconCard(id)
         })
     }, [])
 
@@ -34,7 +31,7 @@ const UserContainer = ({ username }) => {
 
             <View style={{ height: '40%', width: '50%', justifyContent: 'center', position: "relative", alignItems: 'center' }}>{/* Score in beers/shot */}
                 <BeerContainer
-                    score={7.5} />
+                    score={cardValue} />
                 <Image style={{ height: '120%', width: '120%', position: "absolute", zIndex: -1 }} source={beerTray} />
                 <View style={{ position: 'absolute', left: "50%", top: "50%", transform: [{ translateX: -50 }, { translateY: -50 }] }}>
                     <Text style={{ fontSize: 30, backgroundColor: "white", borderRadius: 50, padding: 5 }}>{7.5}</Text>
