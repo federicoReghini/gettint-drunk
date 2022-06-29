@@ -39,7 +39,7 @@ export default function BeerContainer(props) {
                     </View>
                 }
                 <View style={{ height: '100%', width: '100%', flexDirection: 'row' }}>
-                    {scoreIsDecimal.cleanScore = 7 &&
+                    {scoreIsDecimal.cleanScore === 7 &&
                         <View style={{ flexDirection: 'row', height: '50%', width: '100%', marginTop: "-20%", justifyContent: "center" }}>{/* 3st beer container */}
                             <Image
                                 style={{ height: '100%', width: '30%', marginTop: "-5%" }}
@@ -48,7 +48,7 @@ export default function BeerContainer(props) {
                     }
                     {scoreIsDecimal.isDecimal &&
                         <Image
-                            style={{ height: '50%', width: '30%', marginTop: "-43%", marginLeft: "-43%" }}
+                            style={scoreIsDecimal.cleanScore === 7 ? { height: '50%', width: '30%', marginTop: "-43%", marginLeft: "-90%" } : { height: '50%', width: '30%', marginTop: "-43%", marginLeft: "0" }}
                             source={shotIcon} />
                     }
                 </View>
