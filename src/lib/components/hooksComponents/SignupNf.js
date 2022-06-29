@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 // native components
-import { Text, View, Button, TextInput } from 'react-native';
+import { Text, View, Button, TextInput, Platform } from 'react-native';
 
 // validation
 import { checkMail, checkPassword } from '../../utils/validation';
@@ -41,26 +41,30 @@ const SignupNf = ({ onPressSubmit }) => {
         setState({ ...state, isDisable: newState.isDisable });
 
         if (property === 'confirmPassword') {
-            return confirmPsw = e.target.value;
+            return confirmPsw = e;
         }
-        formData[property] = e.target.value;
+        formData[property] = e;
 
     }
 
     const handleSubmit = async () => {
         try {
             await signUp(formData);
-            
+
             const res = await login({
                 email: formData.email,
                 password: formData.password
             });
 
-            await setStorage('token', res?.data?.token);
-            await setStorage('refreshToken', res?.data?.refreshToken);
-            await setStorage('user', res?.data);
+            await Promise.all([
 
-            onPressSubmit();
+                setStorage('token', res?.data?.token),
+                setStorage('refreshToken', res?.data?.refreshToken),
+                setStorage('user', res?.data?.id)
+            ])
+
+
+            Platform.OS === 'web' ? onPressSubmit() : onPressSubmit(res);
         } catch (error) {
             console.log(error.message);
         }
@@ -77,26 +81,31 @@ const SignupNf = ({ onPressSubmit }) => {
 
                 <TextInput
                     style={styles.textInput}
-                    onChange={handleChange('username')}
+                    onChangeText={handleChange('username')}
                     placeholder={'Insert username'}
+                    placeholderTextColor='#fff'
                 />
+                
                 <TextInput
                     style={styles.textInput}
-                    onChange={handleChange('email')}
+                    onChangeText={handleChange('email')}
                     placeholder={'Insert email'}
+                    placeholderTextColor='#fff'
                 />
 
                 <TextInput
                     style={styles.textInput}
                     secureTextEntry
-                    onChange={handleChange('password')}
+                    onChangeText={handleChange('password')}
                     placeholder={'Insert password'}
+                    placeholderTextColor='#fff'
                 />
                 <TextInput
                     style={styles.textInput}
                     secureTextEntry
-                    onChange={handleChange('confirmPassword')}
+                    onChangeText={handleChange('confirmPassword')}
                     placeholder={'Insert confirm password'}
+                    placeholderTextColor='#fff'
                 />
 
                 <Button
