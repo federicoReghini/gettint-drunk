@@ -4,9 +4,7 @@ import React, { useEffect, useState } from 'react'
 import burny from '../assets/img/cardIcon/barney_drunk.jpg';
 import burnynt from '../assets/img/cardIcon/barney_ntdrunk.jpg';
 
-let animatedValue;
-let frontInterpolate;
-let backInterpolate;
+
 
 
 const Card = () => {
@@ -45,11 +43,11 @@ const Card = () => {
     <View style={styles.container}>
       <View>
         <Animated.Image style={[styles.flipCard, frontAnimatedStyle]}
-        source={burny}
+          source={burnynt}
         />
-         
+
         <Animated.Image style={[backAnimatedStyle, styles.flipCard, styles.flipCardInner]}
-        source={burnynt}
+          source={burny}
         />
       </View>
       <TouchableOpacity onPress={() => flipCard()}>
