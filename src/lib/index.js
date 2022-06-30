@@ -59,5 +59,5 @@ export {
     updateAuthToken,
     eventEmit, 
     eventOn,
-    useLogout
+    useLogout,
 }
