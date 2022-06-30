@@ -28,7 +28,7 @@ function useLogout() {
                 const refreshToken = arguments[1];
         
                 if ((now.getTime() - refreshToken?.expire) > 7200000) {
-                    return true
+                    return 'expire'
                 } else {
                     return null;
                 }

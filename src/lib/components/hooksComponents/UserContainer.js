@@ -3,10 +3,12 @@ import { Image, View, Text, Animated, StyleSheet, TouchableOpacity } from 'react
 import { assignIdToIconCard } from '../../utils/iconArrayAssign';
 import BeerContainer from './BeerContainer/BeerContainer';
 import beerTray from './../../assets/beerTray.png'
+import { Platform } from 'react-native-web';
 
 
 let frontInterpolate;
 let backInterpolate;
+let backOpacity;
 
 const UserContainer = ({ username, id, cardValue, animatedValue }) => {
     frontInterpolate = animatedValue.interpolate({
@@ -19,6 +21,10 @@ const UserContainer = ({ username, id, cardValue, animatedValue }) => {
         outputRange: ['180deg', '360deg']
     })
 
+    backOpacity = animatedValue.interpolate({
+         inputRange: [89, 90], 
+         outputRange: [0, 1] 
+        })
 
     const frontAnimatedStyle = {
         transform: [
@@ -29,7 +35,8 @@ const UserContainer = ({ username, id, cardValue, animatedValue }) => {
     const backAnimatedStyle = {
         transform: [
             { rotateY: backInterpolate }
-        ]
+        ],
+        opacity: backOpacity
     }
 
     const [state, setState] = useState({
@@ -46,7 +53,8 @@ const UserContainer = ({ username, id, cardValue, animatedValue }) => {
         if (cardValue > 7.5) {
             Animated.timing(animatedValue, {
                 toValue: 180,
-                duration: 800
+                duration: 800,
+                useNativeDriver: true 
             }).start();
 
         }
@@ -66,6 +74,7 @@ const UserContainer = ({ username, id, cardValue, animatedValue }) => {
             <View style={{ width: '50%', height: '50%', marginBottom: "5%" }}>{/* cardIcon */}
 
                 <Animated.Image style={[styles.maxHMaxW, styles.flip, frontAnimatedStyle]}
+                    resizeMode='cover'
                     source={state.playerIcon.regular} />
                 <Animated.Image style={[backAnimatedStyle, styles.flip, styles.maxHMaxW, styles.abs]}
                     source={state.playerIcon.flipped} />
@@ -86,7 +95,8 @@ export default UserContainer;
 
 const styles = StyleSheet.create({
     maxHMaxW: {
-        height: '100%', width: '100%'
+        height: '100%', 
+        width: '100%'
     },
     flip: {
         backfaceVisibility: 'hidden',

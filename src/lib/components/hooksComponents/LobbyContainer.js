@@ -55,7 +55,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit }) => {
 
     const generateUser = (element, index) => {
 
-        return (<View key={index} style={{ width: Platform.OS === 'web' ? "calc(100% / 7)" : "30%", height: '100%' }
+        return (<View key={index} style={{ width: Platform.OS === 'web' ? "calc(100% / 7)" : (Dimensions.get('window').width/7), height: '100%' }
         }>
 
             <UserContainer
