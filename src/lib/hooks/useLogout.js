@@ -15,7 +15,7 @@ function useLogout() {
                 const refreshToken = await getExpireStorage('refreshToken');
     
     
-                if ((now.getTime() - refreshToken?.expire) > 14200000) {
+                if ((now.getTime() - refreshToken?.expire) > 7200000) {
                     await clearStorage();
                 } else {
                     return null;
@@ -27,8 +27,8 @@ function useLogout() {
     
                 const refreshToken = arguments[1];
         
-                if ((now.getTime() - refreshToken?.expire) > 14200000) {
-                    await clearStorage();
+                if ((now.getTime() - refreshToken?.expire) > 7200000) {
+                    return true
                 } else {
                     return null;
                 }

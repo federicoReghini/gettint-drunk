@@ -11,7 +11,10 @@ import { getStorage } from '../../utils/storage';
 import { connectWS, WS } from '../../services/genericWebSocket';
 import { eventOn } from '../../eventEmitter';
 
-const LobbyContainer = () => {
+let token;
+
+
+const LobbyContainer = ({ mobileToken, onAfterQuit }) => {
 
     const [state, setState] = useState({
         lobbyId: null,
@@ -20,8 +23,8 @@ const LobbyContainer = () => {
 
     useEffect(() => {
         (async () => {
-            const TOKEN = await getStorage('token')
-            const LOBBYID = await createLobby(TOKEN)
+            token = await getStorage('token')
+            const LOBBYID = await createLobby(token)
             setState({
                 ...state,
                 lobbyId: LOBBYID
@@ -41,6 +44,14 @@ const LobbyContainer = () => {
 
         }
     }, [])
+
+    const handleQuit = async () => {
+
+        Platform.OS === 'web' ?
+            (await quitLobby(token), onAfterQuit())
+            :
+            (await quitLobby(mobileToken), onAfterQuit())
+    }
 
     const generateUser = (element, index) => {
 
@@ -72,12 +83,26 @@ const LobbyContainer = () => {
             }}>
 
                 <View style={{ width: "10%", marginRight: "2%" }}>
+
                     <Button
-                        title={'Card'} />
+                        title={'Card'}
+                    />
                 </View>
-                <View style={{ width: "10%" }}>
+                <View style={{ width: "10%", marginRight: "2%" }}>
+
+
+
                     <Button
-                        title={'Stop'} />
+                        title={'Stop'}
+                    />
+                </View>
+
+                <View style={{ width: "10%" }}>
+
+                    <Button
+                        title={'Quit'}
+                        onPress={handleQuit}
+                    />
                 </View>
             </View>
 

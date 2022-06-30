@@ -17,7 +17,7 @@ import LeaderBoardNf from "./components/hooksComponents/pageComponents/LeaderBoa
 import CreateLobbyNf from "./components/hooksComponents/pageComponents/CreateLobbyNf";
 
 // Storage functions
-import { setStorage, getStorage, removeStorage, clearStorage } from "./utils/storage";
+import { setStorage, getStorage, getExpireStorage, removeStorage, clearStorage } from "./utils/storage";
 
 // utils
 import { iconArrayCard, bossIconCard, assignIdToIconCard } from "./utils/iconArrayAssign";
@@ -47,6 +47,7 @@ export {
     CreateLobbyNf,
     setStorage,
     getStorage,
+    getExpireStorage,
     removeStorage,
     clearStorage,
     login,
