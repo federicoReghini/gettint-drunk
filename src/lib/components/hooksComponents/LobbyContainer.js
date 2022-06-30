@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, ImageBackground, Button, Dimensions, Platform } from 'react-native';
+import { View, ImageBackground, Button, Dimensions, Platform, Animated } from 'react-native';
 import UserContainer from './UserContainer';
 import bgImage from '../../assets/bgImage.png'
 import { useEffect, useState } from 'react';
@@ -57,7 +57,9 @@ const LobbyContainer = ({ mobileToken, onAfterQuit }) => {
 
         return (<View key={index} style={{ width: Platform.OS === 'web' ? "calc(100% / 7)" : "30%", height: '100%' }
         }>
+
             <UserContainer
+                animatedValue={new Animated.Value(0)}
                 username={element.username}
                 id={element.id}
                 cardValue={element.cardValue}

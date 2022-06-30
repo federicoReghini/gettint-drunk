@@ -4,12 +4,11 @@ import { assignIdToIconCard } from '../../utils/iconArrayAssign';
 import BeerContainer from './BeerContainer/BeerContainer';
 import beerTray from './../../assets/beerTray.png'
 
-let animatedValue;
+
 let frontInterpolate;
 let backInterpolate;
 
-const UserContainer = ({ username, id, cardValue }) => {
-    animatedValue = new Animated.Value(0);
+const UserContainer = ({ username, id, cardValue, animatedValue }) => {
     frontInterpolate = animatedValue.interpolate({
         inputRange: [0, 180],
         outputRange: ['0deg', '180deg']
@@ -20,12 +19,6 @@ const UserContainer = ({ username, id, cardValue }) => {
         outputRange: ['180deg', '360deg']
     })
 
-    const flipCard = () => {
-        Animated.timing(animatedValue, {
-            toValue: 180,
-            duration: 800
-        }).start();
-    }
 
     const frontAnimatedStyle = {
         transform: [
@@ -85,9 +78,6 @@ const UserContainer = ({ username, id, cardValue }) => {
                 <Image style={{ height: '120%', width: '120%', position: "absolute", zIndex: -1 }} source={beerTray} />
 
             </View>
-            <TouchableOpacity onPress={() => flipCard()}>
-                <Text>click</Text>
-            </TouchableOpacity>
         </View>
     )
 }
