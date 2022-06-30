@@ -89,3 +89,7 @@ Added baseUrl for api call and ws
 ### `0.4.0`
 
 Added api calls functions and storage
+
+### `0.9.0`
+
+Added custom hooks for handle logout and logic for flipping cards
