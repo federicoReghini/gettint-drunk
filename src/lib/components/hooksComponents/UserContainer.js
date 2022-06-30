@@ -3,6 +3,7 @@ import { Image, View, Text, Animated, StyleSheet, TouchableOpacity } from 'react
 import { assignIdToIconCard } from '../../utils/iconArrayAssign';
 import BeerContainer from './BeerContainer/BeerContainer';
 import beerTray from './../../assets/beerTray.png'
+import piramidBeer from '../../assets/img/icon/piramidBeer.png'
 import { Platform } from 'react-native-web';
 
 
@@ -22,9 +23,9 @@ const UserContainer = ({ username, id, cardValue, animatedValue }) => {
     })
 
     backOpacity = animatedValue.interpolate({
-         inputRange: [89, 90], 
-         outputRange: [0, 1] 
-        })
+        inputRange: [89, 90],
+        outputRange: [0, 1]
+    })
 
     const frontAnimatedStyle = {
         transform: [
@@ -54,7 +55,7 @@ const UserContainer = ({ username, id, cardValue, animatedValue }) => {
             Animated.timing(animatedValue, {
                 toValue: 180,
                 duration: 800,
-                useNativeDriver: true 
+                useNativeDriver: true
             }).start();
 
         }
@@ -82,8 +83,11 @@ const UserContainer = ({ username, id, cardValue, animatedValue }) => {
             </View>
 
             <View style={{ height: '40%', width: '50%', justifyContent: 'center', position: "relative", alignItems: 'center' }}>{/* Score in beers/shot */}
-                <BeerContainer
-                    score={parseInt(cardValue)} />
+                {cardValue < 7.5 ? <BeerContainer
+                    score={parseInt(cardValue)} /> :
+                    <Image style={{ height: '140%', width: '200%', marginTop: '-50%', marginLeft: '10%', justifyContent: 'center', position: "relative", alignItems: 'center' }}
+                        source={piramidBeer} />}
+
                 <Image style={{ height: '120%', width: '120%', position: "absolute", zIndex: -1 }} source={beerTray} />
 
             </View>
@@ -95,7 +99,7 @@ export default UserContainer;
 
 const styles = StyleSheet.create({
     maxHMaxW: {
-        height: '100%', 
+        height: '100%',
         width: '100%'
     },
     flip: {
