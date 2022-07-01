@@ -12,6 +12,6 @@ export async function quitLobby(token) {
 }
 
 export async function editLobby(id, body, token) {
-  return await putApi(`${RESOURCE}/${id}`, body, token);
+  await putApi(`${RESOURCE}/${id}`, body, token);
 }
 

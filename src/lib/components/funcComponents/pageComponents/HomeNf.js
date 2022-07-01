@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 import { View } from 'react-native';
 // import { styles } from '../../../assets/styles/genericStyles';
 import ButtonNf from '../../hooksComponents/ButtonNf';
-import { playFastUser } from '../../../services/api/userapi';
-import { getStorage } from '../../../utils/storage';
 
 /**
  * home page components for seven and half game
@@ -18,9 +16,6 @@ const HomeNf = ({ onQuickMatch, onCreateLobby, onLeaderBoard }) => {
 
   const insertUserInLobby = async () => {
 
-    const TOKEN = await getStorage('token');
-
-    await playFastUser(TOKEN)
 
     onQuickMatch();
   }

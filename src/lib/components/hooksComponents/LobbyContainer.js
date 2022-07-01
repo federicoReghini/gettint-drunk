@@ -45,17 +45,17 @@ const LobbyContainer = ({ mobileToken, onAfterQuit }) => {
         }
     }, [])
 
-    const handleQuit = async () => {
-
-        Platform.OS === 'web' ?
-            (await quitLobby(token), onAfterQuit())
-            :
-            (await quitLobby(mobileToken), onAfterQuit())
-    }
+    /*   const handleQuit = async () => {
+  
+          Platform.OS === 'web' ?
+              (await quitLobby(token), onAfterQuit())
+              :
+              (await quitLobby(mobileToken), onAfterQuit())
+      } */
 
     const generateUser = (element, index) => {
 
-        return (<View key={index} style={{ width: Platform.OS === 'web' ? "calc(100% / 7)" : (Dimensions.get('window').width/7), height: '100%' }
+        return (<View key={index} style={{ width: Platform.OS === 'web' ? "calc(100% / 7)" : (Dimensions.get('window').width / 7), height: '100%' }
         }>
 
             <UserContainer
@@ -103,7 +103,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit }) => {
 
                     <Button
                         title={'Quit'}
-                        onPress={handleQuit}
+                    /*  onPress={handleQuit} */
                     />
                 </View>
             </View>

@@ -7,6 +7,10 @@ import { View, Button } from 'react-native';
 // library components
 import ButtonNf from '../ButtonNf';
 
+//playfastuser
+import { playFastUser } from '../../../services/api/userapi';
+import { getStorage } from '../../../utils/storage';
+
 // ws
 import { connectWS, WS } from '../../../services/genericWebSocket';
 
@@ -18,12 +22,17 @@ const JoinLobbyNf = ({ onStartMatch }) => {
   });
 
   useEffect(() => {
-    connectWS();
 
+    (async () => {
+      const TOKEN = await getStorage('token');
+      await playFastUser(TOKEN)
+    })()
+
+    connectWS();
     WS.onmessage = (e) => {
 
+      console.log(e.data)
       if (e.data[0] === "{") {
-
         setState({
           lobby: JSON.parse(e.data)
         })
