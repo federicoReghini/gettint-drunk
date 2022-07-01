@@ -8,39 +8,36 @@ import { View, Button } from 'react-native';
 import ButtonNf from '../ButtonNf';
 
 //playfastuser
-import { playFastUser } from '../../../services/api/userapi';
-import { getStorage } from '../../../utils/storage';
+// import { playFastUser } from '../../../services/api/userapi';
+// import { getStorage } from '../../../utils/storage';
 
-// ws
-import { connectWS, WS } from '../../../services/genericWebSocket';
+// // ws
+// import { connectWS, WS } from '../../../services/genericWebSocket';
+// import { StompSocketState } from '@stomp/stompjs';
+import { eventOn } from '../../../eventEmitter';
+var WS = new WebSocket('ws://7emezzo-dev.eba-uwfpyt28.eu-south-1.elasticbeanstalk.com/ws')
 
 
-const JoinLobbyNf = ({ onStartMatch }) => {
+
+const JoinLobbyNf = ({ onStartMatch, id }) => {
+
+
+  console.log('id', id);
 
   const [state, setState] = useState({
-    lobby: null
+    lobby: []
   });
 
   useEffect(() => {
+    eventOn('lobby', (e) => {
+      console.log('event',e);
+      setState({
+        ...state,
+        lobby: e
+      })
+    })
 
-    (async () => {
-      const TOKEN = await getStorage('token');
-      await playFastUser(TOKEN)
-    })()
-
-    connectWS();
-    WS.onmessage = (e) => {
-
-      console.log(e.data)
-      if (e.data[0] === "{") {
-        setState({
-          lobby: JSON.parse(e.data)
-        })
-      }
-
-    }
-  }, [])
-
+  },[WS.onmessage])
 
   const player = (player, key) => {
 
@@ -50,19 +47,20 @@ const JoinLobbyNf = ({ onStartMatch }) => {
     )
   }
 
-
-
   return (
     <View>
 
+     {state.lobby?.users?.map(player)}
+    
+
       {
-        state.lobby?.user?.length > 0 && state.lobby?.user?.map(player)
+        (state.lobby?.users?.length > 0 && state.lobby?.users[0].id === id) &&
+        <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'center', marginVertical: '0.5%' }}>
+          <Button
+            onPress={onStartMatch}
+            title='Start Game' />
+        </View>
       }
-      <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'center', marginVertical: '0.5%' }}>
-        <Button
-          onPress={onStartMatch}
-          title='Start Game' />
-      </View>
     </View>
   )
 }
