@@ -33,7 +33,7 @@ const JoinLobbyNf = ({ onStartMatch, id }) => {
       console.log('event',e);
       setState({
         ...state,
-        lobby: e
+        lobby: JSON.parse(e)
       })
     })
 
@@ -54,7 +54,7 @@ const JoinLobbyNf = ({ onStartMatch, id }) => {
     
 
       {
-        (state.lobby?.users?.length > 0 && state.lobby?.users[0].id === id) &&
+        (state.lobby?.users?.length > 2 && state.lobby?.users[0].id === id) &&
         <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'center', marginVertical: '0.5%' }}>
           <Button
             onPress={onStartMatch}

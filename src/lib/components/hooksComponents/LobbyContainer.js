@@ -14,7 +14,7 @@ import { eventOn } from '../../eventEmitter';
 let token;
 
 
-const LobbyContainer = ({ mobileToken, onAfterQuit }) => {
+const LobbyContainer = ({ mobileToken, onAfterQuit, lobbyId }) => {
 
     const [state, setState] = useState({
         lobbyId: null,
@@ -24,34 +24,34 @@ const LobbyContainer = ({ mobileToken, onAfterQuit }) => {
     useEffect(() => {
         (async () => {
             token = await getStorage('token')
-            const LOBBYID = await createLobby(token)
             setState({
                 ...state,
-                lobbyId: LOBBYID
+                lobbyId: lobbyId
             })
-        })()
-        connectWS();
-        WS.onmessage = (e) => {
+            connectWS();
 
-            if (e.data[0] === "{") {
-
+            WS.onmessage = (e) => {
+                console.log(JSON.parse(e.data));
                 setState({
                     ...state,
                     wsRes: JSON.parse(e.data)
                 })
             }
-
-
-        }
+        })()
     }, [])
 
-    /*   const handleQuit = async () => {
-  
-          Platform.OS === 'web' ?
-              (await quitLobby(token), onAfterQuit())
-              :
-              (await quitLobby(mobileToken), onAfterQuit())
-      } */
+    const handleQuit = async () => {
+
+        if (Platform.OS === ('android' || 'ios')) {
+
+            await quitLobby(mobileToken);
+            onAfterQuit();
+        } else {
+
+            await quitLobby(token);
+            onAfterQuit();
+        }
+    }
 
     const generateUser = (element, index) => {
 
@@ -103,7 +103,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit }) => {
 
                     <Button
                         title={'Quit'}
-                    /*  onPress={handleQuit} */
+                        onPress={handleQuit}
                     />
                 </View>
             </View>
