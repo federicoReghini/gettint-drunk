@@ -29,7 +29,8 @@ axiosInstance.interceptors.response.use(function (response) {
     case (401):
       if (error.response.status === 401) {
         (async () => {
-          const { token, refreshToken } = await updateAuthToken();
+          const refreshTokens = await getStorage('refreshToken');
+          const { token, refreshToken } = await updateAuthToken(refreshTokens);
           setStorage('token', token)
           setStorage('refreshToken', refreshToken)
         })()

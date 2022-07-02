@@ -15,7 +15,7 @@ export const sendMessage = (message) => {
     WS.send(JSON.stringify(message));
 }
 
-export const getMessage = () => {
+export const getMessage = (idUser) => {
 
     WS.onmessage = (event) => {
         console.log('onmessage', JSON.parse(event.data));
@@ -30,7 +30,7 @@ export const getMessage = () => {
             if (ISMATCH == null) {
                 eventEmit('match', event.data)
                 setTimeout(() => {
-                    this.requestCard();
+                    requestCard(idUser);
                 }, 1000);
             } else {
                 eventEmit('match', event.data)
@@ -38,6 +38,26 @@ export const getMessage = () => {
         }
     }
 }
+
+export const endMatch = (idUser) => {
+    console.log("check end match...");
+    const message = {
+       user_id: idUser,
+       method: "checkEndMatch",
+    }
+    sendMessage(message);
+ }
+
+export const requestCard = (idUser) => {
+    const message = {
+       user_id: idUser,
+       method: "requestCard"
+    }
+    sendMessage(message);
+     setTimeout(() => {
+       endMatch(idUser);
+    }, 100);
+ }
 
 
 export const sendDataToWs = (name, { lobby, userId }) => {
