@@ -47,19 +47,19 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, game }) => {
     }, [])
 
 
-        (() => {
-            let current = false
-            if (game?.hasOwnProperty('lobby') === false) {
-                let currentUser = game.find(element => element.turn === true)
-                if (currentUser.id === userId) {
-                    current = true
-                }
-            }
-            setState({
-                ...state,
-                isCurrent: current
-            })
-        })()
+    /*   (() => {
+          let current = false
+          if (game?.hasOwnProperty('lobby') === false) {
+              let currentUser = game.find(element => element.turn === true)
+              if (currentUser.id === userId) {
+                  current = true
+              }
+          }
+          setState({
+              ...state,
+              isCurrent: current
+          })
+      })() */
 
     /*   const handleQuit = async () => {
   
