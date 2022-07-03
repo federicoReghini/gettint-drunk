@@ -111,15 +111,15 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
     }
 
     const requestCard = () => {
-        if (state.isCurrent === true) {
-            onRequestCard();
-        }
+
+        onRequestCard();
+
     }
 
     const stopPlay = () => {
-        if (state.isCurrent === true) {
-            onStop();
-        }
+
+        onStop();
+
     }
     return (
         <ImageBackground source={bgImage} style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: Platform.OS === 'web' ? '100vh' : '100%', width: Platform.OS === 'web' ? '100vw' : '100%', position: 'relative' }}
