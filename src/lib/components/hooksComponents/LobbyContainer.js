@@ -61,19 +61,19 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
     }
 
     (() => {
-        let current = false
-        prevCurrent.current = current;
+        if (state.isCurrent !== true) {
+            let current = false
 
-        console.log(prevCurrent.current);
+            console.log(prevCurrent.current);
 
-        if (state.wsRes?.hasOwnProperty('ended') === true && state.wsRes !== null) {
-            let currentUser = state.wsRes.users.find(element => element.turn === true)
-            if (currentUser?.id === userId) {
-                current = true
+            if (state.wsRes?.hasOwnProperty('ended') === true && state.wsRes !== null) {
+                let currentUser = state.wsRes.users.find(element => element.turn === true)
+                if (currentUser?.id === userId) {
+                    current = true
+                }
             }
-        }
 
-        if (current !== prevCurrent.current) {
+
             console.log('setto state in LobbyCOntainer');
             setState({
                 ...state,
