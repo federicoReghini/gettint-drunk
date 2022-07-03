@@ -8,7 +8,7 @@ import { createLobby, quitLobby } from '../../services/api/lobbyapi';
 import { getUserById } from '../../services/api/userapi';
 //storage
 import { getStorage } from '../../utils/storage';
-import { connectWS, WS } from '../../services/genericWebSocket';
+// import { connectWS, WS } from '../../services/genericWebSocket';
 import { eventOn } from '../../eventEmitter';
 
 let token;
@@ -25,20 +25,25 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, game }) => {
     useEffect(() => {
         (async () => {
             token = await getStorage('token')
+            // connectWS();
+
+            // WS.onmessage = (e) => {
+            //     console.log(JSON.parse(e.data));
+            //     setState({
+            //         ...state,
+            //         wsRes: JSON.parse(e.data)
+            //     })
+            // }
+        })()
+        eventOn('match', e => {
+            console.log('match', JSON.parse(e));
             setState({
                 ...state,
+                wsRes: JSON.parse(e),
                 lobbyId: lobbyId
-            })
-            connectWS();
 
-            WS.onmessage = (e) => {
-                console.log(JSON.parse(e.data));
-                setState({
-                    ...state,
-                    wsRes: JSON.parse(e.data)
-                })
-            }
-        })()
+            })
+        })
     }, [])
 
     const handleQuit = async () => {
@@ -112,7 +117,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, game }) => {
             resizeMode='cover'>
 
             <View style={{ position: 'absolute', height: '33%', width: '85%', top: '43%', left: '7%', flexDirection: 'row' }}>
-                {state.wsRes?.user?.map(generateUser)}
+                {state.wsRes?.users?.map(generateUser)}
             </View>
 
             <View style={{

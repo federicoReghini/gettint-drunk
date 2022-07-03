@@ -30,11 +30,11 @@ import { eventEmit, eventOn } from "./eventEmitter";
 
 // custom hooks
 import useLogout from "./hooks/useLogout";
-import { connectWS, sendDataToWs } from "./services/genericWebSocket";
+// import { connectWS, sendDataToWs } from "./services/genericWebSocket";
 
 export {
-    sendDataToWs,
-    connectWS,
+    // sendDataToWs,
+    // connectWS,
     LoginNf,
     SignupNf,
     ButtonNf,

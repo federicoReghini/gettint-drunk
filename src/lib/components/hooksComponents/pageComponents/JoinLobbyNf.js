@@ -21,23 +21,20 @@ var WS = new WebSocket('ws://7emezzo-dev.eba-uwfpyt28.eu-south-1.elasticbeanstal
 
 const JoinLobbyNf = ({ onStartMatch, id }) => {
 
-
-  console.log('id', id);
-
   const [state, setState] = useState({
     lobby: []
   });
 
   useEffect(() => {
     eventOn('lobby', (e) => {
-      console.log('event', e);
+      console.log('event', JSON.parse(e));
       setState({
         ...state,
         lobby: JSON.parse(e)
       })
     })
 
-  }, [WS.onmessage])
+  },[])
 
   const player = (player, key) => {
 
@@ -54,7 +51,7 @@ const JoinLobbyNf = ({ onStartMatch, id }) => {
 
 
       {
-        (state.lobby?.users?.length > 2 && state.lobby?.users[0].id === id) &&
+        (state.lobby?.users?.length >= 2 && state.lobby?.users[0].id === id) &&
         <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'center', marginVertical: '0.5%' }}>
           <Button
             onPress={onStartMatch}
