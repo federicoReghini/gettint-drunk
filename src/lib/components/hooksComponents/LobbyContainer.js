@@ -66,6 +66,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
         if (state.wsRes?.hasOwnProperty('ended') === true && state.wsRes !== null) {
             console.log('primo if', 'user', userId)
             let currentUser = state.wsRes.users.find(element => element.turn === true)
+            console.log('currentUser', currentUser, 'userId', userId)
             if (currentUser?.id === userId) {
                 console.log('secondo if', 'user', userId)
                 current = true
