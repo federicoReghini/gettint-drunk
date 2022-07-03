@@ -51,6 +51,7 @@ const UserContainer = ({ username, id, cardValue, animatedValue }) => {
             })
         }
         if (cardValue > 7.5) {
+            console.log('cardValue > 7.5');
             Animated.timing(animatedValue, {
                 toValue: 180,
                 duration: 800,
