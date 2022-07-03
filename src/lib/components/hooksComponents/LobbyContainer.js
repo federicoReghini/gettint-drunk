@@ -65,9 +65,9 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
         current = false
         if (state.wsRes?.hasOwnProperty('ended') === true && state.wsRes !== null) {
             console.log('primo if', 'user', userId)
-            let currentUser = state.wsRes.users.find(element => element.turn === true)
+            let currentUser = state.wsRes.hands.find(element => element.turn === true)
             console.log('currentUser', currentUser, 'userId', userId)
-            if (currentUser?.id === userId) {
+            if (currentUser?.user.id === userId) {
                 console.log('secondo if', 'user', userId)
                 current = true
             }
