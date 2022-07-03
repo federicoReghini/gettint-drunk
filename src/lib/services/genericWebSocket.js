@@ -7,7 +7,7 @@ export const WS = new WebSocket(WEBSOCKET);
 
 export const connectWS = () => {
     WS.onopen = () => {
-        console.log('connected')
+        console.log('connected to server', WS)
     };
 }
 
@@ -99,38 +99,38 @@ export const sendRequestToWs = (method, isLobby = false, userId) => {
                 user_id: userId,
                 method: "requestCard"
             }
-           break;
+            break;
         case "stopPlaying":
             pathName = {
                 user_id: userId,
                 method: "stopPlaying"
             }
-           break;
+            break;
         case "changeLobbyAccess":
             pathName = {
                 user_id: userId,
                 method: "changeLobbyAccess",
                 accessType: !isLobby
             }
-           break;
+            break;
         case "startMatch":
             pathName = {
                 user_id: userId,
                 method: "startMatch"
             }
-           break;
+            break;
         case "endMatch":
             pathName = {
                 user_id: userId,
                 method: "endMatch"
             }
-           break;
+            break;
         case "quitMatch":
             pathName = {
                 user_id: userId,
                 method: "quitMatch"
             }
-           break;
+            break;
 
     }
 

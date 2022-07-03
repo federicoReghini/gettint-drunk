@@ -30,14 +30,14 @@ const JoinLobbyNf = ({ onStartMatch, id }) => {
 
   useEffect(() => {
     eventOn('lobby', (e) => {
-      console.log('event',e);
+      console.log('event', e);
       setState({
         ...state,
         lobby: JSON.parse(e)
       })
     })
 
-  },[WS.onmessage])
+  }, [WS.onmessage])
 
   const player = (player, key) => {
 
@@ -50,8 +50,8 @@ const JoinLobbyNf = ({ onStartMatch, id }) => {
   return (
     <View>
 
-     {state.lobby?.users?.map(player)}
-    
+      {state.lobby?.users?.map(player)}
+
 
       {
         (state.lobby?.users?.length > 2 && state.lobby?.users[0].id === id) &&
