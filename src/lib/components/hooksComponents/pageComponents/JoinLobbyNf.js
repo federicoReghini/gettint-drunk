@@ -27,7 +27,7 @@ const JoinLobbyNf = ({ onStartMatch, id }) => {
 
   useEffect(() => {
     eventOn('lobby', (e) => {
-      console.log('event',JSON.parse(e));
+      console.log('event', JSON.parse(e));
       setState({
         ...state,
         lobby: JSON.parse(e)
@@ -47,8 +47,8 @@ const JoinLobbyNf = ({ onStartMatch, id }) => {
   return (
     <View>
 
-     {state.lobby?.users?.map(player)}
-    
+      {state.lobby?.users?.map(player)}
+
 
       {
         (state.lobby?.users?.length >= 2 && state.lobby?.users[0].id === id) &&
