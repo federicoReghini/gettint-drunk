@@ -91,7 +91,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
       } */
 
     const generateUser = (element, index) => {
-
+        const handOfPlayer = state.wsRes.hands.find(hand => hand.user.username === element.username)
         return (<View key={index} style={{ width: Platform.OS === 'web' ? "calc(100% / 7)" : (Dimensions.get('window').width / 7), height: '100%' }
         }>
 
@@ -99,7 +99,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
                 animatedValue={new Animated.Value(0)}
                 username={element.username}
                 id={element.id}
-                cardValue={element.cardValue}
+                cardValue={handOfPlayer.cardValue}
             /* score={element.score} */
             ></UserContainer>
         </View >)
