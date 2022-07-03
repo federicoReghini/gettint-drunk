@@ -7,17 +7,7 @@ import { View, Button } from 'react-native';
 // library components
 import ButtonNf from '../ButtonNf';
 
-//playfastuser
-// import { playFastUser } from '../../../services/api/userapi';
-// import { getStorage } from '../../../utils/storage';
-
-// // ws
-// import { connectWS, WS } from '../../../services/genericWebSocket';
-// import { StompSocketState } from '@stomp/stompjs';
 import { eventOn } from '../../../eventEmitter';
-var WS = new WebSocket('ws://7emezzo-dev.eba-uwfpyt28.eu-south-1.elasticbeanstalk.com/ws')
-
-
 
 const JoinLobbyNf = ({ onStartMatch, id }) => {
 

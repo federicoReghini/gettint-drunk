@@ -1,8 +1,7 @@
-import React from 'react'
-import { View, ImageBackground, Button, Dimensions, Platform, Animated } from 'react-native';
+import React, { useRef, useEffect, useState } from 'react'
+import { View, ImageBackground, Button, Dimensions, Platform, Animated, Text } from 'react-native';
 import UserContainer from './UserContainer';
 import bgImage from '../../assets/bgImage.png'
-import { useEffect, useState } from 'react';
 import { getApi, postApi } from '../../services/genericServices';
 import { createLobby, quitLobby } from '../../services/api/lobbyapi';
 import { getUserById } from '../../services/api/userapi';
@@ -14,13 +13,15 @@ import { eventOn } from '../../eventEmitter';
 let token;
 
 
-const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onStop }) => {
+const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onStop, lobbyId }) => {
 
     const [state, setState] = useState({
         lobbyId: null,
         wsRes: null,
         isCurrent: null
     })
+
+    const prevCurrent = useRef();
 
     useEffect(() => {
         (async () => {
@@ -61,16 +62,24 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
 
     (() => {
         let current = false
-        if (state.wsRes?.hasOwnProperty('lobby') === false && state.wsRes !== null) {
-            let currentUser = state.wsRes.user.find(element => element.turn === true)
-            if (currentUser.id === userId) {
+        prevCurrent.current = current;
+
+        console.log(prevCurrent.current);
+
+        if (state.wsRes?.hasOwnProperty('ended') === true && state.wsRes !== null) {
+            let currentUser = state.wsRes.users.find(element => element.turn === true)
+            if (currentUser?.id === userId) {
                 current = true
             }
         }
-        setState({
-            ...state,
-            isCurrent: current
-        })
+
+        if (current !== prevCurrent.current) {
+            console.log('setto state in LobbyCOntainer');
+            setState({
+                ...state,
+                isCurrent: current
+            })
+        }
     })()
 
     /*   const handleQuit = async () => {
@@ -116,13 +125,15 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
         <ImageBackground source={bgImage} style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: Platform.OS === 'web' ? '100vh' : '100%', width: Platform.OS === 'web' ? '100vw' : '100%', position: 'relative' }}
             resizeMode='cover'>
 
-            {state.wsRes.ended === false ? <View style={{ position: 'absolute', height: '33%', width: '85%', top: '43%', left: '7%', flexDirection: 'row' }}>
-                {state.wsRes.users?.map(generateUser)}
-            </View>
-                : <View>
-                    {state.wsRes.winners.length > 0 ? <Text>Map Winned</Text> : <Text>No Winner</Text>}
+            {
+                state.wsRes?.ended === false ?
+                    <View style={{ position: 'absolute', height: '33%', width: '85%', top: '43%', left: '7%', flexDirection: 'row' }}>
+                        {state.wsRes?.users?.map(generateUser)}
+                    </View>
+                    : <View>
+                        {state.wsRes?.winners.length > 0 ? <Text>Map Winned</Text> : <Text>No Winner</Text>}
 
-                </View>}
+                    </View>}
 
             <View style={{
                 flexDirection: 'row', bottom: "5%", justifyContent: 'center', position: 'absolute', width: '100%'

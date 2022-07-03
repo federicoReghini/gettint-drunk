@@ -4,7 +4,6 @@ import { assignIdToIconCard } from '../../utils/iconArrayAssign';
 import BeerContainer from './BeerContainer/BeerContainer';
 import beerTray from './../../assets/beerTray.png'
 import piramidBeer from '../../assets/img/icon/piramidBeer.png'
-import { Platform } from 'react-native-web';
 
 
 let frontInterpolate;
