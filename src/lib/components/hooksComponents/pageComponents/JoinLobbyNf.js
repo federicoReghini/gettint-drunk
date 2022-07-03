@@ -22,23 +22,22 @@ const JoinLobbyNf = ({ onStartMatch }) => {
   });
 
   useEffect(() => {
-
-    (async () => {
-      const TOKEN = await getStorage('token');
-      await playFastUser(TOKEN)
-    })()
-
     connectWS();
     WS.onmessage = (e) => {
-
-      console.log(e.data)
+      console.log('ciao')
+      console.log('e', e.data)
       if (e.data[0] === "{") {
         setState({
           lobby: JSON.parse(e.data)
         })
       }
+      (async () => {
 
+        const TOKEN = await getStorage('token');
+        await playFastUser("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwb3RhdG8iLCJyb2xlcyI6WyJVU0VSIl0sImlhdCI6MTY1NjY2Mzk0NywiZXhwIjoxNjU2NjY3NTQ3fQ.AYlV3W - 4fu9K9R4wwIRPeIcGMIeBtkFhRI9 - rCRVtD8")
+      })()
     }
+
   }, [])
 
 

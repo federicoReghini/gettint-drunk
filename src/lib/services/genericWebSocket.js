@@ -7,7 +7,7 @@ export const WS = new WebSocket(WEBSOCKET);
 
 export const connectWS = () => {
     WS.onopen = () => {
-        console.log('connected to server')
+        console.log('connected to server', WS)
     };
 }
 

@@ -5,6 +5,7 @@ import SignupNf from "./lib/components/hooksComponents/SignupNf";
 import LoginNf from "./lib/components/hooksComponents/LoginNf";
 import LeaderBoardNf from "./lib/components/hooksComponents/pageComponents/LeaderBoardNf";
 import CreateLobbyNf from "./lib/components/hooksComponents/pageComponents/CreateLobbyNf";
+import JoinLobbyNf from "./lib/components/hooksComponents/pageComponents/JoinLobbyNf";
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
 
   return (
     <>
-      <LobbyContainer />
+      <JoinLobbyNf />
       {/* <LeaderBoardNf /> */}
       {/*   <CreateLobbyNf /> */}
       {/* <SignupNf /> */}

@@ -14,11 +14,12 @@ import { eventOn } from '../../eventEmitter';
 let token;
 
 
-const LobbyContainer = ({ mobileToken, onAfterQuit }) => {
+const LobbyContainer = ({ mobileToken, onAfterQuit, userId, game }) => {
 
     const [state, setState] = useState({
         lobbyId: null,
-        wsRes: null
+        wsRes: null,
+        isCurrent: null
     })
 
     useEffect(() => {
@@ -44,6 +45,21 @@ const LobbyContainer = ({ mobileToken, onAfterQuit }) => {
 
         }
     }, [])
+
+
+        (() => {
+            let current = false
+            if (game?.hasOwnProperty('lobby') === false) {
+                let currentUser = game.find(element => element.turn === true)
+                if (currentUser.id === userId) {
+                    current = true
+                }
+            }
+            setState({
+                ...state,
+                isCurrent: current
+            })
+        })()
 
     /*   const handleQuit = async () => {
   
@@ -72,6 +88,18 @@ const LobbyContainer = ({ mobileToken, onAfterQuit }) => {
           </View>) */
 
     }
+
+    const requestCard = () => {
+        if (state.isCurrent === true) {
+            //do stuff
+        }
+    }
+
+    const stopPlay = () => {
+        if (state.isCurrent === true) {
+            //do stuff
+        }
+    }
     return (
         <ImageBackground source={bgImage} style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: Platform.OS === 'web' ? '100vh' : '100%', width: Platform.OS === 'web' ? '100vw' : '100%', position: 'relative' }}
             resizeMode='cover'>
@@ -86,15 +114,17 @@ const LobbyContainer = ({ mobileToken, onAfterQuit }) => {
 
                 <View style={{ width: "10%", marginRight: "2%" }}>
 
-                    <Button
+                    <Button style={state.isCurrent === false ? { backgroundColor: "d9eaf7" } : {}}
                         title={'Card'}
+                        onPress={requestCard}
                     />
                 </View>
                 <View style={{ width: "10%", marginRight: "2%" }}>
 
 
 
-                    <Button
+                    <Button tyle={state.isCurrent === false ? { backgroundColor: "d9eaf7" } : {}}
+                        onPress={stopPlay}
                         title={'Stop'}
                     />
                 </View>
