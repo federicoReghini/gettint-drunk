@@ -61,19 +61,15 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
     }
 
     (() => {
-        if (state.isCurrent !== true) {
-            current = false
-            if (state.wsRes?.hasOwnProperty('ended') === true && state.wsRes !== null) {
-                console.log('primo if', 'user', userId)
-                let currentUser = state.wsRes.users.find(element => element.turn === true)
-                if (currentUser?.id === userId) {
-                    console.log('secondo if', 'user', userId)
-                    current = true
-                }
+
+        current = false
+        if (state.wsRes?.hasOwnProperty('ended') === true && state.wsRes !== null) {
+            console.log('primo if', 'user', userId)
+            let currentUser = state.wsRes.users.find(element => element.turn === true)
+            if (currentUser?.id === userId) {
+                console.log('secondo if', 'user', userId)
+                current = true
             }
-
-
-
         }
     })()
 
