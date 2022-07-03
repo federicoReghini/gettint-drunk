@@ -1,5 +1,5 @@
 import { deleteApi, getApi, postApi, putApi } from "./genericServices";
-import { closeConnection, openConnection, wsMessage } from "./genericWebSocket";
+// import { closeConnection, openConnection, wsMessage } from "./genericWebSocket";
 
 
 export {
@@ -7,7 +7,7 @@ export {
   postApi,
   putApi,
   deleteApi,
-  wsMessage,
-  closeConnection,
-  openConnection,
+  // wsMessage,
+  // closeConnection,
+  // openConnection,
 }

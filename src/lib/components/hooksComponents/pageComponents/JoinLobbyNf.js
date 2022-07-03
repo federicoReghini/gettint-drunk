@@ -21,23 +21,20 @@ var WS = new WebSocket('ws://7emezzo-dev.eba-uwfpyt28.eu-south-1.elasticbeanstal
 
 const JoinLobbyNf = ({ onStartMatch, id }) => {
 
-
-  console.log('id', id);
-
   const [state, setState] = useState({
     lobby: []
   });
 
   useEffect(() => {
     eventOn('lobby', (e) => {
-      console.log('event',e);
+      console.log('event',JSON.parse(e));
       setState({
         ...state,
         lobby: JSON.parse(e)
       })
     })
 
-  },[WS.onmessage])
+  },[])
 
   const player = (player, key) => {
 
