@@ -11,7 +11,7 @@ import { getStorage } from '../../utils/storage';
 import { eventOn } from '../../eventEmitter';
 
 let token;
-
+let current
 
 const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onStop, lobbyId }) => {
 
@@ -62,23 +62,18 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
 
     (() => {
         if (state.isCurrent !== true) {
-            let current = false
-
-            console.log(prevCurrent.current);
-
+            current = false
             if (state.wsRes?.hasOwnProperty('ended') === true && state.wsRes !== null) {
+                console.log('primo if', 'user', userId)
                 let currentUser = state.wsRes.users.find(element => element.turn === true)
                 if (currentUser?.id === userId) {
+                    console.log('secondo if', 'user', userId)
                     current = true
                 }
             }
 
 
-            console.log('setto state in LobbyCOntainer');
-            setState({
-                ...state,
-                isCurrent: current
-            })
+
         }
     })()
 
@@ -141,7 +136,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
 
                 <View style={{ width: "10%", marginRight: "2%" }}>
 
-                    <Button style={state.isCurrent === false ? { backgroundColor: "d9eaf7" } : {}}
+                    <Button style={current === false ? { backgroundColor: "d9eaf7" } : {}}
                         title={'Card'}
                         onPress={requestCard}
                     />
@@ -150,7 +145,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
 
 
 
-                    <Button style={state.isCurrent === false ? { backgroundColor: "d9eaf7" } : {}}
+                    <Button style={current === false ? { backgroundColor: "d9eaf7" } : {}}
                         onPress={stopPlay}
                         title={'Stop'}
                     />
