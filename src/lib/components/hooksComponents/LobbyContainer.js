@@ -142,7 +142,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
 
 
 
-                    <Pressable style={current === false ? { dispay: "none", padding: 10 } : {}}
+                    <Pressable style={current === false ? { dispay: "none", padding: 10, backgroundColor: 'red' } : { backgroundColor: 'blue' }}
                         onPress={stopPlay}
                         title={'Stop'}
                     >
