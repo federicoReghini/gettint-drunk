@@ -14,7 +14,7 @@ let token;
 let current
 
 const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onStop, lobbyId }) => {
-
+    console.log('lobbyid', lobbyId)
     const [state, setState] = useState({
         lobbyId: null,
         wsRes: null,
@@ -142,7 +142,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
 
 
 
-                    <Button style={current === false ? { backgroundColor: "red" } : {}}
+                    <Button style={current === false ? { dispay: "none" } : {}}
                         onPress={stopPlay}
                         title={'Stop'}
                     />
