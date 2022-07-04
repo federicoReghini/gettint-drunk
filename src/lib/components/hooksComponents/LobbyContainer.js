@@ -128,7 +128,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
                     <TouchableOpacity style={state.isCurrent === false ? { display: 'none' } : { backgroundColor: '#2196F3', padding: 10 }}
                         onPress={requestCard}
                     >
-                        <Text style={{ color: 'white' }}>
+                        <Text style={{ color: 'white', textAlign: 'center' }}>
                             Card
                         </Text>
                     </TouchableOpacity>
@@ -142,7 +142,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
                         onPress={stopPlay}
 
                     >
-                        <Text style={{ color: 'white' }}>
+                        <Text style={{ color: 'white', textAlign: 'center' }}>
                             Stop
                         </Text>
                     </TouchableOpacity>
@@ -154,7 +154,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
                         onPress={handleQuit}
                     >
 
-                        <Text style={{ color: 'white' }}>
+                        <Text style={{ color: 'white', textAlign: 'center' }}>
                             Quit
                         </Text>
                     </TouchableOpacity>

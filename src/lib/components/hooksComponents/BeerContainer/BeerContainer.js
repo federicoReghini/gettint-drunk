@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, View, Platform } from 'react-native';
+import { Image, View } from 'react-native';
 import beerIcon from '../../../assets/img/icon/birra.png'
 import shotIcon from '../../../assets/img/icon/shot.png'
 
@@ -13,7 +13,7 @@ export default function BeerContainer(props) {
 
     const generateFirstSeriesOfBeer = () => {
         return [...new Array(scoreIsDecimal.cleanScore > 3 ? 3 : scoreIsDecimal.cleanScore).keys()].map(index => <Image
-            style={{ height: '100%', width: '30%', marginLeft: Platform.OS === 'ios' || 'android' ? '' : "-5%" }}
+            style={{ height: '100%', width: '30%', marginLeft: "-5%" }}
             key={index}
             source={beerIcon} />);
     }
@@ -21,7 +21,7 @@ export default function BeerContainer(props) {
     const generateSecondtSeriesOfBeer = () => {
         console.log('seconda')
         return [...new Array(scoreIsDecimal.cleanScore - 3 > 3 ? 3 : scoreIsDecimal.cleanScore - 3).keys()].map(index => <Image
-            style={{ height: '100%', width: '30%', marginLeft: Platform.OS === 'ios' || 'android' ? '' : "-5%" }}
+            style={{ height: '100%', width: '30%', marginLeft: "-5%" }}
             key={index}
             source={beerIcon} />);
     }
@@ -48,7 +48,7 @@ export default function BeerContainer(props) {
                     }
                     {scoreIsDecimal.isDecimal &&
                         <Image
-                            style={scoreIsDecimal.cleanScore === 7 ? { height: '50%', width: '30%', marginTop: "-43%", marginLeft: Platform.OS === 'ios' || 'android' ? '' : "-90%" } : { height: '50%', width: '30%', marginTop: "-43%", marginLeft: "0" }}
+                            style={scoreIsDecimal.cleanScore === 7 ? { height: '50%', width: '30%', marginTop: "-43%", marginLeft: "-90%" } : { height: '50%', width: '30%', marginTop: "-43%", marginLeft: "0" }}
                             source={shotIcon} />
                     }
                 </View>
