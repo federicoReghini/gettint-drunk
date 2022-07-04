@@ -18,7 +18,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
     const [state, setState] = useState({
         lobbyId: null,
         wsRes: null,
-        isCurrent: true
+        isCurrent: false
     })
 
 
@@ -135,19 +135,22 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
                 flexDirection: 'row', bottom: "5%", justifyContent: 'center', position: 'absolute', width: '100%'
             }}>
                 <View style={{ width: "10%", marginRight: "2%" }}>
-
-                    <Button style={state.isCurrent === false ? { backgroundColor: "red" } : {}}
-                        title={'Card'}
+                    <Pressable style={state.isCurrent === false ? { display: 'none' } : { backgroundColor: 'blue', padding: 10 }}
                         onPress={requestCard}
-                    />
+                    >
+                        <Text style={{ color: 'white' }}>
+                            Card
+                        </Text>
+                    </Pressable>
+
                 </View>
                 <View style={{ width: "10%", marginRight: "2%" }}>
 
 
 
-                    <Pressable style={state.isCurrent === false ? { padding: 10, backgroundColor: 'red' } : { backgroundColor: 'blue', padding: 10 }}
+                    <Pressable style={state.isCurrent === false ? { display: 'none' } : { backgroundColor: 'blue', padding: 10 }}
                         onPress={stopPlay}
-                        title={'Stop'}
+
                     >
                         <Text style={{ color: 'white' }}>
                             Stop
