@@ -102,6 +102,38 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
 
     }
 
+    const generateButton = (user, key) => {
+        console.log('user', user);
+        if (user.turn !== true) return null
+
+            return (
+                <View 
+                key={key + user.id}
+                style={{
+                    flexDirection: 'row', bottom: "5%", justifyContent: 'center', position: 'absolute', width: '100%'
+                }}
+                >
+                    <View style={{ width: "10%", marginRight: "2%" }}>
+
+                        <Button style={current === false ? { backgroundColor: "d9eaf7" } : {}}
+                            title={'Card'}
+                            onPress={requestCard}
+                        />
+                    </View>
+                    <View style={{ width: "10%", marginRight: "2%" }}>
+
+
+
+                        <Button style={current === false ? { backgroundColor: "d9eaf7" } : {}}
+                            onPress={stopPlay}
+                            title={'Stop'}
+                        />
+                    </View>
+                </View>
+            )
+      
+    }
+
     const requestCard = () => {
 
         onRequestCard();
@@ -131,22 +163,9 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
                 flexDirection: 'row', bottom: "5%", justifyContent: 'center', position: 'absolute', width: '100%'
             }}>
 
-                <View style={{ width: "10%", marginRight: "2%" }}>
-
-                    <Button style={current === false ? { backgroundColor: "d9eaf7" } : {}}
-                        title={'Card'}
-                        onPress={requestCard}
-                    />
-                </View>
-                <View style={{ width: "10%", marginRight: "2%" }}>
-
-
-
-                    <Button style={current === false ? { backgroundColor: "d9eaf7" } : {}}
-                        onPress={stopPlay}
-                        title={'Stop'}
-                    />
-                </View>
+                {
+                    state.wsRes?.hands?.map(generateButton)
+                }
 
                 <View style={{ width: "10%" }}>
 
