@@ -97,6 +97,16 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
         onStop();
 
     }
+
+    const generateWinners = (player, key) => {
+        return (
+            <View key={key + player.id}>
+                <Text>{player.username + 'Won!'}</Text>
+            </View>
+
+        )
+    }
+
     return (
         <ImageBackground source={bgImage} style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: Platform.OS === 'web' ? '100vh' : '100%', width: Platform.OS === 'web' ? '100vw' : '100%', position: 'relative' }}
             resizeMode='cover'>
@@ -107,7 +117,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
                         {state.wsRes?.users?.map(generateUser)}
                     </View>
                     : <View>
-                        {state.wsRes?.winners.length > 0 ? <Text>Map Winned</Text> : <Text>No Winner</Text>}
+                        {state.wsRes?.winners.length > 0 ? state.wsRes?.winners.map(generateWinners) : <Text>No Winner</Text>}
 
                     </View>}
 
