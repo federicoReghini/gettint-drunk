@@ -61,7 +61,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
     }
 
     useEffect(() => {
-
+        let current = false;
         if (state.wsRes?.hasOwnProperty('ended') === true && state.wsRes !== null) {
             console.log('primo if', 'user', userId)
             let currentUser = state.wsRes.hands.find(element => element.turn === true)
@@ -69,8 +69,6 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
             if (currentUser?.user.id === userId) {
                 console.log('secondo if', 'user', userId)
                 current = true
-            } else {
-                current = false;
             }
         }
         setState({
