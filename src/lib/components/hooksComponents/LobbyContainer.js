@@ -142,11 +142,11 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
 
 
 
-                    <Pressable style={current === false ? { dispay: "none", padding: 10, backgroundColor: 'red' } : { backgroundColor: 'blue', padding: 10, }}
+                    <Pressable style={current === false ? { padding: 10, backgroundColor: 'red' } : { backgroundColor: 'blue', padding: 10 }}
                         onPress={stopPlay}
                         title={'Stop'}
                     >
-                        <Text style={current === false ? { color: 'red' } : { color: 'black' }}>Stop</Text>
+                        <Text style={{ color: 'white' }}>Stop</Text>
                     </Pressable>
                 </View>
 
