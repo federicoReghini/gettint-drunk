@@ -11,7 +11,7 @@ import { getStorage } from '../../utils/storage';
 import { eventOn } from '../../eventEmitter';
 
 let token;
-let current = false;
+
 
 const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onStop, lobbyId }) => {
     console.log('lobbyid', lobbyId)
@@ -21,7 +21,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
         isCurrent: null
     })
 
-    const prevCurrent = useRef();
+
 
     useEffect(() => {
         (async () => {
