@@ -149,7 +149,9 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
                         onPress={stopPlay}
                         title={'Stop'}
                     >
-                        <Text style={{ color: 'white' }}>Stop</Text>
+                        <Text style={{ color: 'white' }}>
+                            Stop
+                        </Text>
                     </Pressable>
                 </View>
 
