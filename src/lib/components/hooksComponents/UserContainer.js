@@ -55,7 +55,7 @@ const UserContainer = ({ username, id, cardValue, animatedValue }) => {
             Animated.timing(animatedValue, {
                 toValue: 180,
                 duration: 800,
-                useNativeDriver: true
+                /*  useNativeDriver: true */
             }).start();
 
         }
