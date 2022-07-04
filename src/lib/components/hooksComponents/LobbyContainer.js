@@ -150,7 +150,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
 
                 <View style={{ width: "10%" }}>
 
-                    <TouchableOpacity style={state.isCurrent === false ? { display: 'none' } : { backgroundColor: '#2196F3', padding: 10 }}
+                    <TouchableOpacity style={{ backgroundColor: '#2196F3', padding: 10 }}
                         onPress={handleQuit}
                     >
 

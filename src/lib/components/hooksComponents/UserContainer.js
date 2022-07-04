@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Image, View, Text, Animated, StyleSheet, TouchableOpacity } from 'react-native';
+import { Image, View, Text, Animated, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import { assignIdToIconCard } from '../../utils/iconArrayAssign';
 import BeerContainer from './BeerContainer/BeerContainer';
 import beerTray from './../../assets/beerTray.png'
@@ -85,7 +85,7 @@ const UserContainer = ({ username, id, cardValue, animatedValue }) => {
             <View style={{ height: '40%', width: '50%', justifyContent: 'center', position: "relative", alignItems: 'center' }}>{/* Score in beers/shot */}
                 {cardValue <= 7.5 ? <BeerContainer
                     score={parseFloat(cardValue)} /> :
-                    <Image style={{ height: '140%', width: '200%', marginTop: '-50%', marginLeft: '10%', justifyContent: 'center', position: "relative", alignItems: 'center' }}
+                    <Image style={{ height: '140%', width: '200%', marginTop: '-50%', marginLeft: Platform.OS === 'ios' || 'android' ? '' : '10%', justifyContent: 'center', position: "relative", alignItems: 'center' }}
                         source={piramidBeer} />}
 
                 <Image style={{ height: '120%', width: '120%', position: "absolute", zIndex: -1 }} source={beerTray} />
