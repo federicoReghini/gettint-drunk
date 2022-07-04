@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react'
-import { View, ImageBackground, Button, Dimensions, Platform, Animated, Text } from 'react-native';
+import { View, ImageBackground, Button, Dimensions, Platform, Animated, Text, Pressable } from 'react-native';
 import UserContainer from './UserContainer';
 import bgImage from '../../assets/bgImage.png'
 import { getApi, postApi } from '../../services/genericServices';
@@ -142,10 +142,12 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
 
 
 
-                    <Button style={current === false ? { dispay: "none" } : {}}
+                    <Pressable style={current === false ? { dispay: "none", padding: 10 } : {}}
                         onPress={stopPlay}
                         title={'Stop'}
-                    />
+                    >
+                        <Text>Stop</Text>
+                    </Pressable>
                 </View>
 
                 <View style={{ width: "10%" }}>
