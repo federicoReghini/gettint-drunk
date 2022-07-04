@@ -125,7 +125,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
                 flexDirection: 'row', bottom: "5%", justifyContent: 'center', position: 'absolute', width: '100%'
             }}>
                 <View style={{ width: "10%", marginRight: "2%" }}>
-                    <TouchableOpacity style={state.isCurrent === false ? { display: 'none' } : { backgroundColor: '#2196F3', padding: 10, borderRadius: 50 }}
+                    <TouchableOpacity style={state.isCurrent === false ? { display: 'none' } : { backgroundColor: '#2196F3', padding: 10 }}
                         onPress={requestCard}
                     >
                         <Text style={{ color: 'white' }}>
@@ -138,7 +138,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
 
 
 
-                    <TouchableOpacity style={state.isCurrent === false ? { display: 'none' } : { backgroundColor: '#2196F3', padding: 10, borderRadius: 50 }}
+                    <TouchableOpacity style={state.isCurrent === false ? { display: 'none' } : { backgroundColor: '#2196F3', padding: 10 }}
                         onPress={stopPlay}
 
                     >
@@ -150,7 +150,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
 
                 <View style={{ width: "10%" }}>
 
-                    <TouchableOpacity style={state.isCurrent === false ? { display: 'none' } : { backgroundColor: '#2196F3', padding: 10, borderRadius: 50 }}
+                    <TouchableOpacity style={state.isCurrent === false ? { display: 'none' } : { backgroundColor: '#2196F3', padding: 10 }}
                         onPress={handleQuit}
                     >
 
