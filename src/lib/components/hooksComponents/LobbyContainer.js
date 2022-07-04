@@ -107,13 +107,13 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
 
 
     const requestCard = () => {
-        console.log('current', current)
+        console.log('current', state.isCurrent)
         onRequestCard();
 
     }
 
     const stopPlay = () => {
-        console.log('current', current)
+        console.log('current', state.isCurrent)
         onStop();
 
     }
