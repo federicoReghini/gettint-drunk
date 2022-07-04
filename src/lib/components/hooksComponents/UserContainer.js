@@ -84,7 +84,7 @@ const UserContainer = ({ username, id, cardValue, animatedValue }) => {
 
             <View style={{ height: '40%', width: '50%', justifyContent: 'center', position: "relative", alignItems: 'center' }}>{/* Score in beers/shot */}
                 {cardValue <= 7.5 ? <BeerContainer
-                    score={parseInt(cardValue)} /> :
+                    score={parseFloat(cardValue)} /> :
                     <Image style={{ height: '140%', width: '200%', marginTop: '-50%', marginLeft: '10%', justifyContent: 'center', position: "relative", alignItems: 'center' }}
                         source={piramidBeer} />}
 
