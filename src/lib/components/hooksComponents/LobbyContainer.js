@@ -60,9 +60,8 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
         }
     }
 
-    (() => {
+    useEffect(() => {
 
-        current = false
         if (state.wsRes?.hasOwnProperty('ended') === true && state.wsRes !== null) {
             console.log('primo if', 'user', userId)
             let currentUser = state.wsRes.hands.find(element => element.turn === true)
@@ -70,9 +69,15 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
             if (currentUser?.user.id === userId) {
                 console.log('secondo if', 'user', userId)
                 current = true
+            } else {
+                current = false;
             }
         }
-    })()
+        setState({
+            ...state,
+            isCurrent: current
+        })
+    }, [state.wsRes])
 
     /*   const handleQuit = async () => {
   
@@ -133,7 +138,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
             }}>
                 <View style={{ width: "10%", marginRight: "2%" }}>
 
-                    <Button style={current === false ? { backgroundColor: "red" } : {}}
+                    <Button style={state.isCurrent === false ? { backgroundColor: "red" } : {}}
                         title={'Card'}
                         onPress={requestCard}
                     />
@@ -142,7 +147,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
 
 
 
-                    <Pressable style={current === false ? { padding: 10, backgroundColor: 'red' } : { backgroundColor: 'blue', padding: 10 }}
+                    <Pressable style={state.isCurrent === false ? { padding: 10, backgroundColor: 'red' } : { backgroundColor: 'blue', padding: 10 }}
                         onPress={stopPlay}
                         title={'Stop'}
                     >
