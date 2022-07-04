@@ -1,13 +1,11 @@
-import React, { useRef, useEffect, useState } from 'react'
-import { View, ImageBackground, Button, Dimensions, Platform, Animated, Text, Pressable } from 'react-native';
+import React, { useEffect, useState } from 'react'
+import { View, ImageBackground, Dimensions, Platform, Animated, Text, TouchableOpacity } from 'react-native';
 import UserContainer from './UserContainer';
 import bgImage from '../../assets/bgImage.png'
-import { getApi, postApi } from '../../services/genericServices';
-import { createLobby, quitLobby } from '../../services/api/lobbyapi';
-import { getUserById } from '../../services/api/userapi';
+import { quitLobby } from '../../services/api/lobbyapi';
+
 //storage
 import { getStorage } from '../../utils/storage';
-// import { connectWS, WS } from '../../services/genericWebSocket';
 import { eventOn } from '../../eventEmitter';
 
 let token;
@@ -21,21 +19,11 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
         isCurrent: false
     })
 
-
-
     useEffect(() => {
         (async () => {
             token = await getStorage('token')
-            // connectWS();
-
-            // WS.onmessage = (e) => {
-            //     console.log(JSON.parse(e.data));
-            //     setState({
-            //         ...state,
-            //         wsRes: JSON.parse(e.data)
-            //     })
-            // }
         })()
+
         eventOn('match', e => {
             console.log('match', JSON.parse(e));
             setState({
@@ -76,14 +64,6 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
             isCurrent: current
         })
     }, [state.wsRes])
-
-    /*   const handleQuit = async () => {
-  
-          Platform.OS === 'web' ?
-              (await quitLobby(token), onAfterQuit())
-              :
-              (await quitLobby(mobileToken), onAfterQuit())
-      } */
 
     const generateUser = (element, index) => {
         const handOfPlayer = state.wsRes.hands.find(hand => hand.user.username === element.username)
@@ -135,36 +115,41 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
                 flexDirection: 'row', bottom: "5%", justifyContent: 'center', position: 'absolute', width: '100%'
             }}>
                 <View style={{ width: "10%", marginRight: "2%" }}>
-                    <Pressable style={state.isCurrent === false ? { display: 'none' } : { backgroundColor: 'blue', padding: 10 }}
+                    <TouchableOpacity style={state.isCurrent === false ? { display: 'none' } : { backgroundColor: '#2196F3', padding: 10, borderRadius: 50 }}
                         onPress={requestCard}
                     >
                         <Text style={{ color: 'white' }}>
                             Card
                         </Text>
-                    </Pressable>
+                    </TouchableOpacity>
 
                 </View>
                 <View style={{ width: "10%", marginRight: "2%" }}>
 
 
 
-                    <Pressable style={state.isCurrent === false ? { display: 'none' } : { backgroundColor: 'blue', padding: 10 }}
+                    <TouchableOpacity style={state.isCurrent === false ? { display: 'none' } : { backgroundColor: '#2196F3', padding: 10, borderRadius: 50 }}
                         onPress={stopPlay}
 
-                    >
+                    >, borderRadius: 50
                         <Text style={{ color: 'white' }}>
                             Stop
                         </Text>
-                    </Pressable>
+                    </TouchableOpacity>
                 </View>
 
                 <View style={{ width: "10%" }}>
 
-                    <Button
-                        title={'Quit'}
+                    <TouchableOpacity style={state.isCurrent === false ? { display: 'none' } : { backgroundColor: '#2196F3', padding: 10, borderRadius: 50 }}
                         onPress={handleQuit}
-                    />
+                    >
+
+                        <Text style={{ color: 'white' }}>
+                            Quit
+                        </Text>
+                    </TouchableOpacity>
                 </View>
+
             </View>
 
         </ImageBackground >
