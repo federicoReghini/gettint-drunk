@@ -18,7 +18,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
     const [state, setState] = useState({
         lobbyId: null,
         wsRes: null,
-        isCurrent: null
+        isCurrent: true
     })
 
 
