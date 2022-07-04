@@ -102,37 +102,6 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
 
     }
 
-    const generateButton = (user, key) => {
-        console.log('user', user);
-        if (user.turn !== true) return null
-
-        return (
-            <View
-                key={key + user.id}
-                style={{
-                    flexDirection: 'row', bottom: "5%", justifyContent: 'center', position: 'absolute', width: '100%'
-                }}
-            >
-                <View style={{ width: "10%", marginRight: "2%" }}>
-
-                    <Button style={current === false ? { backgroundColor: "red" } : {}}
-                        title={'Card'}
-                        onPress={requestCard}
-                    />
-                </View>
-                <View style={{ width: "10%", marginRight: "2%" }}>
-
-
-
-                    <Button style={current === false ? { backgroundColor: "red" } : {}}
-                        onPress={stopPlay}
-                        title={'Stop'}
-                    />
-                </View>
-            </View>
-        )
-
-    }
 
     const requestCard = () => {
         console.log('current', current)
@@ -162,10 +131,22 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
             <View style={{
                 flexDirection: 'row', bottom: "5%", justifyContent: 'center', position: 'absolute', width: '100%'
             }}>
+                <View style={{ width: "10%", marginRight: "2%" }}>
 
-                {
-                    state.wsRes?.hands?.map(generateButton)
-                }
+                    <Button style={current === false ? { backgroundColor: "red" } : {}}
+                        title={'Card'}
+                        onPress={requestCard}
+                    />
+                </View>
+                <View style={{ width: "10%", marginRight: "2%" }}>
+
+
+
+                    <Button style={current === false ? { backgroundColor: "red" } : {}}
+                        onPress={stopPlay}
+                        title={'Stop'}
+                    />
+                </View>
 
                 <View style={{ width: "10%" }}>
 
