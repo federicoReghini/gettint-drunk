@@ -141,7 +141,7 @@ const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onSto
                     <TouchableOpacity style={state.isCurrent === false ? { display: 'none' } : { backgroundColor: '#2196F3', padding: 10, borderRadius: 50 }}
                         onPress={stopPlay}
 
-                    >, borderRadius: 50
+                    >
                         <Text style={{ color: 'white' }}>
                             Stop
                         </Text>
