@@ -52,7 +52,7 @@ const UserContainer = ({ username, id, cardValue, animatedValue }) => {
             Animated.timing(animatedValue, {
                 toValue: 180,
                 duration: 800,
-                /*  useNativeDriver: true */
+                useNativeDriver: true
             }).start();
 
         }
@@ -72,7 +72,7 @@ const UserContainer = ({ username, id, cardValue, animatedValue }) => {
             <View style={{ width: '50%', height: '50%', marginBottom: "5%" }}>{/* cardIcon */}
 
                 <Animated.Image style={[styles.maxHMaxW, styles.flip, frontAnimatedStyle]}
-                    /*  resizeMode='cover' */
+                    resizeMode='cover'
                     source={state.playerIcon.regular} />
                 <Animated.Image style={[backAnimatedStyle, styles.flip, styles.maxHMaxW, styles.abs]}
                     source={state.playerIcon.flipped} />
