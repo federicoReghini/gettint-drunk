@@ -21,10 +21,7 @@ const UserContainer = ({ username, id, cardValue, animatedValue }) => {
         outputRange: ['180deg', '360deg']
     })
 
-    backOpacity = animatedValue.interpolate({
-        inputRange: [89, 90],
-        outputRange: [0, 1]
-    })
+
 
     const frontAnimatedStyle = {
         transform: [
@@ -75,7 +72,7 @@ const UserContainer = ({ username, id, cardValue, animatedValue }) => {
             <View style={{ width: '50%', height: '50%', marginBottom: "5%" }}>{/* cardIcon */}
 
                 <Animated.Image style={[styles.maxHMaxW, styles.flip, frontAnimatedStyle]}
-                    resizeMode='cover'
+                    /*  resizeMode='cover' */
                     source={state.playerIcon.regular} />
                 <Animated.Image style={[backAnimatedStyle, styles.flip, styles.maxHMaxW, styles.abs]}
                     source={state.playerIcon.flipped} />
