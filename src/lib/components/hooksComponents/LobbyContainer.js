@@ -11,7 +11,7 @@ import { getStorage } from '../../utils/storage';
 import { eventOn } from '../../eventEmitter';
 
 let token;
-let current
+let current = false;
 
 const LobbyContainer = ({ mobileToken, onAfterQuit, userId, onRequestCard, onStop, lobbyId }) => {
     console.log('lobbyid', lobbyId)
